@@ -45,7 +45,7 @@
                                             </x-dropdown-link>
                                         </form>
                                     @else
-                                        <a href="{{ route('login') }}">Личный кабинет</a>
+                                        <a href="{{ route('login') }}" class="px-4">Личный кабинет</a>
 
                                     <!-- @if (Route::has('register'))
                                         <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
@@ -76,7 +76,7 @@
                             </p>
                         </div>
                         <div class="col-12 col-md-4 offset-md-1">
-                            <a href="#application" class="btn form__btn">ОТПРАВИТЬ ЗАЯВКУ</a>
+                            <a href="#application" class="btn footer__link">ОТПРАВИТЬ ЗАЯВКУ</a>
                         </div>
                         <div class="col-12 col-md-3"></div>
                     </div>
