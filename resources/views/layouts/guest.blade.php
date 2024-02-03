@@ -1,9 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.empty')
 
 @section('content')
-        <div>
-            <div>
-                {{ $slot }}
-            </div>
-        </div>
+    <a href="{{ route('home') }}" class="link__guest">
+        <img src="{{ asset('/img/logo.svg') }}" alt="" class="img__guest">  
+    </a>
+    {{ $slot }}
 @endsection
