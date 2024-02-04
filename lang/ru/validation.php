@@ -186,6 +186,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'password'=> 'пароль',
+        'name'=> 'имя',
+        'surname'=> 'фамилия',
+        'email'=> 'эл. почта',
+        'password_confirmation'=> 'подтвердите пароль',
+        'company_name'=> 'название компании',
+        'patronymic'=> 'отчество',
+        'phone'=> 'телефон',
+    ],
 
 ];

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="map">
+    <section class="contact-map">
         <div class="title-div">
             <h2 class="aboutus__title">Где нас найти</h2>
         </div>

@@ -1,17 +1,18 @@
 <section class="profile-del">
     <div class="title-div">
-        <h2 class="about__title">Удалить аккаунт</h2>
+        <h2 class="profile-del__title">Удалить аккаунт</h2>
     </div>
-    <p class="about__info">
+    
+    <p class="profile-del__info info">
         Как только ваша учетная запись будет удалена, все ее данные будут удалены безвозвратно.
     </p>
 
-    <div class="about__info">
-        <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-bs-toggle="modal" data-bs-target="#exampleModal">Удалить аккаунт</x-danger-button>
+    <div class="profile-del__info info">
+        <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
     </div>
 
     <!-- Модальное окно -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDell" tabindex="-1" aria-labelledby="modalDell" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
