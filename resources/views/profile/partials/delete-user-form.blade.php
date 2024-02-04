@@ -8,7 +8,7 @@
     </p>
 
     <div class="profile-del__info info">
-        <x-danger-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
+        <x-danger-button x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
     </div>
 
     <!-- Модальное окно -->
@@ -21,7 +21,7 @@
                             @csrf
                             @method('delete')
 
-                            <h2 class="">
+                            <h2>
                                 Вы уверены, что хотите удалить свой аккаунт?
                             </h2>
 
@@ -32,7 +32,6 @@
                             <div class="form-floating mb-3">
                                 <x-text-input id="password" name="password" type="password" placeholder="Пароль" />
                                 <x-input-label for="password" value="Пароль" />
-
                                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                             </div>
 
