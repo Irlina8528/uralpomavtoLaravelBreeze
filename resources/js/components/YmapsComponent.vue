@@ -14,28 +14,34 @@
 </template>
 
 <script>
-import { length } from '../ymaps';
-
-    export default {
-        data() {
-            return {
-                messages:  "test",
-                deliveryLength: 0,
-            }
-        },
-        computed: {
-            delivery() {
-                if (length) {
-                    this.deliveryLength = length.text;
-                    return this.deliveryLength;
-                } else {
-                    return 0;
-                }
-            }
-        },
-    }
+export default {
+    data() {
+        return {
+            messages: "test",
+            deliveryLength: 0,
+        }
+    },
+    mounted() {
+        // Listen for the 'length-updated' event
+        window.addEventListener('length-updated', this.updateDeliveryLength);
+    },
+    beforeDestroy() {
+        // Clean up the event listener when the component is destroyed
+        window.removeEventListener('length-updated', this.updateDeliveryLength);
+    },
+    methods: {
+        updateDeliveryLength(event) {
+            // Update the deliveryLength with the new length value
+            this.deliveryLength = event.detail.text;
+        }
+    },
+    computed: {
+        delivery() {
+            return this.deliveryLength || 0;
+        }
+    },
+}
 </script>
-
 <style>
     div{
         color: black;

@@ -1,4 +1,5 @@
 ymaps.ready(init);
+var length;
 
 function init() {
     // Стоимость за километр.
@@ -46,7 +47,8 @@ function init() {
             var activeRoute = route.getActiveRoute();
             if (activeRoute) {
                 // Получим протяженность маршрута.
-                length = route.getActiveRoute().properties.get("distance")
+                length = route.getActiveRoute().properties.get("distance");
+                updateLength(length);
                 var duration = route.getActiveRoute().properties.get("duration"),
                 // Вычислим стоимость доставки.
                     price = calculate(Math.round(length.value / 1000)),
@@ -85,4 +87,10 @@ function init() {
     function calculate(routeLength) {
         return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
     }
+}
+// Предполагая, что у нас есть доступ к экземпляру приложения Vue или способ генерировать глобальные события
+function updateLength(newLength) {
+    length = newLength;
+    // Генерирует глобальное событие с новым значением длины
+    window.dispatchEvent(new CustomEvent('length-updated', { detail: length }));
 }

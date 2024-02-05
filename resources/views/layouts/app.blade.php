@@ -9,7 +9,7 @@
 
         <link rel="shortcut icon" href="/img/Star-w.jpg" type="image/x-icon">
         <!-- Scripts -->
-        @vite(['resources/js/app.js', 'resources/js/bootstrap.min.js', 'resources/js/ymaps.js', ])
+        @vite(['resources/js/app.js', 'resources/js/bootstrap.min.js'])
     </head>
     <body>
         <div class="container-fluid">
