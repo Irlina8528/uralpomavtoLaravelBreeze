@@ -1,4 +1,4 @@
-<section class="profile-del">
+<section class="profile-del mb-0">
     <div class="title-div">
         <h2 class="profile-del__title">Удалить аккаунт</h2>
     </div>
@@ -16,7 +16,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+                    
                         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
                             @csrf
                             @method('delete')
@@ -35,14 +35,24 @@
                                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                             </div>
 
-                            <div class="mt-6 flex justify-end">
-                                <x-secondary-button x-on:click="$dispatch('close')" data-bs-dismiss="modal"> Отменить</x-secondary-button>
+                            <div class="mt-6 d-flex justify-content-between">
                                 <x-danger-button> Удалить</x-danger-button>
                             </div>
                         </form>
-                    </x-modal>
                 </div>
             </div>
         </div>
     </div>
-</section>
+{{-- Откытие модального окна если есть ошибки --}}
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+    // Проверка наличия ошибок в поле пароля
+    var passwordErrors = "{{ $errors->userDeletion->has('password') }}";
+
+    if (passwordErrors) {
+        $('#modalDell').modal('show');
+    }
+});
+
+</script>

@@ -22,9 +22,11 @@
                               
                             @if (Route::has('login'))
                                 @auth
-                                        <a href="{{ route('profile.edit') }}">Личный кабинет</a>
+                                        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                                            Личный кабинет
+                                        </x-responsive-nav-link>
 
-                                        <!-- Authentication -->
+                                        <!-- Выход -->
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
 
@@ -42,11 +44,6 @@
                                     @endif -->
                                 @endauth
                             @endif
-                            <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
 
                     </div>
                 </nav>

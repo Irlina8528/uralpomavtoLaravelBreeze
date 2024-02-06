@@ -1,4 +1,4 @@
-@extends('layouts.navigation-user')
+@extends('dashboard')
 @section('content')
 <div class="row">
     <div class="col">

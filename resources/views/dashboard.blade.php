@@ -8,9 +8,10 @@
                 <a href="{{ route('home') }}" class="w-100 nav-link text-white">
                     На главную
                 </a>
+                @if(Auth::user()->usertype == 'user')
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
                     <li class="w-100">
-                        <a href="{{ route('profile-orders') }}" class="nav-link {{ request()->is('profile-orders') ? 'active' : 'text-white'}}">
+                        <a href="{{ route('user-orders') }}" class="nav-link {{ request()->is('user-orders') ? 'active' : 'text-white'}}">
                             Мои заказы
                         </a>
                     </li>
@@ -20,11 +21,12 @@
                         </a>
                     </li>
                     <li class="w-100">
-                        <a href="{{ route('profile.update') }}" class="nav-link {{ request()->is('profile') ? 'active' : 'text-white'}}">
-                            Настройка
+                        <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->is('profile') ? 'active' : 'text-white'}}">
+                            Настройки
                         </a>
                     </li>
                 </ul>
+                @endif
                 <hr>
                 <div class="pb-4">
                     <ul class="nav">
