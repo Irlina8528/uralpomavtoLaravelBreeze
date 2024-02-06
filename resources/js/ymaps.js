@@ -48,6 +48,7 @@ function init() {
             if (activeRoute) {
                 // Получим протяженность маршрута.
                 length = route.getActiveRoute().properties.get("distance");
+                // Вызов функции
                 updateLength(length);
                 var duration = route.getActiveRoute().properties.get("duration"),
                 // Вычислим стоимость доставки.

@@ -236,6 +236,7 @@ nav {
     justify-content: center;
 }
 .nav-link {
+    border-radius: 0!important;;
     outline: var(--border);
     padding: clamp(0.625rem, 0.447rem + 3vw, 1.5rem)
         clamp(0.938rem, 0.671rem + 1vw, 1.875rem);
@@ -579,6 +580,15 @@ label[for="show_company_name"]:hover{
     background-attachment: fixed;
 }
 
+/* Навигация */
+.Offcanvas{
+    outline: var(--border);
+    position: fixed;
+    height: 100vh;
+}
+.active{
+    background: var(--color-accent)!important;;
+}
 /* Медия запросы */
 @media (max-width: 630px) {
     .work__infos {

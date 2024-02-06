@@ -1,37 +1,26 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <h1 class="card-header color-red">{{  messages }}</h1>
-                    <div class="card-body">
-                        Length  {{ delivery }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <p>
+        Длинна  {{ delivery }}
+    </p>
 </template>
 
 <script>
 export default {
     data() {
         return {
-            messages: "test",
             deliveryLength: 0,
         }
     },
     mounted() {
-        // Listen for the 'length-updated' event
+        // Прослушка событие "обновление длины"
         window.addEventListener('length-updated', this.updateDeliveryLength);
     },
     beforeDestroy() {
-        // Clean up the event listener when the component is destroyed
+        // Очистка прослушки
         window.removeEventListener('length-updated', this.updateDeliveryLength);
     },
     methods: {
         updateDeliveryLength(event) {
-            // Update the deliveryLength with the new length value
             this.deliveryLength = event.detail.text;
         }
     },
@@ -43,7 +32,5 @@ export default {
 }
 </script>
 <style>
-    div{
-        color: black;
-    }
+
 </style>

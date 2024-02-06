@@ -20,4 +20,4 @@ const app = createApp({});
 app.component('ymaps-component', YmapsComponent) ;
 app.mount('#app');
 
-app.updateLength(newLength);
+
