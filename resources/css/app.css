@@ -15,6 +15,7 @@
 html {
     box-sizing: border-box;
 }
+
 *,
 *::before,
 *::after {
@@ -559,7 +560,7 @@ label[for="show_company_name"]:hover{
     display: none;
     opacity:0;
     transition: 1s;
-  }
+}
   
 #password:focus + .info__guest {
     display: block;
@@ -570,6 +571,38 @@ label[for="show_company_name"]:hover{
 .info__guest{
     font-size: 1rem;
     color: var(--color-text-info);
+}
+
+/* Пароль */
+.password {
+	position: relative;
+}
+.password-control, .password_confirmation-control {
+    position: absolute;
+    top: 34%;
+    right: 3%;
+	width: 20px;
+	height: 20px;
+	background: url(/img/eye-fill.svg) 0 0 no-repeat;
+    background-size: contain;
+}
+.password-control.view, .password_confirmation-control.view {
+    position: absolute;
+    top: 34%;
+    right: 3%;
+    width: 20px;
+	height: 20px;
+	background: url(/img/eye-slash-fill.svg) 0 0 no-repeat;
+    background-size: contain;
+}
+#password:focus + .info__guest + .password-control {
+    position: absolute;
+    top: 13%;
+    right: 3%;
+    width: 20px;
+    height: 20px;
+    background: url(/img/eye-fill.svg) 0 0 no-repeat;
+    background-size: contain;
 }
 
 /* Профиль */

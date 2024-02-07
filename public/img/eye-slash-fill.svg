@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" class="bi bi-eye-slash-fill">
+ <g class="layer">
+  <title>Layer 1</title>
+  <path d="m10.79,12.91l-1.61,-1.61a3.5,3.5 0 0 1 -4.48,-4.48l-2.06,-2.06c-1.7,1.52 -2.64,3.24 -2.64,3.24s3,5.5 8,5.5a7,7 0 0 0 2.79,-0.59m-5.58,-9.82a7,7 0 0 1 2.79,-0.59c5,0 8,5.5 8,5.5s-0.94,1.72 -2.64,3.24l-2.06,-2.06a3.5,3.5 0 0 0 -4.48,-4.48l-1.61,-1.61z" fill="#ffffff" id="svg_1" transform="matrix(1 0 0 1 0 0)"/>
+  <path d="m5.53,7.65a2.5,2.5 0 0 0 2.82,2.82l-2.82,-2.82zm4.95,0.7l-2.83,-2.83a2.5,2.5 0 0 1 2.83,2.83zm3.17,6l-12,-12l0.7,-0.7l12,12l-0.7,0.7z" fill="#ffffff" id="svg_2"/>
+ </g>
+</svg>
