@@ -33,6 +33,12 @@
                 <x-input-error class="mt-2" :messages="$errors->get('surname')" />
             </div class="form-floating mb-3">
 
+            <div class="form-floating col-sm-12 col-md-4">
+                <x-text-input id="passport_series" name="passport_series" type="text" class="mt-1 block w-full" :value="old('passport_series', decrypt($user->passport_series))" placeholder="Серия паспорта" />
+                <x-input-label for="passport_series" value="Серия паспорта" />
+                <x-input-error class="mt-2" :messages="$errors->get('passport_series')" />
+            </div class="form-floating mb-3">
+
             <div class="form-floating col-sm-12 col-md-6 pe-md-3">
                 <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)" placeholder="Телефон" />
                 <x-input-label for="phone" value="Телефон" />
