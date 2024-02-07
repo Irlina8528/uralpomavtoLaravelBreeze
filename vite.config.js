@@ -7,10 +7,16 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/app.js',
+                'resources/js/jquery.js',
                 'resources/js/bootstrap.min.js',
             ],
             refresh: true,
         }),
         vue(),
     ],
+    resolve: {
+        alias: {
+            '$': 'jQuery'
+        },
+    },
 });

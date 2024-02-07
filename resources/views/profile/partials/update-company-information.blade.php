@@ -16,27 +16,27 @@
 
             <div class="row">
             <div class="form-floating col-sm-12 col-md-6 pe-md-3">
-                <x-text-input id="inn" name="inn" type="text" class="mt-1 block w-full" :value="old('inn', $user->inn)" required autofocus placeholder="ИНН" />
-                <x-input-label for="inn" value="ИНН" />
-                <x-input-error class="mt-2" :messages="$errors->get('inn')" />
+                <x-text-input id="company_inn" name="company_inn" type="text" :value="old('company_inn', $user->company_inn)" required pattern="[0-9-]{10,12}" title="Введите корректный ИНН" autofocus placeholder="ИНН" />
+                <x-input-label for="company_inn" value="ИНН" />
+                <x-input-error class="mt-2" :messages="$errors->get('company_inn')" />
             </div>
 
             <div class="form-floating col-sm-12 col-md-6">
-                <x-text-input id="kpp" name="kpp" type="text" class="mt-1 block w-full" :value="old('kpp', $user->kpp)" placeholder="КПП" />
-                <x-input-label for="kpp" value="КПП" />
-                <x-input-error class="mt-2" :messages="$errors->get('kpp')" />
+                <x-text-input id="company_kpp" name="company_kpp" type="text" :value="old('company_kpp', $user->company_kpp)" pattern="[0-9-]{9}" title="Введите корректный КПП" placeholder="КПП" />
+                <x-input-label for="company_kpp" value="КПП" />
+                <x-input-error class="mt-2" :messages="$errors->get('company_kpp')" />
             </div>
 
             <div class="form-floating col-sm-12 col-md-6 pe-md-3">
-                <x-text-input id="company_name" name="company_name" type="text" class="mt-1 block w-full" :value="old('company_name', $user->company_name)" placeholder="Наименование компании" autocomplete="company_name" />
+                <x-text-input id="company_name" name="company_name" type="text" :value="old('company_name', $user->company_name)" required placeholder="Наименование компании" autocomplete="company_name" />
                 <x-input-label for="company_name" value="Название компании" />
                 <x-input-error class="mt-2" :messages="$errors->get('company_name')" />
             </div>
             
             <div class="form-floating col-sm-12 col-md-6">
-                <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" placeholder="Адрес местонахождения" autocomplete="company_name" />
-                <x-input-label for="address" value="Адрес местонахождения" />
-                <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                <x-text-input id="company_address" name="company_address" type="text" :value="old('company_address', $user->company_address)" required placeholder="Адрес местонахождения" autocomplete="company_name" />
+                <x-input-label for="company_address" value="Адрес местонахождения" />
+                <x-input-error class="mt-2" :messages="$errors->get('company_address')" />
             </div>
 
 

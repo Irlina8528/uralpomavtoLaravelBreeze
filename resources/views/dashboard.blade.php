@@ -3,8 +3,8 @@
 @extends('layouts.head')
 <body>
     <main class="d-flex flex-nowrap ">
-        <div class="col-auto col-md-3 col-xl-2 ">
-            <div class="d-flex flex-column align-items-center align-items-sm-start text-white col-auto col-md-3 col-xl-2 Offcanvas">
+        <div class="col-sm-1 col-md-2 ">
+            <div class="d-flex flex-column align-items-center align-items-sm-start text-white col-auto col-sm-1 col-md-2 Offcanvas">
                 <a href="{{ route('home') }}" class="w-100 nav-link text-white">
                     На главную
                 </a>

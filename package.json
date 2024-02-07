@@ -17,6 +17,8 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^5.0.3",
+        "jquery": "^3.7.1",
+        "jquery-mask-plugin": "^1.14.16",
         "vue": "^3.4.15"
     }
 }

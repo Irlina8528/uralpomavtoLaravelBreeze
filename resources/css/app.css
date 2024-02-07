@@ -125,7 +125,9 @@ ul {
     margin-right: 0.75rem;
     margin-left: 0.75rem;
 }
-
+section{
+    outline: var(--border);
+}
 .btn-outline-none{
     outline: none;
 }
@@ -144,6 +146,7 @@ section {
     font-family: var(--text-bold);
     font-size: clamp(1rem, 0.234rem + 0.88vw, 1.875rem);
     text-transform: uppercase;
+    background: var(--color-accent);
     color: var(--color-text);
     border: var(--border-btn);
     border-radius: 0;
@@ -152,7 +155,6 @@ section {
     box-shadow: 0px 0px 105px 1px var(--color-accent);
     z-index: 5;
     transition: 0.5s;
-    background-color: var(--color-accent);
 }
 a:focus,
 .btn:focus {
@@ -492,6 +494,7 @@ nav {
     height: clamp(1.5rem, 0.227rem + 6.36vw, 5rem);
     background: var(--color-bg);
     border: var(--border-btn);
+    border-radius: 0;
 }
 .form__btn {
     width: 100%;
@@ -612,7 +615,10 @@ label[for="show_company_name"]:hover{
     background-size: cover;
     background-attachment: fixed;
 }
-
+.profile__btn{
+    height: calc(3.5rem + 2px);
+    padding: 0;
+}
 /* Навигация */
 .Offcanvas{
     outline: var(--border);

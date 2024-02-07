@@ -33,6 +33,7 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
         $request->user()->passport_series = Crypt::encrypt($request->user()->passport_series);
+        $request->user()->passport_number = Crypt::encrypt($request->user()->passport_number);
 
         $request->user()->save();
 

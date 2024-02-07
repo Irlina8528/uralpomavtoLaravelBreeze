@@ -113,7 +113,7 @@ return [
     'missing_with_all' => 'The :attribute field must be missing when :values are present.',
     'multiple_of' => 'The :attribute field must be a multiple of :value.',
     'not_in' => 'The selected :attribute is invalid.',
-    'not_regex' => 'The :attribute field format is invalid.',
+    'not_regex' => 'Неверный формат поля :attribute.',
     'numeric' => 'The :attribute field must be a number.',
     'password' => [
         'letters' => 'Поле :attribute должно содержать хотя бы одну букву.',
@@ -131,7 +131,7 @@ return [
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'regex' => 'The :attribute field format is invalid.',
+    'regex' => 'Неверный формат поля :attribute.',
     'required' => 'The :attribute field is required.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
@@ -187,14 +187,17 @@ return [
     */
 
     'attributes' => [
-        'password'=> 'пароль',
-        'name'=> 'имя',
-        'surname'=> 'фамилия',
-        'email'=> 'эл. почта',
-        'password_confirmation'=> 'подтвердите пароль',
-        'company_name'=> 'название компании',
-        'patronymic'=> 'отчество',
-        'phone'=> 'телефон',
+        'password'=> 'Пароль',
+        'name'=> 'Имя',
+        'surname'=> 'Фамилия',
+        'email'=> 'Эл. почта',
+        'password_confirmation'=> 'Подтвердите пароль',
+        'company_name'=> 'Название компании',
+        'patronymic'=> 'Отчество',
+        'phone'=> 'Телефон',
+        'passport_series' => 'Серия паспорта',
+        'passport_number' => 'Номер паспорта',
+        'address' => 'Адрес',
     ],
 
 ];

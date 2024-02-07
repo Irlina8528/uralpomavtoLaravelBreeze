@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="mt-6 d-flex justify-content-between">
-                                <x-danger-button> Удалить</x-danger-button>
+                                <x-danger-button class="form__btn"> Удалить</x-danger-button>
                             </div>
                         </form>
                 </div>

@@ -20,7 +20,7 @@ class ProfileUpdateRequest extends FormRequest
             'patronymic' => ['nullable', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'company_name' => ['nullable', 'string', 'max:255'],
-            'phone' => ['nullable', 'regex: /^([0-9\s\-\+\(\)]*)$/'],
+            'phone' => ['nullable', 'regex: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'passport_series' => ['nullable', 'string', 'regex: /^\d{4}$/'],
             'passport_number' => ['nullable', 'string', 'regex: /^\d{6}$/'],
