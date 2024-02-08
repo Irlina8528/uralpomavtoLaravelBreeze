@@ -156,7 +156,7 @@ section {
     z-index: 5;
     transition: 0.5s;
 }
-a:focus,
+
 .btn:focus {
     outline: var(--border-focus);
     z-index: 1;
@@ -580,10 +580,10 @@ label[for="show_company_name"]:hover{
 .password {
 	position: relative;
 }
-.password-control, .password_confirmation-control {
+.password-control {
     position: absolute;
-    top: 34%;
-    right: 3%;
+    top: 30%;
+    right: 4%;
 	width: 20px;
 	height: 20px;
 	background: url(/img/eye-fill.svg) 0 0 no-repeat;
@@ -591,8 +591,8 @@ label[for="show_company_name"]:hover{
 }
 .password-control.view, .password_confirmation-control.view {
     position: absolute;
-    top: 34%;
-    right: 3%;
+    top: 30%;
+    right: 4%;
     width: 20px;
 	height: 20px;
 	background: url(/img/eye-slash-fill.svg) 0 0 no-repeat;

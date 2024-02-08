@@ -31,6 +31,7 @@
 
                             <div class="form-floating mb-3">
                                 <x-text-input id="password" name="password" type="password" placeholder="Пароль" />
+                                <a href="#" class="password-control "></a>
                                 <x-input-label for="password" value="Пароль" />
                                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
                             </div>

@@ -28,7 +28,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'usertype',
         'passport_series',
         'passport_number',
-        'address'
+        'address',
+        'company_inn',
+        'company_kpp',
+        'company_address'
     ];
 
     /**
@@ -49,5 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'passport_series' => 'encrypted',
+        'passport_number' => 'encrypted',
     ];
 }

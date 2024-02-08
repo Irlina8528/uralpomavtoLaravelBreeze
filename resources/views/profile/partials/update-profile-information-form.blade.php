@@ -34,13 +34,13 @@
             </div class="form-floating mb-3">
 
             <div class="form-floating col-sm-12 col-md-6  col-lg-4 pe-lg-3">
-                <x-text-input id="passport_series" name="passport_series" type="text" :value="old('passport_series', decrypt($user->passport_series))" required  pattern="[0-9]{4}" title="Введите корректные данные паспорта" placeholder="Серия паспорта" />
+                <x-text-input id="passport_series" name="passport_series" type="text" :value="old('passport_series', $user->passport_series)" required  pattern="[0-9]{4}" title="Введите корректные данные паспорта" placeholder="Серия паспорта" />
                 <x-input-label for="passport_series" value="Серия паспорта" />
                 <x-input-error class="mt-2" :messages="$errors->get('passport_series')" />
             </div class="form-floating mb-3">
 
             <div class="form-floating col-sm-12 col-md-6 pe-md-3  col-lg-4">
-                <x-text-input id="passport_number" name="passport_number" type="text" :value="old('passport_number', decrypt($user->passport_number))" required  pattern="[0-9]{6}" title="Введите корректные данные паспорта" placeholder="Номер паспорта" />
+                <x-text-input id="passport_number" name="passport_number" type="text" :value="old('passport_number', $user->passport_number)" required  pattern="[0-9]{3}-[0-9]{3}" title="Введите корректные данные паспорта" placeholder="Номер паспорта" />
                 <x-input-label for="passport_number" value="Номер паспорта" />
                 <x-input-error class="mt-2" :messages="$errors->get('passport_number')" />
             </div class="form-floating mb-3">

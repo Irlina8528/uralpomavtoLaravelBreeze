@@ -12,7 +12,7 @@
         </p>
         <!-- Email Address -->
         <div class="form-floating mb-3">
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="Эл. почта"/>
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Эл. почта"/>
             <x-input-label for="email" value="Эл. почта" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>

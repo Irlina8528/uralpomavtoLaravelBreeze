@@ -22,9 +22,9 @@ class ProfileUpdateRequest extends FormRequest
             'company_name' => ['nullable', 'string', 'max:255'],
             'phone' => ['nullable', 'regex: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'passport_series' => ['nullable', 'string', 'regex: /^\d{4}$/'],
-            'passport_number' => ['nullable', 'string', 'regex: /^\d{6}$/'],
-            'address' => ['nullable', 'string']
+            'passport_series' => ['nullable', 'string', 'regex: /^[0-9]{4}$/'],
+            'passport_number' => ['nullable', 'string', 'regex: /^[0-9]{3}-[0-9]{3}$/'],
+            'address' => ['nullable', 'string'],
         ];
     }
 }

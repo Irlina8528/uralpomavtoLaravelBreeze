@@ -11,7 +11,7 @@
                 @if(Auth::user()->usertype == 'user')
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
                     <li class="w-100">
-                        <a href="{{ route('user-orders') }}" class="nav-link {{ request()->is('user-orders') ? 'active' : 'text-white'}}">
+                        <a href="{{ route('user-orders') }}" class="nav-link {{ request()->is('orders') ? 'active' : 'text-white'}}">
                             Мои заказы
                         </a>
                     </li>

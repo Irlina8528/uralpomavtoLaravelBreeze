@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="title-div">
-                <h2 class="company-info">Данные о компании</h2>
+                <h2 class="company-info">Данные о компании или ИП</h2>
             </div>
         </div>
     </div>
@@ -10,19 +10,19 @@
         {{-- <form id="send-verification" method="post" action="{{ route('verification.send') }}">
             @csrf
         </form> --}}
-        <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+        <form method="post" action="{{ route('profile.company_update') }}" class="mt-6 space-y-6">
             @csrf
             @method('patch')
 
             <div class="row">
             <div class="form-floating col-sm-12 col-md-6 pe-md-3">
-                <x-text-input id="company_inn" name="company_inn" type="text" :value="old('company_inn', $user->company_inn)" required pattern="[0-9-]{10,12}" title="Введите корректный ИНН" autofocus placeholder="ИНН" />
+                <x-text-input id="company_inn" name="company_inn" type="text" :value="old('company_inn', $user->company_inn)" required pattern="^(\d{2}-){4}(\d{2}-)?\d{2}$" title="Введите корректный ИНН" autofocus placeholder="ИНН" />
                 <x-input-label for="company_inn" value="ИНН" />
                 <x-input-error class="mt-2" :messages="$errors->get('company_inn')" />
             </div>
 
             <div class="form-floating col-sm-12 col-md-6">
-                <x-text-input id="company_kpp" name="company_kpp" type="text" :value="old('company_kpp', $user->company_kpp)" pattern="[0-9-]{9}" title="Введите корректный КПП" placeholder="КПП" />
+                <x-text-input id="company_kpp" name="company_kpp" type="text" :value="old('company_kpp', $user->company_kpp)" pattern="^\d{3}-\d{3}-\d{3}$" title="Введите корректный КПП" placeholder="КПП" />
                 <x-input-label for="company_kpp" value="КПП" />
                 <x-input-error class="mt-2" :messages="$errors->get('company_kpp')" />
             </div>
@@ -43,7 +43,7 @@
             <div>
                 <x-primary-button class="form__btn">Сохранить</x-primary-button>
 
-                @if (session('status') === 'profile-updated')
+                @if (session('status') === 'profile-company-update')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" class="text-sm text-gray-600 dark:text-gray-400">Данные сохранены</p>
                 @endif
             </div>
