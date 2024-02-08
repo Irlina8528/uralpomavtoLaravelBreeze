@@ -1,8 +1,5 @@
 import './bootstrap';
 
-
-import '../css/bootstrap.min.css'; 
-import '../css/app.css'; 
 import './ymaps'
 
 import { createApp } from 'vue/dist/vue.esm-bundler.js';

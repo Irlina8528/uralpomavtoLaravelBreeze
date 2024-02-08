@@ -46,11 +46,11 @@ iframe {
 
 @font-face {
     font-family: "Cornerita-Bold";
-    src: url(/fonts/Cornerita-Black.ttf);
+    src: url(/public/fonts/Cornerita-Black.ttf);
 }
 @font-face {
     font-family: "Jura-m";
-    src: url(/fonts/Jura-Medium.ttf);
+    src: url(/public/fonts/Jura-Medium.ttf);
 }
 
 body {
@@ -195,7 +195,7 @@ select:-webkit-autofill:focus {
 
 /* меню */
 .navbar-toggler-icon {
-    background: url(/img/star-menu.png);
+    background: url(/public/img/star-menu.png);
     background-size: cover;
 }
 .navbar-toggler:hover {
@@ -205,7 +205,7 @@ select:-webkit-autofill:focus {
 
 /* Шапка */
 header {
-    background: url(/img/Gradient-t.png) center top;
+    background: url(/public/img/Gradient-t.png) center top;
     background-size: cover;
 }
 .header__active {
@@ -213,7 +213,7 @@ header {
     position: fixed;
     left: 0;
     right: 0;
-    background: var(--color-bg) url(/img/Gradient-t.png) no-repeat center top;
+    background: var(--color-bg) url(/public/img/Gradient-t.png) no-repeat center top;
     background-size: 93% 270%;
 }
 .navbar-brand {
@@ -282,7 +282,7 @@ nav {
 /* Главный экран */
 .intro {
     border-top: 0;
-    background: url(/img/intro2.jpg) no-repeat;
+    background: url(/public/img/intro2.jpg) no-repeat;
     background-size: cover;
     height: 40vw;
     outline: var(--border);
@@ -307,7 +307,7 @@ nav {
     height: 45%;
     width: 30%;
     padding: clamp(0.625rem, 0.179rem + 1.43vw, 1.25rem) 0;
-    background: url(/img/Star-b-s.png) center center no-repeat;
+    background: url(/public/img/Star-b-s.png) center center no-repeat;
     background-size: contain;
 }
 .cardi {
@@ -332,7 +332,7 @@ nav {
 /* Как работаем */
 .work__div-img {
     position: relative;
-    background: url(/img/work.jpg) no-repeat;
+    background: url(/public/img/work.jpg) no-repeat;
     background-size: cover;
     padding-top: 50%;
     background-attachment: fixed;
@@ -350,7 +350,7 @@ nav {
 .work__info {
     padding: clamp(0.313rem, -0.134rem + 1.43vw, 0.938rem);
     padding-left: clamp(2.813rem, 1.473rem + 4.29vw, 4.688rem);
-    background: url(/img/Star-w.jpg)
+    background: url(/public/img/Star-w.jpg)
         clamp(0.563rem, 0.295rem + 0.86vw, 0.938rem) center no-repeat;
     background-size: clamp(1.875rem, 0.982rem + 2.86vw, 3.125rem);
     outline: var(--border);
@@ -372,12 +372,12 @@ nav {
     padding-bottom: clamp(0.313rem, -0.134rem + 1.43vw, 0.938rem);
 }
 .carousel-control-prev-icon {
-    background-image: url(/img/Star-l.png);
+    background-image: url(/public/img/Star-l.png);
     height: clamp(3.125rem, -1.25rem + 14vw, 9.25rem);
     width: clamp(1.563rem, -0.536rem + 6.71vw, 4.5rem);
 }
 .carousel-control-next-icon {
-    background-image: url(/img/Star-r.png);
+    background-image: url(/public/img/Star-r.png);
     height: clamp(3.125rem, -1.25rem + 14vw, 9.25rem);
     width: clamp(1.563rem, -0.536rem + 6.71vw, 4.5rem);
 }
@@ -396,7 +396,7 @@ nav {
 .guarantees__div-img {
     padding: clamp(0.313rem, -0.134rem + 1.43vw, 0.938rem);
     outline: var(--border);
-    background: url(/img/guarantees.jpg) no-repeat;
+    background: url(/public/img/guarantees.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -404,7 +404,7 @@ nav {
 .guarantees__info {
     padding-top: clamp(0.5rem, 0.054rem + 1.43vw, 1.125rem);
     padding-left: clamp(0.5rem, 0.054rem + 1.43vw, 1.125rem);
-    background: url(/img/Star-g.jpg) left top no-repeat;
+    background: url(/public/img/Star-g.jpg) left top no-repeat;
     background-size: clamp(1.875rem, 0.982rem + 2.86vw, 3.125rem);
     margin-bottom: clamp(2.5rem, 0.714rem + 5.71vw, 5rem);
 }
@@ -478,7 +478,7 @@ nav {
 /* Заявка */
 .application__div-img {
     outline: var(--border);
-    background: url(/img/form.jpg) no-repeat;
+    background: url(/public/img/form.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -586,7 +586,7 @@ label[for="show_company_name"]:hover{
     right: 4%;
 	width: 20px;
 	height: 20px;
-	background: url(/img/eye-fill.svg) 0 0 no-repeat;
+	background: url(/public/img/eye-fill.svg) 0 0 no-repeat;
     background-size: contain;
 }
 .password-control.view, .password_confirmation-control.view {
@@ -595,7 +595,7 @@ label[for="show_company_name"]:hover{
     right: 4%;
     width: 20px;
 	height: 20px;
-	background: url(/img/eye-slash-fill.svg) 0 0 no-repeat;
+	background: url(/public/img/eye-slash-fill.svg) 0 0 no-repeat;
     background-size: contain;
 }
 #password:focus + .info__guest + .password-control {
@@ -604,14 +604,14 @@ label[for="show_company_name"]:hover{
     right: 3%;
     width: 20px;
     height: 20px;
-    background: url(/img/eye-fill.svg) 0 0 no-repeat;
+    background: url(/public/img/eye-fill.svg) 0 0 no-repeat;
     background-size: contain;
 }
 
 /* Профиль */
 .profile-update__img{
     outline: var(--border);
-    background: url(/img/profile-update__img.jpg) no-repeat;
+    background: url(/public/img/profile-update__img.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -624,6 +624,7 @@ label[for="show_company_name"]:hover{
     outline: var(--border);
     position: fixed;
     height: 100vh;
+    background: var(--color-bg);
 }
 .active{
     background: var(--color-accent)!important;;
