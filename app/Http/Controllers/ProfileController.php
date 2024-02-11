@@ -29,24 +29,15 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $fieldsToUpdate = array_intersect_key($request->validated(), [
-            'name' => '',
-            'patronymic' => '',
-            'surname' => '',
-            'phone' => '',
-            'email' => '',
-            'passport_series' => '',
-            'passport_number' => '',
-            'address' => '',
-        ]);
+        $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
-        $request->user()->update($fieldsToUpdate);
+        $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit');
     }
 
     public function company_update(CompanyProfileUpdateRequest $request): RedirectResponse

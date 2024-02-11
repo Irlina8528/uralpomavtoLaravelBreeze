@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="form-floating col-sm-12 col-md-6 pe-md-3">
                     <x-text-input id="update_password_current_password" name="current_password" type="password" autocomplete="current-password" placeholder="Текущий пароль"/>
-                    <a href="#" class="password-control "></a>
+                    <a href="#" class="password-control mr-md-4"></a>
                     <x-input-label for="update_password_current_password" value="Текущий пароль" />
                     <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
                 </div>
@@ -29,7 +29,7 @@
         
                 <div class="form-floating col-sm-12 col-md-6 pe-md-3">
                     <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mb-md-0" autocomplete="new-password" placeholder="Подтвердите пароль"/>
-                    <a href="#" class="password-control "></a>
+                    <a href="#" class="password-control mr-md-4"></a>
                     <x-input-label for="update_password_password_confirmation" value="Подтвердите пароль" />
                     <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
                 </div>

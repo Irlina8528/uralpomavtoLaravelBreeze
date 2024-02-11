@@ -327,7 +327,7 @@
                             <div class="accordion-body">Вы можете рассчитать стоимость отправки любым из следующих
                                 способов:
                                 <ul>
-                                    <li>С помощью <a href="">нашего калькулятора</a></li>
+                                    <li>С помощью <a href="{{ route('calculate-cost') }}">нашего калькулятора</a></li>
                                     <li>Позвонив или написав нашим консультантам: <a href="tel:+79828263448">+7 (982)
                                             826-34-48</a>, <a href="mailto:info@uralpromavto.ru">info@uralpromavto.ru</a>
                                     </li>
@@ -405,22 +405,26 @@
             <div>
                 <div class="col-12 application__div-img">
                     <div class="row formi">
-                        <div class="offset-lg-2 col-lg-7 col-md-12 text-center">
+                        <div class="offset-lg-2 col-lg-8 col-md-12 text-center">
                             <p class="application__info">
                                 Получите консультацию по вопросам логистических услуг. Мы свяжемся с вами в ближайшее
                                 время.
                             </p>
                         </div>
                         <div class="row">
+                            
                             <form>
-                                <div class="col-12 offset-md-3 col-md-6">
-                                    <input type="text" class="form-control" placeholder="Имя/Организация" required>
+                                <div class="col-12 offset-md-3 col-md-6 form-floating">
+                                    <input id="name" type="text" class="form-control" placeholder="Имя/Организация" required>
+                                    <label for="name">Имя/Организация</label>
                                 </div>
-                                <div class="col-12 offset-md-3 col-md-6">
-                                    <input type="tel" class="form-control" placeholder="Телефон" required>
+                                <div class="col-12 offset-md-3 col-md-6 form-floating">
+                                    <input id="phone" type="tel" class="form-control" placeholder="Телефон" required>
+                                    <label for="phone">Телефон</label>
                                 </div>
-                                <div class="col-12 col-md-6 offset-md-3">
-                                    <textarea class="form-control textareai" id="exampleFormControlTextarea1" rows="8" placeholder="Ваш вопрос"></textarea>
+                                <div class="col-12 col-md-6 offset-md-3 form-floating">
+                                    <textarea id="question" class="form-control textareai" id="exampleFormControlTextarea1" placeholder="Ваш вопрос"></textarea>
+                                    <label for="question">Ваш вопрос</label>
                                 </div>
                                 <div class="col-12 col-md-6 offset-md-3">
                                     <button type="submit" class="btn form__btn">Получить консультацию</button>

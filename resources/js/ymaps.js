@@ -14,8 +14,7 @@ function init() {
     // Создадим панель маршрутизации.
         routePanelControl = new ymaps.control.RoutePanel({
             options: {
-                maxWidth: '500px',
-                minWidth: '200px',
+                
             }
         }),
         zoomControl = new ymaps.control.ZoomControl({

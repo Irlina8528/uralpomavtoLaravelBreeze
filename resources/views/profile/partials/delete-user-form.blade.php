@@ -7,8 +7,8 @@
         Как только ваша учетная запись будет удалена, все ее данные будут удалены безвозвратно.
     </p>
 
-    <div class="profile-del__info info">
-        <x-danger-button x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
+    <div class="profile-del__info info ">
+        <x-danger-button class="col-sm-12" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')" data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
     </div>
 
     <!-- Модальное окно -->
@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="mt-6 d-flex justify-content-between">
-                                <x-danger-button class="form__btn"> Удалить</x-danger-button>
+                                <x-danger-button class="btn form__btn"> Удалить</x-danger-button>
                             </div>
                         </form>
                 </div>

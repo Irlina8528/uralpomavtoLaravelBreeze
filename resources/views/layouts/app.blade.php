@@ -11,18 +11,18 @@
                         <a class="navbar-brand" href="{{ route('home') }}">
                             <img src="/img/logo.svg" alt="УралПромАвто" class="header__logo">
                         </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <a class="nav-link" href="{{ route('about') }}">О нас</a>
                             <a class="nav-link" href="{{ route('contacts') }}">Контакты</a>
                             <a class="nav-link" href="{{ route('calculate-cost') }}">Рассчитать стоимость</a>
                         </div>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-                              
+                        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             @if (Route::has('login'))
                                 @auth
-                                        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                                        <x-responsive-nav-link class="nav-link" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                                             Личный кабинет
                                         </x-responsive-nav-link>
 
@@ -30,21 +30,22 @@
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
 
-                                            <x-dropdown-link :href="route('logout')"
+                                            <x-dropdown-link class="nav-link" :href="route('logout')"
                                                     onclick="event.preventDefault();
                                                                 this.closest('form').submit();">
                                                 Выход
                                             </x-dropdown-link>
                                         </form>
                                     @else
-                                        <a href="{{ route('login') }}" class="px-4">Личный кабинет</a>
+                                        <a href="{{ route('login') }}" class="nav-link">Личный кабинет</a>
 
                                     <!-- @if (Route::has('register'))
                                         <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                                     @endif -->
                                 @endauth
                             @endif
-
+                        </div>
+                        
                     </div>
                 </nav>
             </div>

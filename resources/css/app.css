@@ -43,7 +43,55 @@ iframe {
 .ymaps-2-1-79-route-panel-input__icon{
     top: 0 !important;
 }
+[class*="ymaps-2"][class*="-control-popup__content"]{
+    background: var(--color-bg);
+}
 
+.ymaps-2-1-79-route-panel-input.ymaps-2-1-79-route-panel-input_focused{
+    color: var(--color-text);
+    transition: 0.5s;
+    box-shadow: 0px 0px 10px 3px var(--color-accent);
+    background-color: var(--color-bg);
+    border: var(--border-btn);
+}
+[class*="ymaps-2"][class*="-route-panel-input_empty"]{
+    font-family: "Jura-m";
+    color: #fff;
+    margin-bottom: clamp(0.625rem, 0.536rem + 0.45vw, 1.25rem);
+    background: var(--color-bg);
+    border: var(--border-btn);
+    border-radius: 0;
+}
+[class*="ymaps-2"][class*="-search__suggest"]{
+    background: var(--color-bg);
+    border: none;
+}
+.ymaps-2-1-79-route-panel-input{
+    background: var(--color-bg);
+    border: var(--border-btn);
+}
+[class*="ymaps-2"][class*="-route-panel-input__input"]{
+    color: #fff;
+}
+.ymaps-2-1-79-route-panel-input__clear{
+    background: url(/public/img/map-cross.svg) no-repeat center center;
+    background-size: auto;
+}
+.ymaps-2-1-79-route-panel-input__location{
+    background: url(/public/img/map-location.svg) no-repeat center center;
+    background-size: auto;
+}
+.ymaps-2-1-79-route-panel__switch{
+    margin-top: -21px;
+    left: 12px;
+    height: 27px;
+    background: var(--color-bg);
+}
+.ymaps-2-1-79-route-panel__switch-icon{
+    background: url(/public/img/map-replace.svg) no-repeat ;
+    background-position: center 140%;
+    background-size: auto;
+}
 @font-face {
     font-family: "Cornerita-Bold";
     src: url(/public/fonts/Cornerita-Black.ttf);
@@ -80,20 +128,24 @@ h3 {
     text-align: center;
     text-transform: uppercase;
 }
+h1{
+    font-size: clamp(2.25rem, 1.946rem + 1.52vw, 4.375rem);
+}
 h2 {
     margin: clamp(0.313rem, -0.134rem + 1.43vw, 0.938rem);
-    font-size: clamp(1.25rem, 0.7rem + 1.76vw, 2.813rem);
+    font-size: clamp(1.938rem, 1.768rem + 0.85vw, 3.125rem);
 }
 h3 {
-    font-size: clamp(1.125rem, 0.751rem + 1.2vw, 2.188rem);
+    font-size: clamp(1.625rem, 1.5rem + 0.63vw, 2.5rem);
 }
 h4 {
     margin: 0;
     text-transform: uppercase;
+    font-size: clamp(1.313rem, 1.232rem + 0.4vw, 1.875rem);
 }
 
 p {
-    font-size: clamp(1rem, 0.802rem + 0.63vw, 1.563rem);
+    font-size: clamp(1rem, 0.875rem + 0.63vw, 1.875rem);
 }
 
 /* Ссылки */
@@ -106,7 +158,7 @@ a {
 }
 a:hover {
     color: var(--color-accent);
-    text-shadow: 0px 0px 25px var(--color-accent);
+    text-shadow: 0px 0px 15px var(--color-accent);
     transition: 0.5s;
 }
 
@@ -158,7 +210,7 @@ section {
 }
 
 .btn:focus {
-    outline: var(--border-focus);
+    outline: var(--border-focus) !important;
     z-index: 1;
 }
 
@@ -195,7 +247,7 @@ select:-webkit-autofill:focus {
 
 /* меню */
 .navbar-toggler-icon {
-    background: url(/public/img/star-menu.png);
+    background: url(/public/img/star.svg);
     background-size: cover;
 }
 .navbar-toggler:hover {
@@ -204,17 +256,12 @@ select:-webkit-autofill:focus {
 
 
 /* Шапка */
-header {
-    background: url(/public/img/Gradient-t.png) center top;
-    background-size: cover;
-}
 .header__active {
     z-index: 10;
     position: fixed;
     left: 0;
     right: 0;
-    background: var(--color-bg) url(/public/img/Gradient-t.png) no-repeat center top;
-    background-size: 93% 270%;
+    background: var(--color-bg);
 }
 .navbar-brand {
     padding: 0;
@@ -223,7 +270,7 @@ header {
 .header__logo {
     padding: 5px;
     padding-left: 10px;
-    height: 3em;
+    height: clamp(2.813rem, 2.455rem + 1.79vw, 5.313rem);
 }
 
 .navbar {
@@ -236,6 +283,7 @@ nav {
 }
 .navbar-collapse {
     align-items: normal;
+    flex-grow: 0;
     justify-content: center;
 }
 .nav-link {
@@ -248,7 +296,7 @@ nav {
 }
 .nav-link:hover,
 .nav-link:focus {
-    color: var(--color-bg);
+    color: var(--color-accent);
     transition: 0.5s;
 }
 .header__btn:hover {
@@ -284,13 +332,12 @@ nav {
     border-top: 0;
     background: url(/public/img/intro2.jpg) no-repeat;
     background-size: cover;
-    height: 40vw;
+    height: clamp(16.563rem, 10rem + 32.81vw, 62.5rem);
     outline: var(--border);
 }
 .intro__title {
     margin-top: 6vw;
     margin-bottom: 3vw;
-    font-size: clamp(1.25rem, 0.362rem + 3.34vw, 4.375rem);
 }
 .intro__img {
     right: 0;
@@ -334,7 +381,7 @@ nav {
     position: relative;
     background: url(/public/img/work.jpg) no-repeat;
     background-size: cover;
-    padding-top: 50%;
+    padding-top: 40%;
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -350,7 +397,7 @@ nav {
 .work__info {
     padding: clamp(0.313rem, -0.134rem + 1.43vw, 0.938rem);
     padding-left: clamp(2.813rem, 1.473rem + 4.29vw, 4.688rem);
-    background: url(/public/img/Star-w.jpg)
+    background: url(/public/img/star.svg)
         clamp(0.563rem, 0.295rem + 0.86vw, 0.938rem) center no-repeat;
     background-size: clamp(1.875rem, 0.982rem + 2.86vw, 3.125rem);
     outline: var(--border);
@@ -445,7 +492,7 @@ nav {
 .accordion-button {
     outline: var(--border);
     font-family: var(--text-bold);
-    font-size: clamp(1rem, 0.802rem + 0.63vw, 1.563rem);
+    font-size: clamp(1.313rem, 1.143rem + 0.85vw, 2.5rem);
 }
 .accordion-button,
 .accordion-collapse {
@@ -474,7 +521,9 @@ nav {
 .accordion-body, .accordion-button{
     padding: clamp(0.313rem, -0.134rem + 1.43vw, 0.938rem);
 }
-
+.accordion-body{
+    font-size: clamp(1rem, 0.875rem + 0.63vw, 1.875rem);
+}
 /* Заявка */
 .application__div-img {
     outline: var(--border);
@@ -489,13 +538,7 @@ nav {
     padding-top: clamp(0.625rem, -0.268rem + 2.86vw, 1.875rem);
     padding-bottom: clamp(0.625rem, -0.268rem + 2.86vw, 1.875rem);
 }
-.form-control {
-    margin-bottom: clamp(0.313rem, -0.357rem + 2.14vw, 1.25rem);
-    height: clamp(1.5rem, 0.227rem + 6.36vw, 5rem);
-    background: var(--color-bg);
-    border: var(--border-btn);
-    border-radius: 0;
-}
+
 .form__btn {
     width: 100%;
 }
@@ -504,21 +547,21 @@ nav {
     transition: 0.5s;
     box-shadow: 0px 0px 10px 3px var(--color-accent);
     background-color: var(--color-bg);
-    border: 10px solid var(--color-accent);
+    border: var(--border-btn);
 }
-.textareai {
-    height: clamp(1.875rem, -0.739rem + 13.07vw, 9.063rem);
+.textareai{
+    height: 70%!important;
 }
 .form-control::placeholder {
     font-family: "Jura-m";
 }
 .form-control {
-    font-size: clamp(1rem, 0.846rem + 0.49vw, 1.438rem);
     font-family: "Jura-m";
     color: #fff;
-}
-label{
-    font-size: clamp(1rem, 0.846rem + 0.49vw, 1.438rem);
+    margin-bottom: clamp(0.625rem, 0.536rem + 0.45vw, 1.25rem);
+    background: var(--color-bg);
+    border: var(--border-btn);
+    border-radius: 0;
 }
 
 /* Подвал */
@@ -582,19 +625,17 @@ label[for="show_company_name"]:hover{
 }
 .password-control {
     position: absolute;
-    top: 30%;
-    right: 4%;
-	width: 20px;
-	height: 20px;
+    top: 25%;
+    right: 3%;
+	width: clamp(1.25rem, 1.161rem + 0.45vw, 1.875rem);
+	height: clamp(1.25rem, 1.161rem + 0.45vw, 1.875rem);
 	background: url(/public/img/eye-fill.svg) 0 0 no-repeat;
     background-size: contain;
 }
 .password-control.view, .password_confirmation-control.view {
     position: absolute;
-    top: 30%;
-    right: 4%;
-    width: 20px;
-	height: 20px;
+    top: 25%;
+    right: 3%;
 	background: url(/public/img/eye-slash-fill.svg) 0 0 no-repeat;
     background-size: contain;
 }
@@ -602,8 +643,8 @@ label[for="show_company_name"]:hover{
     position: absolute;
     top: 13%;
     right: 3%;
-    width: 20px;
-    height: 20px;
+    width: clamp(1.25rem, 1.161rem + 0.45vw, 1.875rem);
+	height: clamp(1.25rem, 1.161rem + 0.45vw, 1.875rem);
     background: url(/public/img/eye-fill.svg) 0 0 no-repeat;
     background-size: contain;
 }
@@ -627,15 +668,19 @@ label[for="show_company_name"]:hover{
     background: var(--color-bg);
 }
 .active{
-    background: var(--color-accent)!important;;
+    background: var(--color-accent)!important;
 }
+.active:hover{
+    color: var(--color-bg);
+}
+
 /* Медия запросы */
 @media (max-width: 630px) {
     .work__infos {
         display: block;
     }
     .work__div-img {
-        padding-top: 150%;
+        padding-top: 140%;
     }
 
     .about__infos {
@@ -646,3 +691,8 @@ label[for="show_company_name"]:hover{
         height: auto;
     }
 }
+@media (min-width: 768px) {
+    .mr-md-4 {
+      margin-right: 4%;
+    }
+  }

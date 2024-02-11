@@ -2,7 +2,7 @@
     <form method="POST" action="{{ route('register') }}" class="form__guest">
         @csrf
 
-        <h1>Регистрация</h1>
+        <h2>Регистрация</h2>
         <!-- Имя -->
         <div class="form-floating">
             <x-text-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="given-name" placeholder="Имя"/>
@@ -37,7 +37,7 @@
         <div class="form-floating">
             <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Подтвердите пароль" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"/>
             <x-input-label for="password_confirmation" value="Подтвердите пароль" />
-            <a href="#" class="password_confirmation-control"></a>
+            <a href="#" class="password-control "></a>
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 

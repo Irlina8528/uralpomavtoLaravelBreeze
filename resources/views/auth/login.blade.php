@@ -5,10 +5,10 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <h1>Вход в Личный кабинет</h1>
+        <h2>Вход в Личный кабинет</h2>
         <!-- Адрес электронной почты  -->
         <div class="form-floating mb-3">
-            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Эл. почта" />
+            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" placeholder="Эл. почта" />
             <x-input-label for="email" :value="__('Эл. почта')" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="bi bi-eye-slash-fill">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <symbol height="16" id="svg_2" width="16" xmlns="http://www.w3.org/2000/svg">
+   <path d="m4.99,6.41l1.81,1.79l0.7,-0.68l-2.3,-2.26a1,1 0 0 0 -1.4,0l-2.3,2.25l0.7,0.68l1.8,-1.76l0,6.57l0.99,0l0,-6.59zm6.02,3.9l-1.81,-1.79l-0.7,0.68l2.3,2.26a1,1 0 0 0 1.4,0l2.3,-2.26l-0.7,-0.68l-1.8,1.76l0,-6.28l-0.99,0l0,6.3l0,0.01z" fill-rule="evenodd"/>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <use fill="#ffffff" id="svg_3" transform="matrix(1.16981 0 0 1.16981 -0.952194 -3.03018)" x="-0.38" xlink:href="#svg_2" y="-0.73"/>
+ </g>
+</svg>
