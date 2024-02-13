@@ -24,3 +24,4 @@ $("#passport_number").mask("999-999",{autoclear: false})
 $("#company_inn").mask("99-99-99-99-99?-99",{autoclear: false})
 $('#company_kpp').mask('999-999-999',{autoclear: false});
 
+

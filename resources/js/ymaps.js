@@ -46,7 +46,7 @@ function init() {
             var activeRoute = route.getActiveRoute();
             if (activeRoute) {
                 // Получим протяженность маршрута.
-                length = route.getActiveRoute().properties.get("distance");
+                var length = route.getActiveRoute().properties.get("distance");
                 // Вызов функции
                 updateLength(length);
                 var duration = route.getActiveRoute().properties.get("duration"),
@@ -74,11 +74,6 @@ function init() {
 
                 // Откроем балун.
                 activeRoute.balloon.open();
-
-                var d = document.getElementById("viewContainer");
-                while (d.firstChild)
-                    d.removeChild(d.firstChild);
-				    this.outputElement = $('<div><form id="feedback" action="mail.php" method="post"><p><div class="tt">Длина маршрута: </div><input name="length" value="' + length.text + '"></p><p><div class="tt">Цена доставки:  </div><input name="price" value="' + price + ' р"></p></div>').appendTo('#viewContainer');
             }
         });
 
