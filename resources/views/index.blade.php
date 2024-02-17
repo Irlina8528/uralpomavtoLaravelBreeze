@@ -1,8 +1,9 @@
 @extends('layouts.app')
-
+@section('title') Грузоперевозки по России и странам СНГ@endsection
+@section('description') Грузовые перевозки по России и странам СНГ транспортной компанией «УралПромАто». Автоперевозки сборных грузов - закажите грузоперевозки прямо сейчас на сайте!@endsection
 @section('content')
     <!-- Анимация появления img -->
-    <script>
+    {{-- <script>
         $(window).scroll(function() {
             $('.card__img').each(function() {
                 var imagePos = $(this).offset().top;
@@ -13,10 +14,10 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <!-- Анимаци блока как работаем -->
-    <script>
+    {{-- <script>
         $(window).scroll(function() {
             $('.work__info').each(function() {
                 var imagePos = $(this).offset().top;
@@ -27,10 +28,10 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <!-- Анимаци о нас guarantees__info1-->
-    <script>
+    {{-- <script>
         $(window).scroll(function() {
             $('.about__info').each(function() {
                 var imagePos = $(this).offset().top;
@@ -41,7 +42,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <!-- Главный экран -->
     <section class="intro">
@@ -69,7 +70,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="service__card cardi">
                     <div class="service__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/map.png" alt="Карта" class="service__img card__img">
+                        <img src="/img/ico/map.png" alt="Иконка карты" class="service__img card__img">
                     </div>
                     <div class="service__info info__card">
                         <h3 class="service__info-title ">Перевозка грузов по России и странам СНГ</h3>
@@ -82,7 +83,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="service__card cardi">
                     <div class="service__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/rocket.png" alt="" class="service__img card__img">
+                        <img src="/img/ico/rocket.png" alt="Иконка Ракеты" class="service__img card__img">
                     </div>
                     <div class="service__info info__card">
                         <h3 class="service__info-title">Перевозка техники и автомобилей</h3>
@@ -95,7 +96,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="service__card cardi">
                     <div class="service__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/dumbbell.png" alt="Гантеля" class="service__img card__img">
+                        <img src="/img/ico/dumbbell.png" alt="Иконка гантели" class="service__img card__img">
                     </div>
                     <div class="service__info info__card">
                         <h3 class="service__info-title">Перевозка негабаритного груза</h3>
@@ -108,7 +109,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="service__card cardi">
                     <div class="service__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/case.png" alt="Чемодан" class="service__img card__img">
+                        <img src="/img/ico/case.png" alt="Иконка чемодана" class="service__img card__img">
                     </div>
                     <div class="service__info info__card">
                         <h3 class="service__info-title">домашние и офисные переезды</h3>
@@ -121,7 +122,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="service__card cardi">
                     <div class="service__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/godlet.png" alt="Бокал" class="service__img card__img">
+                        <img src="/img/ico/godlet.png" alt="Иконка бокала" class="service__img card__img">
                     </div>
                     <div class="service__info info__card">
                         <h3 class="service__info-title">Рефрижераторные грузоперевозки</h3>
@@ -134,7 +135,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="service__card cardi">
                     <div class="service__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/puzzle.png" alt="Пазл" class="service__img card__img">
+                        <img src="/img/ico/puzzle.png" alt="Иконка пазла" class="service__img card__img">
                     </div>
                     <div class="service__info info__card">
                         <h3 class="service__info-title">Перевозка сборных грузов</h3>
@@ -185,7 +186,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
                     <div class="benefits__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/boxs.png" alt="Каробка" class="benefits__img card__img ">
+                        <img src="/img/ico/boxs.png" alt="Иконка каробки" class="benefits__img card__img ">
                     </div>
                     <div class="benefits__info info__card">
                         <p class="benefits__info-text card__text">Перевозим все виды груза, опасные груза требующие
@@ -197,7 +198,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
                     <div class="benefits__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/star.png" alt="Звезда" class="benefits__img card__img">
+                        <img src="/img/ico/star.png" alt="Иконка звезды" class="benefits__img card__img">
                     </div>
                     <div class="benefits__info info__card">
                         <p class="benefits__info-text card__text">Надежная компания, работающая на рынке более 15 лет
@@ -209,7 +210,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
                     <div class="benefits__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/calculator.png" alt="Калькулятор" class="benefits__img card__img ">
+                        <img src="/img/ico/calculator.png" alt="Иконка калькулятора" class="benefits__img card__img ">
                     </div>
                     <div class="benefits__info info__card">
                         <p class="benefits__info-text card__text">Расчет стоимости доставки груза за 5 минут</p>
@@ -220,7 +221,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
                     <div class="benefits__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/protection.png" alt="Щит" class="benefits__img card__img ">
+                        <img src="/img/ico/protection.png" alt="Иконка щита" class="benefits__img card__img ">
                     </div>
                     <div class="benefits__info info__card">
                         <p class="benefits__info-text card__text">Страхование Вашего груза до 35 000 000 рублей</p>
@@ -231,7 +232,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
                     <div class="benefits__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/map.png" alt="Карта" class="benefits__img card__img ">
+                        <img src="/img/ico/map.png" alt="Иконка карты" class="benefits__img card__img ">
                     </div>
                     <div class="benefits__info info__card">
                         <p class="benefits__info-text card__text">Возможность отслеживать груз онлайн GPS/ГЛОНАСС</p>
@@ -242,7 +243,7 @@
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
                     <div class="benefits__div-img card__div-img d-flex justify-content-center">
-                        <img src="/img/ico/like.png" alt="Класс" class="benefits__img card__img ">
+                        <img src="/img/ico/like.png" alt="Иконка палец вверх" class="benefits__img card__img ">
                     </div>
                     <div class="benefits__info info__card">
                         <p class="benefits__info-text card__text">Доставка грузов "от двери до двери", без

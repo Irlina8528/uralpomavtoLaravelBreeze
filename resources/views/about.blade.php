@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title') О компании@endsection
+@section('description') Информация об экспедиторской транспортной компании &quot;УралПромАвто&quot;. Компания &quot;УралПромАвто&quot; осуществляет грузоперевозки по всей России и странам СНГ.@endsection
 @section('content')
 <!-- О нас -->
 <section class="about" id="about">
@@ -36,7 +38,7 @@
         <div class="col-sm-6 col-xl-3">
             <div class="team__card">
                 <div class="team__div-img">
-                    <img src="/img/team/team(1).jpg" alt="Юлия Александровна" class="team__img">
+                    <img src="/img/team/team(1).jpg" alt="Генеральный директор - Юлия Александровна" class="team__img">
                 </div>
                 <div class="team__info">
                     <h4 class="team__info-title">Юлия Александровна</h4>
@@ -48,7 +50,7 @@
         <div class="col-sm-6 col-xl-3">
             <div class="team__card">
                 <div class="team__div-img">
-                    <img src="/img/team/team(2).jpg" alt="Антон" class="team__img">
+                    <img src="/img/team/team(2).jpg" alt="Менеджер по логистике - Антон" class="team__img">
                 </div>
                 <div class="team__info">
                     <h4 class="team__info-title">Антон</h4>
@@ -60,7 +62,7 @@
         <div class="col-sm-6 col-xl-3">
             <div class="team__card">
                 <div class="team__div-img">
-                    <img src="/img/team/team(3).jpg" alt="Дмитрий" class="team__img">
+                    <img src="/img/team/team(3).jpg" alt="Менеджер по логистике - Дмитрий" class="team__img">
                 </div>
                 <div class="team__info">
                     <h4 class="team__info-title">Дмитрий</h4>
@@ -72,7 +74,7 @@
         <div class="col-sm-6 col-xl-3">
             <div class="team__card">
                 <div class="team__div-img">
-                    <img src="/img/team/team(4).jpg" alt="Светлана" class="team__img">
+                    <img src="/img/team/team(4).jpg" alt="Менеджер по логистике - Светлана" class="team__img">
                 </div>
                 <div class="team__info">
                     <h4 class="team__info-title">Светлана</h4>

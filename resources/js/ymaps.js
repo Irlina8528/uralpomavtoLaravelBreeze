@@ -1,7 +1,7 @@
 ymaps.ready(init);
 var length;
 
-function init() {
+export function init() {
     // Стоимость за километр.
     var DELIVERY_TARIFF = 30,
     // Минимальная стоимость.

@@ -1,4 +1,5 @@
 @extends('dashboard')
+@section('title')Профиль@endsection
 @section('content')
     <div class="col">
     @include('profile.partials.update-profile-information-form')

@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="row d-flex align-items-center">
 
         <div class="col-sm-12 col-md-2 pe-md-3 form-floating">
             <input id="number-places" v-model="numberPlaces" type="text" value="1" class="form-control mb-md-0"

@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title') Расчет стоимости перевозки грузов - калькулятор доставки, цены на грузоперевозки - УралПромАвто@endsection
+@section('description') Воспользуйтесь онлайн калькулятором для расчета стоимости и срока доставки груза. Цена доставки груза зависит от расстояния и параметров груза.@endsection
 @section('content')
     <section class="calc" id="app">
         <div class="title-div">

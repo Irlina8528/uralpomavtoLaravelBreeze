@@ -38,7 +38,7 @@
                 <li class="w-100">
                     <a href="{{ route('profile.edit') }}"
                         class="nav-link {{ request()->is('profile') ? 'active' : '' }}">
-                        Настройки
+                        Профиль
                     </a>
                 </li>
             </ul>
