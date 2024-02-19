@@ -19,9 +19,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
+        'id_usertype',
         'patronymic',
         'surname',
-        'company_name',
+        'name',
         'phone',
         'email',
         'password',
@@ -29,11 +30,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'passport_series',
         'passport_number',
         'address',
-        'company_inn',
-        'company_kpp',
-        'company_address'
+        'id_company'
     ];
 
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'id_company');
+    }
+    public function userType()
+    {
+        return $this->belongsTo(UserType::class, 'id_usertype');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

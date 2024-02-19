@@ -9,13 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('passport_series')->nullable();
-            $table->text('passport_number')->nullable();
-            $table->string('address')->nullable();
+            $table->foreign('id_usertype')->references('id')->on('usertype');
+            $table->foreign('id_company')->references('id')->on('company');
         });
     }
 
@@ -25,11 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            Schema::table('users', function (Blueprint $table) {
-                $table->dropColumn('passport_series');
-                $table->dropColumn('passport_number');
-                $table->dropColumn('address');
-            });
+            //
         });
     }
 };

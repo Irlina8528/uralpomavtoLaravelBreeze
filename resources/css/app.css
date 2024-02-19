@@ -190,7 +190,9 @@ section {
     outline: var(--border);
     padding: 1px 0;
 }
-
+.mw-700{
+    max-width: 700px;
+}
 /* Кнопка */
 .btn {
     padding: clamp(0.25rem, -0.102rem + 2vw, 1.25rem)

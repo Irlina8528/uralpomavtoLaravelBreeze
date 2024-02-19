@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('company_inn')->nullable();
-            $table->string('company_kpp')->nullable();
-            $table->string('company_address')->nullable();
+        Schema::create('statuses', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
         });
     }
 
@@ -23,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('statuses');
     }
 };

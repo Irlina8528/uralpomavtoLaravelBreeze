@@ -1,3 +1,4 @@
+@section('title')Сброс пароля@endsection
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}" class="form__guest">
         @csrf

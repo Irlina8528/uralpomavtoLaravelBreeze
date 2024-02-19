@@ -22,7 +22,7 @@
         <a href="{{ route('home') }}" class="w-100 nav-link">
             На главную
         </a>
-        @if (Auth::user()->usertype == 'user')
+        @if (Auth::user()->userType->name == 'user')
             <ul class="nav navmenu-nav flex-column">
                 <li class="w-100">
                     <a href="{{ route('user-orders') }}"

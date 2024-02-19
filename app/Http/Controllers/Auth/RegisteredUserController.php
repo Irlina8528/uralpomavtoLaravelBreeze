@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Company;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -41,11 +42,23 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'surname' => $request->surname,
-            'company_name' => $request->company_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        if ($request->filled('company_name')) {
+            $company = Company::create([
+                'name' => $request->company_name,
+            ]);
+        
+            $user->id_company = $company->id;
+        } else {
+            $user->id_company = null;
+        }
+        
+        $user->save();
+        
+            
         event(new Registered($user));
 
         Auth::login($user);

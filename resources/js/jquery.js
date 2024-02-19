@@ -21,7 +21,7 @@ $("#passport_series").mask("9999",{autoclear: false})
 $("#passport_number").mask("999-999",{autoclear: false})
 
 // Организация
-$("#company_inn").mask("99-99-99-99-99?-99",{autoclear: false})
-$('#company_kpp').mask('999-999-999',{autoclear: false});
+$("#inn").mask("99-99-99-99-99?-99",{autoclear: false})
+$('#kpp').mask('999-999-999',{autoclear: false});
 
 

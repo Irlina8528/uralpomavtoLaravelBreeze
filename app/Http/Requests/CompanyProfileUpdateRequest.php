@@ -16,9 +16,9 @@ class  CompanyProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_inn' => ['nullable', 'string', 'regex: /^(\d{2}-){4}(\d{2}-)?\d{2}$/'],
-            'company_kpp' => ['nullable', 'string', 'regex: /^\d{3}-\d{3}-\d{3}$/'],
-            'company_address' => ['nullable', 'string'],
+            'inn' => ['nullable', 'string', 'regex: /^(\d{2}-){4}(\d{2}-)?\d{2}$/'],
+            'kpp' => ['nullable', 'string', 'regex: /^\d{3}-\d{3}-\d{3}$/'],
+            'address' => ['nullable', 'string'],
         ];
     }
 }

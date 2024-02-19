@@ -1,3 +1,4 @@
+@section('title')Регистрация@endsection
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}" class="form__guest">
         @csrf

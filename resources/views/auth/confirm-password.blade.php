@@ -1,3 +1,4 @@
+@section('title')Подтверждение пароля@endsection
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
         Это защищенная область приложения. Пожалуйста, подтвердите свой пароль, прежде чем продолжить.
