@@ -16,7 +16,7 @@
 
         <!-- Пароль -->
         <div class="form-floating mb-3">
-            <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="Пароль" />
+            <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="Пароль" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Минимальная длина пароля - 8 символов. Должен состоять из строчных и прописных букв, а так же цифр."/>
             <a href="#" class="password-control "></a>
             <x-input-label for="password" :value="__('Пароль')" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />

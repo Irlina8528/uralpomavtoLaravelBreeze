@@ -1,4 +1,4 @@
-@section('title')Сброс пароля@endsection
+@section('title')Изменить пароль@endsection
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}" class="form__guest">
         @csrf
@@ -16,6 +16,7 @@
         <!-- Password -->
         <div class="form-floating">
             <x-text-input id="password" class="form-control" type="password" name="password" placeholder="Пароль" required autocomplete="new-password" />
+            <a href="#" class="password-control "></a>
             <x-input-label for="password"  value="Пароль"/>
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -23,13 +24,14 @@
         <!-- Confirm Password -->
         <div class="form-floating">
             <x-text-input id="password_confirmation" placeholder="Подтвердите пароль" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
+            <a href="#" class="password-control "></a>
             <x-input-label for="password_confirmation" value="Подтвердите пароль" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
         
             <x-primary-button class="w-100 mb-2 mt-2 btn-lg btn">
-            Сбросить пароль
+            Изменить пароль
             </x-primary-button>
         
     </form>

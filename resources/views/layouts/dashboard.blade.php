@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @extends('layouts.head')
+@section('title')Личный кабинет@endsection
 @vite(['resources/css/jasny-bootstrap.min.css', 'resources/css/navmenu.css'])
 
 <body>

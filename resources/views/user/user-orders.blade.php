@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('layouts.dashboard')
 @section('title')Заказы@endsection
 @section('title')Заказы@endsection
 @section('content')

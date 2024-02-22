@@ -317,11 +317,6 @@ nav {
  }
 
 /* Градиент */
-.gradient-top {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-}
 .gradient-b {
     position: absolute;
     bottom: 0;
@@ -332,7 +327,7 @@ nav {
 /* Главный экран */
 .intro {
     border-top: 0;
-    background: url(/public/img/intro2.jpg) no-repeat;
+    background: url(/public/img/intro.jpg) no-repeat;
     background-size: cover;
     height: clamp(16.563rem, 10rem + 32.81vw, 62.5rem);
     outline: var(--border);
@@ -669,7 +664,7 @@ label[for="show_company_name"]:hover{
     height: 100vh;
     background: var(--color-bg);
 }
-.active{
+a.active, p.active  {
     background: var(--color-accent)!important;
 }
 .active:hover{

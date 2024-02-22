@@ -43,12 +43,12 @@ class ProfileController extends Controller
     public function company_update(CompanyProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
-    $company = $user->company;
+        $company = $user->company;
     
-    $fieldsToUpdate = $request->validated();
-    $company->update($fieldsToUpdate);
+        $fieldsToUpdate = $request->validated();
+        $company->update($fieldsToUpdate);
 
-    return Redirect::route('profile.edit')->with('status', 'profile-company-update');
+        return Redirect::route('profile.edit')->with('status', 'profile-company-update');
     }
     /**
      * Delete the user's account.

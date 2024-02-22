@@ -1,49 +1,7 @@
 @extends('layouts.app')
 @section('title') Грузоперевозки по России и странам СНГ@endsection
-@section('description') Грузовые перевозки по России и странам СНГ транспортной компанией «УралПромАто». Автоперевозки сборных грузов - закажите грузоперевозки прямо сейчас на сайте!@endsection
+@section('description')Грузовые перевозки по России и странам СНГ транспортной компанией «УралПромАто». Автоперевозки сборных грузов - закажите грузоперевозки прямо сейчас на сайте!@endsection
 @section('content')
-    <!-- Анимация появления img -->
-    {{-- <script>
-        $(window).scroll(function() {
-            $('.card__img').each(function() {
-                var imagePos = $(this).offset().top;
-
-                var topOfWindow = $(window).scrollTop();
-                if (imagePos < topOfWindow + 700) {
-                    $(this).addClass("expandUp");
-                }
-            });
-        });
-    </script> --}}
-
-    <!-- Анимаци блока как работаем -->
-    {{-- <script>
-        $(window).scroll(function() {
-            $('.work__info').each(function() {
-                var imagePos = $(this).offset().top;
-
-                var topOfWindow = $(window).scrollTop();
-                if (imagePos < topOfWindow + 900) {
-                    $(this).addClass("pullUp");
-                }
-            });
-        });
-    </script> --}}
-
-    <!-- Анимаци о нас guarantees__info1-->
-    {{-- <script>
-        $(window).scroll(function() {
-            $('.about__info').each(function() {
-                var imagePos = $(this).offset().top;
-
-                var topOfWindow = $(window).scrollTop();
-                if (imagePos < topOfWindow + 900) {
-                    $(this).addClass("pullDown");
-                }
-            });
-        });
-    </script> --}}
-
     <!-- Главный экран -->
     <section class="intro">
         <div class="row">

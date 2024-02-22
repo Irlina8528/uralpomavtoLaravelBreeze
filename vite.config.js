@@ -8,6 +8,7 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/js/jquery.js',
+                'resources/js/jquery.maskedinput.js',
                 'resources/js/bootstrap.min.js',
                 'resources/js/jasny-bootstrap.min.js',
                 'resources/css/bootstrap.min.css',

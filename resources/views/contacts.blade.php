@@ -51,7 +51,7 @@
                         <img src="/img/ico/mail.png" alt="Иконка почты" class="about__img card__img">
                     </div>
                     <div class="aboutus__info info__card">
-                        <h3 class="aboutus__info-title"><a href="mailto:info@uralpromavto.ru">info@uralpromavto.ru</a></h3>
+                        <h3 class="aboutus__info-title"><a href="mailto:info@uralpromavto.ru?subject=Вопрос">info@uralpromavto.ru</a></h3>
                         <p class="aboutus__info-text card__text">Вы можете связаться с нами по электронной почте</p>
                     </div>
                 </div>

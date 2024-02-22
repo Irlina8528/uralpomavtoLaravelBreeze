@@ -28,13 +28,13 @@
             </div>
 
             <div class="form-floating col-sm-12 col-md-6 pe-md-3">
-                <x-text-input id="name" name="name" type="text" :value="old('name', $user->company->name)" required placeholder="Наименование компании" autocomplete="company_name" />
+                <x-text-input id="company_name" name="name" type="text" :value="old('name', $user->company->name)" required placeholder="Наименование компании" autocomplete="company_name" />
                 <x-input-label for="name" value="Название компании" />
                 <x-input-error class="mt-2" :messages="$errors->get('name')" />
             </div>
             
             <div class="form-floating col-sm-12 col-md-6">
-                <x-text-input id="address" name="address" type="text" :value="old('address', $user->company->address)" required placeholder="Адрес местонахождения" autocomplete="company_name" />
+                <x-text-input id="company_address" name="address" type="text" :value="old('address', $user->company->address)" required placeholder="Адрес местонахождения" autocomplete="company_name" />
                 <x-input-label for="address" value="Адрес местонахождения" />
                 <x-input-error class="mt-2" :messages="$errors->get('address')" />
             </div>

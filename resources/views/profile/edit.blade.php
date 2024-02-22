@@ -1,5 +1,4 @@
-@extends('dashboard')
-@section('title')профиль@endsection
+@extends('layouts.dashboard')
 @section('title')Профиль@endsection
 @section('content')
     <div class="col">
