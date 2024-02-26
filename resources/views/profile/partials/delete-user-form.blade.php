@@ -26,14 +26,14 @@
                             </h2>
 
                             <p class="application__info">
-                                Введите свой пароль, чтобы подтвердить, что вы хотите удалить свою учетную запись безвозвратно.
+                                Введите свой пароль, чтобы подтвердить, свои действия.
                             </p>
 
                             <div class="form-floating mb-3">
                                 <x-text-input id="password" name="password" type="password" placeholder="Пароль" />
                                 <a href="#" class="password-control "></a>
                                 <x-input-label for="password" value="Пароль" />
-                                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" id="passwordErrors" />
                             </div>
 
                             <div class="mt-6 d-flex justify-content-between">
@@ -44,16 +44,4 @@
             </div>
         </div>
     </div>
-{{-- Откытие модального окна если есть ошибки --}}
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function() {
-    // Проверка наличия ошибок в поле пароля
-    var passwordErrors = "{{ $errors->userDeletion->has('password') }}";
 
-    if (passwordErrors) {
-        $('#modalDell').modal('show');
-    }
-});
-
-</script>

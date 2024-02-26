@@ -26,9 +26,15 @@
         @if (Auth::user()->userType->name == 'user')
             <ul class="nav navmenu-nav flex-column">
                 <li class="w-100">
-                    <a href="{{ route('user-orders') }}"
+                    <a href="{{ route('orders') }}"
                         class="nav-link {{ request()->is('orders') ? 'active' : '' }}">
                         Мои заказы
+                    </a>
+                </li>
+                <li class="w-100">
+                    <a href="{{ route('user-new-orders') }}"
+                        class="nav-link {{ request()->is('new-orders') ? 'active' : '' }}">
+                        Новый заказ
                     </a>
                 </li>
                 <li class="w-100">

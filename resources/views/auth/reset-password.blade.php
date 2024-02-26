@@ -15,7 +15,7 @@
 
         <!-- Password -->
         <div class="form-floating">
-            <x-text-input id="password" class="form-control" type="password" name="password" placeholder="Пароль" required autocomplete="new-password" />
+            <x-text-input id="password" class="form-control" type="password" name="password" placeholder="Пароль" required autocomplete="new-password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Минимальная длина пароля - 8 символов. Должен состоять из строчных и прописных букв, а так же цифр."/>
             <a href="#" class="password-control "></a>
             <x-input-label for="password"  value="Пароль"/>
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -23,7 +23,7 @@
 
         <!-- Confirm Password -->
         <div class="form-floating">
-            <x-text-input id="password_confirmation" placeholder="Подтвердите пароль" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
+            <x-text-input id="password_confirmation" placeholder="Подтвердите пароль" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Минимальная длина пароля - 8 символов. Должен состоять из строчных и прописных букв, а так же цифр."/>
             <a href="#" class="password-control "></a>
             <x-input-label for="password_confirmation" value="Подтвердите пароль" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />

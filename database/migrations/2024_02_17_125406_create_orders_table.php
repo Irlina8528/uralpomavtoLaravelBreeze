@@ -16,7 +16,16 @@ return new class extends Migration
             $table->unsignedBigInteger('id_client');
             $table->string('city_from');
             $table->string('city_into');
+            $table->boolean('liquid')->default(false);
+            $table->boolean('fragile')->default(false);
+            $table->boolean('loose')->default(false);
+            $table->boolean('dangerous')->default(false);
+            $table->string('declared_cost');
             $table->date('delivery_date');
+            $table->boolean('pallet')->default(false);
+            $table->boolean('protective_packaging')->default(false);
+            $table->boolean('carton')->default(false);
+            $table->string('cost');
             $table->unsignedBigInteger('id_driver')->nullable();
             $table->unsignedBigInteger('id_transport')->nullable();
             $table->unsignedBigInteger('id_status')->default('1');

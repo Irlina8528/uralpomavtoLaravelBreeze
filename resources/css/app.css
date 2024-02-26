@@ -180,12 +180,84 @@ ul {
 section{
     outline: var(--border);
 }
+
 .btn-outline-none{
     outline: none;
 }
 section {
     margin-bottom: clamp(3.125rem, 0.893rem + 7.14vw, 6.25rem);
 }
+
+/* Статус-бар */
+.status{
+    position: absolute;
+    top: 28%;
+    left: 60%;
+}
+.one, .two, .three, .four, .five, .six, .seven{
+    position:absolute;
+	margin-top:-5px;
+	z-index:1;
+	height:clamp(0.938rem, 0.813rem + 0.63vw, 1.563rem);
+	width:clamp(0.938rem, 0.813rem + 0.63vw, 1.563rem);
+	border-radius:25px;
+	
+}
+.one{
+	left:1%;
+}
+.two{
+	left:15%;
+}
+.three{
+	left:34%;
+}
+.four{
+	left:44%;
+}
+.five{
+	left:60%;
+}
+.six{
+	left:78%;
+}
+.seven{
+	right:0%;
+}
+.color-accent{
+	background-color:var(--color-accent);
+}
+.info-color{
+	background-color:#5bc0de;
+}
+.no-color{
+	background-color:inherit;
+}
+.progress-bar{
+    background-color:var(--color-accent);
+}
+.progress{
+    height: clamp(0.313rem, 0.25rem + 0.31vw, 0.625rem);
+}
+.p-status{
+    position: absolute;
+    left: -21%;
+    bottom: 110%;
+    font-size: 16px;
+    line-height: normal;
+}
+
+table{
+    color: #fff !important;
+    border: var(--border) !important;
+}
+.table>:not(:first-child) {
+    border-top: 0px;
+}
+.tb::-webkit-scrollbar{
+    width: 1px !important;
+}
+
 .title-div {
     outline: var(--border);
     padding: 1px 0;

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -22,7 +22,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'id_usertype',
         'patronymic',
         'surname',
-        'name',
         'phone',
         'email',
         'password',
@@ -40,6 +39,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userType()
     {
         return $this->belongsTo(UserType::class, 'id_usertype');
+    }
+
+    public function ordersUser()
+    {
+        return $this->hasMany(Order::class, 'id_client');
+    }
+
+    public function ordersManager()
+    {
+        return $this->hasMany(Order::class, 'id_manager');
     }
     /**
      * The attributes that should be hidden for serialization.
