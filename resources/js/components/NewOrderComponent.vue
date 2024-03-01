@@ -1,4 +1,5 @@
 <template>
+    <!-- Грузовое место -->
     <div class="row">
         <div class="col-12">
             <div class="title-div d-flex align-items-center">
@@ -43,10 +44,7 @@
         </div>
     </div>
 
-    <!-- <div>Максимальный объем: {{ maxVolume }}</div>
-    <div>Максимальный вес: {{ maxWeight }}</div> -->
-
-
+    <!-- Тип груза -->
     <div class="info-cargo">
         <div class="row">
             <div class="col-12">
@@ -56,8 +54,6 @@
             </div>
         </div>
         <div class="row">
-            <!-- <input type="text" name="city_from" v-model="cityFrom">
-            <input type="text" name="city_into" v-model="cityInto"> -->
             <div class="col-auto me-4">
                 <input type="checkbox" v-model="liquid" name="liquid" id="liquid" class="me-2">
                 <label for="liquid">Жидкий</label>
@@ -83,6 +79,7 @@
         </div>
     </div>
 
+    <!-- Дата -->
     <div class="date-cargo">
         <div class="row">
             <div class="col-12">
@@ -100,6 +97,7 @@
         </div>
     </div>
 
+    <!-- Упаковка -->
     <div class="info-packaging">
         <div class="row">
             <div class="col-12">
@@ -129,6 +127,7 @@
         </div>
     </div>
 
+    <!-- Стоимость -->
     <div class="row">
         <div class="col-12">
             <div class="title-div d-flex align-items-center">
@@ -141,7 +140,7 @@
             <tbody>
                 <tr>
                     <th>Автоперевозка</th>
-                    <td>{{ totalDistancePrice }}</td>
+                    <td>{{ priceVW }}</td>
                 </tr>
                 <tr>
                     <th>Страхование</th>
@@ -175,7 +174,7 @@
         </div>
     </div>
 
-    <p>Стоимость расстояния:
+    <!-- <p>Стоимость расстояния:
         {{ getPricePerKm() }} руб.
     </p>
     <p>Стоимость веса:
@@ -183,7 +182,7 @@
     </p>
     <p>Стоимость объема:
         {{ getpricePerM3() }} руб.
-    </p>
+    </p> -->
 </template>
 
 <script>
@@ -217,6 +216,7 @@ export default {
 
             PricedeclaredCost: 0,
             totalDistancePrice: 0,
+            priceVW: 0,
             totalPrice: 0,
             numberPlaces: 0,
             totalWeight: 0,
@@ -235,9 +235,9 @@ export default {
                         { weightMin: 1000, pricePerKg: 10 },
                     ],
                     volumes: [
-                        { volumeMax: 5, pricePerM3: 3500 },
-                        { volumeMin: 5, volumeMax: 10, pricePerM3: 3300 },
-                        { volumeMin: 15, pricePerM3: 3100 },
+                        { volumeMax: 5, pricePerM3: 2420 },
+                        { volumeMin: 5, volumeMax: 10, pricePerM3: 2310 },
+                        { volumeMin: 15, pricePerM3: 2220 },
                     ]
                 },
                 // от 1000 до 5000
@@ -252,9 +252,9 @@ export default {
                         { weightMin: 1000, pricePerKg: 19 },
                     ],
                     volumes: [
-                        { volumeMax: 5, pricePerM3: 6100 },
-                        { volumeMin: 5, volumeMax: 10, pricePerM3: 5900 },
-                        { volumeMin: 15, pricePerM3: 5700 },
+                        { volumeMax: 5, pricePerM3: 3100 },
+                        { volumeMin: 5, volumeMax: 10, pricePerM3: 3095 },
+                        { volumeMin: 15, pricePerM3: 3090 },
 
                     ]
                 },
@@ -291,6 +291,9 @@ export default {
     mounted() {
         // Прослушка событие "обновление длины"
         window.addEventListener('length-updated', this.updateDeliveryLength);
+
+        document.addEventListener('cityFrom', this.handleCityFrom);
+        document.addEventListener('cityInto', this.handlecityInto);
     },
     beforeDestroy() {
         // Очистка прослушки
@@ -321,6 +324,12 @@ export default {
                 .catch(error => {
                     console.error(error);
                 });
+        },
+        handleCityFrom(event) {
+            this.cityFrom = event.detail;
+        },
+        handlecityInto(event) {
+            this.cityInto = event.detail;
         },
         weightFlag() {
             this.pallet = this.items.some(item => parseFloat(item.weight) >= 50);
@@ -362,10 +371,14 @@ export default {
             }
 
             this.totalDistancePrice = this.deliveryLength * pricePerKm;
+            this.maxVolume;
+            this.maxWeight;
+
             let totalWeightPrice = this.totalWeight * pricePerKg;
             let totalVolumePrice = this.totalVolume * pricePerM3;
 
-            this.totalPrice = this.totalDistancePrice + (totalWeightPrice > totalVolumePrice ? totalWeightPrice : totalVolumePrice) + additionalPrice + this.PricedeclaredCost;
+            this.priceVW = this.totalDistancePrice + (totalWeightPrice > totalVolumePrice ? totalWeightPrice : totalVolumePrice);
+            this.totalPrice = this.priceVW + additionalPrice + this.PricedeclaredCost;
             return this.totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' });
         },
         getPricePerKm() {
@@ -472,8 +485,8 @@ export default {
 .min-w {
     min-width: 30px;
 }
-.w-50{
+
+.w-50 {
     width: 50%;
 }
-
 </style>

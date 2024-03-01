@@ -1,52 +1,41 @@
 @extends('layouts.dashboard')
 @section('title')
-    Заказ от {{ $formattedDate }}
+    Заказ {{ $order->id }}
 @endsection
 @section('content')
     <section class="orders mb-0">
-        <div class="row mb-md-5">
+        <div class="row">
             <div class="col-12">
                 <div class="title-div">
-                    <h2 class="orders-info">Заказ от {{ $formattedDate }}</h2>
+                    <h2 class="orders-info">Заказ {{ $order->id }} от {{ $formattedDate }}</h2>
                 </div>
             </div>
         </div>
 
-        {{-- Прогресс --}}
-        <div class="row d-sm-none d-md-block">
-            <div class="col-11">
-                <div class="position-relative">
-                    <div class="progress">
-                        <div class="one {{ $progress >= 2 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Оформлен</p>
-                        </div>
-                        <div class="two {{ $progress >= 16 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">В работе</p>
-                        </div>
-                        <div class="three {{ $progress >= 35 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Ждёт оплаты</p>
-                        </div>
-                        <div class="four {{ $progress >= 45 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Оплачен</p>
-                        </div>
-                        <div class="five {{ $progress >= 66 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">В пути</p>
-                        </div>
-                        <div class="six {{ $progress >= 86 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Доставлен</p>
-                        </div>
-                        <div class="seven {{ $progress >= 100 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Завершен</p>
-                        </div>
-                        <div class="progress-bar" style="width: {{ $progress }}%"></div>
+        {{-- Маршрут Пользователь Статус --}}
+        <div class="row">
+            <div class="d-flex justify-content-between">
+                <div class="d-flex">
+                    <div class="info">
+                        <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
+                    </div>
+                    <div class="info">
+                        <a href="{{ route('manager-order-user', $order->user->id) }}">Пользователь: {{ $order->user->name }}
+                            {{ $order->user->surname }}</a>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="info mt-md-5">
-                <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
+                <div class="info col-auto">
+                    <form action="{{ route('manager-order-update', $order->id) }}" method="post">
+                        @csrf
+                        @method('patch')
+                        <select class="form-select form-control mb-0" name="status" id="status">
+                            @foreach ($status as $status)
+                                <option value="{{ $status->id }}"
+                                    {{ $status->id == $order->id_status ? 'selected' : '' }}>
+                                    {{ $status->name }}</option>
+                            @endforeach
+                        </select>
+                </div>
             </div>
         </div>
 
@@ -97,6 +86,7 @@
             </div>
         </div>
 
+        {{-- Груз --}}
         <div class="row">
             <div class="col-12">
                 <div class="title-div align-items-center">
@@ -104,8 +94,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- Грузы --}}
         <div class="row">
             <div class="table-responsive">
                 <table class="table table-bordered tb m-0">
@@ -135,9 +123,31 @@
             </div>
         </div>
 
+        {{-- Цена --}}
         <div class="row">
             <div class="info d-flex justify-content-end">
-                <p>Итоговая стоимость заказа: {{ $order->cost }} ₽ </p>
+                <div class=" col-auto">
+                    <div class="form-floating">
+                        <x-text-input id="cost" class="form-control m-0" type="text" name="cost"
+                            value="{{ $order->cost }}" required placeholder="Итого, ₽" />
+                        <x-input-label for="cost" value="Итого, ₽" />
+                        <x-input-error :messages="$errors->get('cost')" class="mt-2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="info d-flex justify-content-end">
+                <button class="btn px-2 py-1 me-3" type="submit">Сохранить</button>
+                </form>
+                
+                {{-- Удалить --}}
+                <form action="{{ route('manager-order-delete', $order->id) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button class="btn px-2 py-1" type="submit">Удалить</button>
+                </form>
             </div>
         </div>
     </section>

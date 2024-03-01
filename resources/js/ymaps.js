@@ -45,6 +45,35 @@ export function init() {
 
             var activeRoute = route.getActiveRoute();
             if (activeRoute) {
+                //Вычисляем координаты
+				var city_from = routePanelControl.routePanel.state.get("from");
+                console.log(city_from);  				  		
+
+                var myCoordsfrom = [city_from];       
+                var myGeocoder = ymaps.geocode(myCoordsfrom);
+                myGeocoder.then(
+                    function (res) {
+                        var nearest = res.geoObjects.get(0);
+                        var name = nearest.properties.get('text'); 
+                        console.log(name) ;            
+                        document.dispatchEvent(new CustomEvent('cityFrom', { detail: name }));
+                    },
+                );  
+
+                var city_into = routePanelControl.routePanel.state.get("to");	
+                console.log(city_into);
+
+                var myCoordsinto = [city_into];       
+                var myGeocoder = ymaps.geocode(myCoordsinto);
+                myGeocoder.then(
+                    function (res) {
+                        var nearest = res.geoObjects.get(0);
+                        var name = nearest.properties.get('text'); 
+                        console.log(name) ;            
+                        document.dispatchEvent(new CustomEvent('cityInto', { detail: name }));
+                    },
+                );  
+
                 // Получим протяженность маршрута.
                 var length = route.getActiveRoute().properties.get("distance");
                 // Вызов функции
@@ -78,6 +107,14 @@ export function init() {
         });
 
     });
+    // Функция для получения названия города по координатам.
+function getCityName(coords) {
+    ymaps.geocode(coords).then(function (res) {
+        var firstGeoObject = res.geoObjects.get(0);
+        var cityName = firstGeoObject.getLocalities()[0] || firstGeoObject.getAdministrativeAreas()[0];
+        console.log(cityName);
+    });
+}
     // Функция, вычисляющая стоимость доставки.
     function calculate(routeLength) {
         return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);

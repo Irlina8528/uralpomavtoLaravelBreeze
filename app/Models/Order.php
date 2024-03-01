@@ -14,7 +14,7 @@ class Order extends Model
     protected $fillable = [
         'id_client',
         'city_from',
-        'city_from',
+        'city_into',
         'liquid',
         'fragile',
         'loose',
@@ -32,7 +32,7 @@ class Order extends Model
     ];
 
     
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class, 'id_client');
     }

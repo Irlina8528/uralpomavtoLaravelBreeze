@@ -1,6 +1,11 @@
 @extends('layouts.app')
-@section('title') Грузоперевозки по России и странам СНГ@endsection
-@section('description')Грузовые перевозки по России и странам СНГ транспортной компанией «УралПромАто». Автоперевозки сборных грузов - закажите грузоперевозки прямо сейчас на сайте!@endsection
+@section('title')
+    Грузоперевозки по России и странам СНГ
+@endsection
+@section('description')
+    Грузовые перевозки по России и странам СНГ транспортной компанией «УралПромАто». Автоперевозки сборных грузов - закажите
+    грузоперевозки прямо сейчас на сайте!
+@endsection
 @section('content')
     <!-- Главный экран -->
     <section class="intro">
@@ -360,7 +365,7 @@
         <div class="title-div">
             <h2>Остались вопросы?</h2>
         </div>
-        <div class="row" >
+        <div class="row">
             <div>
                 <div class="col-12 application__div-img">
                     <div class="row formi">
@@ -368,27 +373,32 @@
                             @if (session('status') == 'save-form')
                                 <p class="application__info">
                                     Спасибо за обращение. В ближайшее время вам позвонит специалист.
-                                </p>  
+                                </p>
                             @else
-                            <p class="application__info">
-                                Получите консультацию по вопросам логистических услуг. Мы свяжемся с вами в ближайшее
-                                время.
-                            </p>
-                            
+                                <p class="application__info">
+                                    Получите консультацию по вопросам логистических услуг. Мы свяжемся с вами в ближайшее
+                                    время.
+                                </p>
+
                         </div>
                         <div class="row">
-                            <form method="POST" action="{{ route('contact-form') }}" >
+                            <form method="POST" action="{{ route('contact-form') }}">
                                 @csrf
                                 <div class="col-12 offset-md-3 col-md-6 form-floating">
-                                    <input id="name" name="name" type="text" class="form-control" placeholder="Имя/Организация" required autocomplete="name">
+                                    <input id="name" name="name" type="text" class="form-control"
+                                        placeholder="Имя/Организация" required autocomplete="name">
                                     <label for="name">Имя/Организация</label>
                                 </div>
                                 <div class="col-12 offset-md-3 col-md-6 form-floating">
-                                    <input id="phone" name="phone" type="tel" class="form-control" placeholder="Телефон" required autocomplete="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" title="Введите корректный номер телефона">
+                                    <input id="phone" name="phone" type="tel" class="form-control"
+                                        placeholder="Телефон" required autocomplete="tel"
+                                        pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+                                        title="Введите корректный номер телефона">
                                     <label for="phone">Телефон</label>
                                 </div>
                                 <div class="col-12 col-md-6 offset-md-3 form-floating">
-                                    <textarea id="question" name="question" class="form-control textareai" id="exampleFormControlTextarea" placeholder="Ваш вопрос"></textarea>
+                                    <textarea id="question" name="question" class="form-control textareai" id="exampleFormControlTextarea"
+                                        placeholder="Ваш вопрос"></textarea>
                                     <label for="question">Ваш вопрос</label>
                                 </div>
                                 <div class="col-12 col-md-6 offset-md-3">

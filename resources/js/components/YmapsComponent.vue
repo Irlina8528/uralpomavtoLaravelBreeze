@@ -50,7 +50,7 @@ export default {
                 {
                     distanceMin: 0,
                     distanceMax: 1000,
-                    pricePerKm: 0.4,
+                    pricePerKm: 0.5,
                     weights: [
                         { weightMax: 100, pricePerKg: 15 },
                         { weightMin: 100, weightMax: 500, pricePerKg: 12 },
@@ -58,16 +58,16 @@ export default {
                         { weightMin: 1000, pricePerKg: 10 },
                     ],
                     volumes: [
-                        { volumeMax: 5, pricePerM3: 3500 },
-                        { volumeMin: 5, volumeMax: 10, pricePerM3: 3300 },
-                        { volumeMin: 15, pricePerM3: 3100 },
+                        { volumeMax: 5, pricePerM3: 2420 },
+                        { volumeMin: 5, volumeMax: 10, pricePerM3: 2310 },
+                        { volumeMin: 15, pricePerM3: 2220 },
                     ]
                 },
                 // от 1000 до 5000
                 {
                     distanceMin: 1000,
                     distanceMax: 5000,
-                    pricePerKm: 0.5,
+                    pricePerKm: 0.6,
                     weights: [
                         { weightMax: 100, pricePerKg: 25 },
                         { weightMin: 100, weightMax: 500, pricePerKg: 22 },
@@ -75,9 +75,9 @@ export default {
                         { weightMin: 1000, pricePerKg: 19 },
                     ],
                     volumes: [
-                        { volumeMax: 5, pricePerM3: 6100 },
-                        { volumeMin: 5, volumeMax: 10, pricePerM3: 5900 },
-                        { volumeMin: 15, pricePerM3: 5700 },
+                        { volumeMax: 5, pricePerM3: 3100 },
+                        { volumeMin: 5, volumeMax: 10, pricePerM3: 3095 },
+                        { volumeMin: 15, pricePerM3: 3090 },
 
                     ]
                 },
@@ -85,7 +85,7 @@ export default {
                 {
                     distanceMin: 5000,
                     distanceMax: 10000,
-                    pricePerKm: 0.6,
+                    pricePerKm: 0.7,
                     weights: [
                         { weightMax: 100, pricePerKg: 72 },
                         { weightMin: 100, weightMax: 500, pricePerKg: 70 },

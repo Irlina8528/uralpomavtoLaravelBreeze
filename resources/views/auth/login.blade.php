@@ -1,22 +1,27 @@
-@section('title')Вход в личный кабинет@endsection
+@section('title')
+    Вход в личный кабинет
+@endsection
 <x-guest-layout>
-    <!-- Session Status -->
+    <!-- Статус -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <h2>Вход в Личный кабинет</h2>
         <!-- Адрес электронной почты  -->
         <div class="form-floating mb-3">
-            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" placeholder="Эл. почта" />
+            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required
+                autofocus autocomplete="email" placeholder="Эл. почта" />
             <x-input-label for="email" :value="__('Эл. почта')" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Пароль -->
         <div class="form-floating mb-3">
-            <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="Пароль" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*" title="Минимальная длина пароля - 8 символов. Должен состоять из строчных и прописных букв, а так же цифр."/>
+            <x-text-input id="password" class="form-control" type="password" name="password" required
+                autocomplete="current-password" placeholder="Пароль"
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                title="Минимальная длина пароля - 8 символов. Должен состоять из строчных и прописных букв, а так же цифр." />
             <a href="#" class="password-control "></a>
             <x-input-label for="password" :value="__('Пароль')" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -34,7 +39,7 @@
             <!-- Востановить пароль -->
             @if (Route::has('password.request'))
                 <a class="link__reg" href="{{ route('password.request') }}">
-                {{ __('Забыли пароль?') }}
+                    {{ __('Забыли пароль?') }}
                 </a>
             @endif
         </div>
