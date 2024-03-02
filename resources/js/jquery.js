@@ -13,7 +13,6 @@ import 'jquery.maskedinput/src/jquery.maskedinput'
   };
 })();
 
-
 // Откытие модального окна если есть ошибки
 document.addEventListener('DOMContentLoaded', function () {
   // Проверка наличия ошибок в поле пароля

@@ -205,6 +205,10 @@ ul {
     margin-left: 0.75rem;
 }
 
+.outline {
+    outline: 1px solid #3d3d3d;
+}
+
 section {
     outline: var(--border);
 }

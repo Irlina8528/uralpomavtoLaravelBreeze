@@ -14,7 +14,7 @@
 
         {{-- Маршрут Пользователь Статус --}}
         <div class="row">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between outline">
                 <div class="d-flex">
                     <div class="info">
                         <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>

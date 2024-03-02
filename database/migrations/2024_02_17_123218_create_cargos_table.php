@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('width');
             $table->string('height');
             $table->string('weight');
-            $table->string('quantity')->default('1');
+            $table->string('quantity');
             $table->timestamps();
         });
     }

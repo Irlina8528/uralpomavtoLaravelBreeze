@@ -14,7 +14,7 @@
             </div>
         </div>
         {{-- Данные --}}
-        <div class="row">
+        <div class="row outline">
             @if ($user->phone)
                 <div class="col-auto">
                     <div class="info">
@@ -38,7 +38,7 @@
 
         {{-- Компания --}}
         @if ($user->id_company)
-            <div class="row">
+            <div class="row outline">
                 <div class="col-12">
                     <div class="title-div align-items-center">
                         <h4 class="orders-info m-3">Данные компании</h4>

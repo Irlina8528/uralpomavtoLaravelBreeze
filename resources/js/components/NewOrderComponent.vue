@@ -12,30 +12,30 @@
         <span class="col-auto d-flex ms-md-3 pe-md-3 min-w">{{ index + 1 }}</span>
         <div class="col-sm-12 col-md-4 d-flex fs-6 me-md-3">
             <div class="form-floating">
-                <input id="length" name="length" v-model="item.length" type="text" class="form-control mb-md-0"
-                    placeholder="Длина, м" required>
+                <input id="length" name="length" v-model="item.length" type="text" pattern="[0-9 .]*" maxlength="3"
+                    class="form-control mb-md-0" placeholder="Длина, м" required>
                 <label for="quantity">Длина, м</label>
             </div>
             <div class="form-floating">
-                <input id="width" name="width" v-model="item.width" type="text" class="form-control mb-md-0"
-                    placeholder="Ширина, м" required>
+                <input id="width" name="width" v-model="item.width" type="text" pattern="[0-9 .]*" maxlength="3"
+                    class="form-control mb-md-0" placeholder="Ширина, м" required>
                 <label for="width">Ширина, м</label>
             </div>
             <div class="form-floating">
-                <input id="height" name="height" v-model="item.height" type="text" class="form-control mb-md-0"
-                    placeholder="Высота, м" required>
+                <input id="height" name="height" v-model="item.height" type="text" pattern="[0-9 .]*" maxlength="3"
+                    class="form-control mb-md-0" placeholder="Высота, м" required>
                 <label for="height">Высота, м</label>
             </div>
         </div>
 
         <div class="col-sm-12 col-md-2 form-floating me-md-3">
-            <input id="weight" name="weight" v-model="item.weight" type="text" @input="weightFlag(item)"
-                class="form-control mb-md-0" placeholder="Вес, кг" required>
+            <input id="weight" name="weight" v-model="item.weight" type="text" pattern="[0-9 .]*" maxlength="5"
+                @input="weightFlag(item)" class="form-control mb-md-0" placeholder="Вес, кг" required>
             <label for="weight">Вес, кг</label>
         </div>
         <div class="col-sm-12 col-md-1 form-floating me-md-3">
-            <input id="quantity" name="quantity" v-model="item.quantity" type="text" class="form-control mb-md-0"
-                placeholder="Мест" required>
+            <input id="quantity" name="quantity" v-model="item.quantity" type="text" pattern="[0-9 .]*" maxlength="3"
+                class="form-control mb-md-0" placeholder="Мест" required>
             <label for="quantity">Мест</label>
         </div>
 
@@ -55,25 +55,25 @@
         </div>
         <div class="row">
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="liquid" name="liquid" id="liquid" class="me-2">
+                <input type="checkbox" v-model="liquid" name="liquid" id="liquid" class="me-2 custom-checkbox">
                 <label for="liquid">Жидкий</label>
             </div>
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="fragile" name="fragile" id="fragile" class="me-2">
+                <input type="checkbox" v-model="fragile" name="fragile" id="fragile" class="me-2 custom-checkbox">
                 <label for="fragile">Хрупкий</label>
             </div>
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="loose" name="loose" id="loose" class="me-2">
+                <input type="checkbox" v-model="loose" name="loose" id="loose" class="me-2 custom-checkbox">
                 <label for="loose">Сыпучий</label>
             </div>
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="dangerous" name="dangerous" id="dangerous" class="me-2">
+                <input type="checkbox" v-model="dangerous" name="dangerous" id="dangerous" class="me-2 custom-checkbox">
                 <label for="dangerous">Опасный</label>
             </div>
 
             <div class="col-sm-12 col-md-5 form-floating">
-                <input id="declared_cost" name="declared_cost" v-model="declaredCost" type="text"
-                    class="form-control mb-md-0" placeholder="Объявленная стоимость, ₽" required>
+                <input id="declared_cost" name="declared_cost" v-model="declaredCost" type="text" pattern="[0-9 .]*"
+                    maxlength="8" class="form-control mb-md-0" placeholder="Объявленная стоимость, ₽" required>
                 <label for="declared_cost">Объявленная стоимость, ₽</label>
             </div>
         </div>
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 col-md-5 form-floating">
+            <div class="col-sm-12 col-md-3 form-floating">
                 <input id="delivery_date" type="date" name="delivery_date" v-model="deliveryDate"
                     class="form-control mb-md-0" placeholder="Дата" required>
                 <label for="delivery_date">Дата</label>
@@ -108,20 +108,20 @@
         </div>
         <div class="row">
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="pallet" name="pallet" id="pallet" class="me-2">
+                <input type="checkbox" v-model="pallet" name="pallet" id="pallet" class="me-2 custom-checkbox">
                 <label for="pallet">Груз на поддоне</label>
             </div>
         </div>
         <div class="row">
             <div class="col-auto me-4">
                 <input type="checkbox" v-model="protectivePackaging" name="protective_packaging" id="protective_packaging"
-                    class="me-2">
+                    class="me-2 custom-checkbox">
                 <label for="protective_packaging">Защитная транспортировочная упаковка</label>
             </div>
         </div>
         <div class="row">
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="carton" name="carton" id="carton" class="me-2">
+                <input type="checkbox" v-model="carton" name="carton" id="carton" class="me-2 custom-checkbox">
                 <label for="carton">Картонная коробка</label>
             </div>
         </div>
@@ -129,9 +129,12 @@
 
     <!-- Стоимость -->
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between outline">
             <div class="title-div d-flex align-items-center">
                 <h4 class="orders-info m-3 me-5 ">Расчет стоимости</h4>
+            </div>
+            <div class="info">
+                <p>Груз: {{ totalVolume }} м&#179, {{ totalWeight }} кг, {{ totalQuantityText }}</p>
             </div>
         </div>
     </div>
@@ -140,27 +143,27 @@
             <tbody>
                 <tr>
                     <th>Автоперевозка</th>
-                    <td>{{ priceVW }}</td>
+                    <td>{{ formatMoney(priceVW) }}</td>
                 </tr>
                 <tr>
                     <th>Страхование</th>
-                    <td>{{ PricedeclaredCost }}</td>
+                    <td>{{ formatMoney(PricedeclaredCost) }}</td>
                 </tr>
                 <tr v-if="dangerous">
                     <th>Перевозка опасного груза</th>
-                    <td>500</td>
+                    <td>{{ formatMoney(500) }}</td>
                 </tr>
                 <tr v-if="pallet">
                     <th>Поддон</th>
-                    <td>300</td>
+                    <td>{{ formatMoney(300) }}</td>
                 </tr>
                 <tr v-if="protectivePackaging">
                     <th>Защитная транспортировочная упаковка</th>
-                    <td>450</td>
+                    <td>{{ formatMoney(450) }}</td>
                 </tr>
                 <tr v-if="carton">
                     <th>Картонная коробка</th>
-                    <td>15</td>
+                    <td>{{ formatMoney(15) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -168,7 +171,7 @@
     <div class="row">
         <div class="col-12">
             <div class="title-div d-flex align-items-center justify-content-between">
-                <h3 class="orders-info m-2 me-5 ">Стоимость заказа - {{ getTotalPrice() }}</h3>
+                <h3 class="orders-info m-2 me-5 ">Стоимость заказа - {{ formatMoney(getTotalPrice()) }}</h3>
                 <button class="btn col-auto w-50" type="submit" @click="saveData">Оформить</button>
             </div>
         </div>
@@ -182,6 +185,12 @@
     </p>
     <p>Стоимость объема:
         {{ getpricePerM3() }} руб.
+    </p>
+    <p>Объем:
+        {{ totalVolume }}
+    </p>
+    <p>Вес:
+        {{ totalWeight }}
     </p> -->
 </template>
 
@@ -193,35 +202,40 @@ export default {
         return {
             items: [
                 {
-                    length: 1,
-                    width: 1,
-                    height: 1,
-                    weight: 1,
+                    length: '',
+                    width: '',
+                    height: '',
+                    weight: '',
                     quantity: 1,
                 }
             ],
             deliveryDate: '',
             cityInto: '',
             cityFrom: '',
-            declaredCost: 0,
+            declaredCost: '',
 
+            // Тип
             liquid: false,
             fragile: false,
             loose: false,
             dangerous: false,
+            PricedeclaredCost: 0,
 
+            // Упаковка
             pallet: false,
             protectivePackaging: false,
             carton: false,
 
-            PricedeclaredCost: 0,
-            totalDistancePrice: 0,
             priceVW: 0,
             totalPrice: 0,
-            numberPlaces: 0,
+
             totalWeight: 0,
             totalVolume: 0,
+
             deliveryLength: 0,
+
+
+            // Тариф
             tariffs: [
                 // до 1000
                 {
@@ -281,6 +295,7 @@ export default {
         }
     },
     watch: {
+        // Чекбоксы
         liquid: function (newVal) {
             this.protectivePackaging = newVal;
         },
@@ -292,6 +307,7 @@ export default {
         // Прослушка событие "обновление длины"
         window.addEventListener('length-updated', this.updateDeliveryLength);
 
+        // Получение города
         document.addEventListener('cityFrom', this.handleCityFrom);
         document.addEventListener('cityInto', this.handlecityInto);
     },
@@ -300,6 +316,7 @@ export default {
         window.removeEventListener('length-updated', this.updateDeliveryLength);
     },
     methods: {
+        // Передача данных
         saveData() {
             axios.post('/save', {
                 items: this.items,
@@ -325,19 +342,26 @@ export default {
                     console.error(error);
                 });
         },
+        // Длинна маршрута
+        updateDeliveryLength(event) {
+            this.deliveryLength = (Math.round(event.detail.value / 1000));
+        },
+
+        // Города
         handleCityFrom(event) {
             this.cityFrom = event.detail;
         },
         handlecityInto(event) {
             this.cityInto = event.detail;
         },
+
+        // Чекбокс
         weightFlag() {
             this.pallet = this.items.some(item => parseFloat(item.weight) >= 50);
             this.carton = this.items.some(item => parseFloat(item.weight) <= 3);
         },
-        updateDeliveryLength(event) {
-            this.deliveryLength = (Math.round(event.detail.value / 1000));
-        },
+
+        // Итоговая цена
         getTotalPrice() {
             let pricePerKm = this.getPricePerKm();
             let pricePerKg = this.getPricePerKg();
@@ -370,17 +394,24 @@ export default {
                 this.PricedeclaredCost = 1000
             }
 
-            this.totalDistancePrice = this.deliveryLength * pricePerKm;
+            // Цена маршрута
+            var totalDistancePrice = this.deliveryLength * pricePerKm;
+
+            // Вес и объем
             this.maxVolume;
             this.maxWeight;
-
             let totalWeightPrice = this.totalWeight * pricePerKg;
             let totalVolumePrice = this.totalVolume * pricePerM3;
 
-            this.priceVW = this.totalDistancePrice + (totalWeightPrice > totalVolumePrice ? totalWeightPrice : totalVolumePrice);
+            // Маршурт Вес или Объем
+            this.priceVW = totalDistancePrice + (totalWeightPrice > totalVolumePrice ? totalWeightPrice : totalVolumePrice);
+
+            // Итоговая цена
             this.totalPrice = this.priceVW + additionalPrice + this.PricedeclaredCost;
-            return this.totalPrice.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' });
+            return this.totalPrice;
         },
+
+        // Цена за км
         getPricePerKm() {
             for (let i = 0; i < this.tariffs.length; i++) {
                 if (this.deliveryLength >= this.tariffs[i].distanceMin && this.deliveryLength <= this.tariffs[i].distanceMax) {
@@ -390,6 +421,7 @@ export default {
             return this.tariffs[this.tariffs.length - 1].pricePerKm; // Если расстояние больше всех указанных лимитов, берется последний тариф
         },
 
+        // Цена за кг
         getPricePerKg() {
             let tariffs = this.tariffs;
             let distance = this.deliveryLength;
@@ -410,8 +442,9 @@ export default {
                 }
             }
 
-
         },
+
+        // Цена за м3
         getpricePerM3() {
             let tariffs = this.tariffs;
             let distance = this.deliveryLength;
@@ -434,6 +467,8 @@ export default {
 
             return this.tariffs[this.tariffs.length - 1].volumes[this.tariffs[this.tariffs.length - 1].volumes.length - 1].pricePerM3;
         },
+
+        // Добавить место
         addRow() {
             this.items.push({
                 length: 1,
@@ -443,50 +478,97 @@ export default {
                 quantity: 1
             });
         },
+        // Удалить
         deleteRow(index) {
             this.items.splice(index, 1);
         },
+
+        // Форматирование денег
+        formatMoney(value) {
+            return value.toLocaleString('ru-RU', {
+                style: 'currency',
+                currency: 'RUB',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2,
+            });
+        },
     },
     computed: {
-        calculateDelivery() {
-            if (this.totalWeight > 10) {
-                return this.deliveryLength * 100;
+        // Места
+        totalQuantity() {
+            let sum = 0;
+            this.items.forEach(item => {
+                sum += parseInt(item.quantity);
+            });
+            return sum;
+        },
+        totalQuantityText() {
+            const total = this.totalQuantity;
+            if (total === 1) {
+                return "1 место";
+            } else if (total >= 2 && total <= 4) {
+                return `${total} места`;
             } else {
-                return this.deliveryLength;
+                return `${total} мест`;
             }
         },
+
+        // Объем каждого места
         volumes() {
             return this.items.map(item => {
-                const volume = item.length * item.width * item.height;
+                const volume = item.length * item.width * item.height * item.quantity;
                 return {
                     ...item,
                     volume
                 };
             });
         },
+        // Общий объем
         maxVolume() {
-            const maxVolumeItem = this.volumes.reduce((prev, current) => prev.volume > current.volume ? prev : current);
-            this.totalVolume = maxVolumeItem.volume;
-            return maxVolumeItem.volume;
+            this.totalVolume = this.volumes.reduce((acc, item) => acc + item.volume, 0);
+            this.totalQuantity = this.items.reduce((acc, item) => acc + item.quantity, 0);
+
+            return this.totalVolume;
         },
+
+        // Общий вес
         maxWeight() {
-            const maxWeight = Math.max(...this.items.map(item => item.weight));
-            this.totalWeight = maxWeight;
-            return maxWeight;
+            const totalWeight = this.items.reduce((acc, item) => acc + (item.weight * item.quantity), 0);
+            this.totalWeight = totalWeight;
+            return this.totalWeight;
         },
     },
 }
 </script>
 <style>
-.outline {
-    outline: 1px solid #3d3d3d;
-}
-
 .min-w {
     min-width: 30px;
 }
 
 .w-50 {
     width: 50%;
+}
+
+/* Чекбокс */
+.custom-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #fa663d;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.custom-checkbox:checked {
+    border: 2px solid #fa663d;
+    background-color: #fa663d;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    width: 20px;
+    height: 20px;
 }
 </style>
