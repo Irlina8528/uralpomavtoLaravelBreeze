@@ -93,7 +93,7 @@
 
         <div class="row">
             <div class="info">
-                <p>Объявленная стоимость: {{ $order->declared_cost }} ₽ </p>
+                <p>Объявленная стоимость: {{ $order->declared_cost }}</p>
             </div>
         </div>
 
@@ -137,7 +137,7 @@
 
         <div class="row">
             <div class="info d-flex justify-content-end">
-                <p>Итоговая стоимость заказа: {{ $order->cost }} ₽ </p>
+                <p>Итоговая стоимость заказа: {{ $order->cost }}</p>
             </div>
         </div>
     </section>

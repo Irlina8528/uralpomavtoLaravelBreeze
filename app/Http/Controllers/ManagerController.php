@@ -47,9 +47,14 @@ class ManagerController extends Controller
     public function orderShow(Order $order, Status $status)
     {
         $order->load('user', 'status', 'cargo');
+
+        $order->declared_cost = number_format($order->declared_cost, ($order->declared_cost - floor($order->declared_cost)) ? 2 : 0, ',', ' ') . ' ₽';
         $status = Status::all();
         $date = Carbon::parse($order->created_at);
         $formattedDate = $date->translatedFormat('d M Y');
+
+        $order->delivery_date = Carbon::parse($order->delivery_date);
+        $order->delivery_date = $order->delivery_date->translatedFormat('d M Y');
 
         return view('manager.order', compact('order', 'formattedDate', 'status'));
     }

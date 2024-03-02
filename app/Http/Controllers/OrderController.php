@@ -34,7 +34,6 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        // Получите данные из запроса
         $items = $request->input('items');
         $liquid = $request->input('liquid');
         $fragile = $request->input('fragile');
@@ -49,10 +48,7 @@ class OrderController extends Controller
         $city_from = $request->input('city_from');
         $city_into = $request->input('city_into');
 
-        // Сохраните данные в базу данных
-
         $user = $request->user();
-        // Создайте новый заказ
         $order = Order::create([
             'id_client' => $user->id,
             'liquid' => $liquid,
@@ -70,10 +66,9 @@ class OrderController extends Controller
         ]);
 
 
-        // Сохраните грузы для этого заказа
         foreach ($items as $item) {
             $cargo = new Cargo();
-            $cargo->id_order = $order->id; // Используйте id заказа для связи груза с заказом
+            $cargo->id_order = $order->id;
             $cargo->length = $item['length'];
             $cargo->width = $item['width'];
             $cargo->height = $item['height'];
@@ -89,6 +84,8 @@ class OrderController extends Controller
     {
         $order->load('cargo');
 
+        $order->declared_cost = number_format($order->declared_cost, ($order->declared_cost - floor($order->declared_cost)) ? 2 : 0, ',', ' ') . ' ₽';
+        $order->cost = number_format($order->cost, ($order->cost - floor($order->cost)) ? 2 : 0, ',', ' ') . ' ₽';
         $date = Carbon::parse($order->created_at);
         $formattedDate = $date->translatedFormat('d F Y');
 
@@ -97,6 +94,7 @@ class OrderController extends Controller
         } else {
             $formattedDate = $date->translatedFormat('d F');
         }
+
         switch ($order->status->id) {
             case '1':
                 $progress = 2;

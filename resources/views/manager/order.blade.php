@@ -81,8 +81,15 @@
         </div>
 
         <div class="row">
-            <div class="info">
-                <p>Объявленная стоимость: {{ $order->declared_cost }} ₽ </p>
+            <div class="d-flex justify-content-between outline">
+                <div class="d-flex">
+                    <div class="info">
+                        <p>Объявленная стоимость: {{ $order->declared_cost }}</p>
+                    </div>
+                    <div class="info">
+                        <p>Дата: {{ $order->delivery_date }}</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -141,7 +148,7 @@
             <div class="info d-flex justify-content-end">
                 <button class="btn px-2 py-1 me-3" type="submit">Сохранить</button>
                 </form>
-                
+
                 {{-- Удалить --}}
                 <form action="{{ route('manager-order-delete', $order->id) }}" method="post">
                     @csrf
