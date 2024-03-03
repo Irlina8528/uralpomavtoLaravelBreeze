@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.freehosting-2domains-link {
+    display: none;
+}
+
 :root {
     --color-bg: #1b1c1b;
     --color-accent: #fa663d;
@@ -305,7 +309,8 @@ table {
     border: var(--border) !important;
 }
 
-th, .td {
+th,
+.td {
     white-space: nowrap;
 }
 
