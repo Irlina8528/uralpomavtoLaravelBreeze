@@ -9,8 +9,17 @@
         </div>
     </div>
     <div class="row d-flex align-items-center outline" v-for="(item, index) in items" :key="index">
-        <span class="col-auto d-flex ms-md-3 pe-md-3 min-w">{{ index + 1 }}</span>
-        <div class="col-sm-12 col-md-4 d-flex fs-6 me-md-3">
+        <div class="d-flex justify-content-between col-md-1">
+            <div class="d-flex">
+                <span class="col-auto d-flex ms-md-3 pe-md-3 min-w d-sm-block d-md-none">Место </span>
+                <span class="col-auto d-flex ms-md-3 pe-md-3 min-w d-sm-block d-md-none"> </span>
+                <span class="col-auto d-flex ms-md-3 pe-md-3 min-w"> {{ index + 1 }}</span>
+            </div>
+            <div class="col-md-1 d-flex d-block d-md-none">
+                <button @click="deleteRow(index)" class="btn px-3 py-1">x</button>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5 d-flex fs-6 me-md-3">
             <div class="form-floating">
                 <input id="length" name="length" v-model="item.length" type="text" pattern="[0-9 .]*" maxlength="3"
                     class="form-control mb-md-0" placeholder="Длина, м" required>
@@ -33,13 +42,13 @@
                 @input="weightFlag(item)" class="form-control mb-md-0" placeholder="Вес, кг" required>
             <label for="weight">Вес, кг</label>
         </div>
-        <div class="col-sm-12 col-md-1 form-floating me-md-3">
+        <div class="col-sm-11 col-md-1 form-floating me-md-3">
             <input id="quantity" name="quantity" v-model="item.quantity" type="text" pattern="[0-9 .]*" maxlength="3"
                 class="form-control mb-md-0" placeholder="Мест" required>
             <label for="quantity">Мест</label>
         </div>
 
-        <div class="col-md-1 d-flex">
+        <div class="col-md-1 d-flex d-none d-md-block ">
             <button @click="deleteRow(index)" class="btn px-3 py-1">x</button>
         </div>
     </div>
@@ -114,9 +123,9 @@
         </div>
         <div class="row">
             <div class="col-auto me-4">
-                <input type="checkbox" v-model="protectivePackaging" name="protective_packaging" id="protective_packaging"
-                    class="me-2 custom-checkbox">
-                <label for="protective_packaging">Защитная транспортировочная упаковка</label>
+                <input type="checkbox" v-model="protectivePackaging" name="protective_packaging"
+                    id="protective_packaging" class="me-2 custom-checkbox">
+                <label for="protective_packaging">Защитная упаковка</label>
             </div>
         </div>
         <div class="row">
@@ -129,12 +138,14 @@
 
     <!-- Стоимость -->
     <div class="row">
-        <div class="col-12 d-flex justify-content-between outline">
-            <div class="title-div d-flex align-items-center">
-                <h4 class="orders-info m-3 me-5 ">Расчет стоимости</h4>
-            </div>
-            <div class="info">
-                <p>Груз: {{ totalVolume }} м&#179, {{ totalWeight }} кг, {{ totalQuantityText }}</p>
+        <div class="col-12 outline">
+            <div class="row">
+                <div class="col-sm-12 col-md-7 title-div d-flex align-items-center">
+                    <h4 class="orders-info m-3 me-5">Расчет стоимости</h4>
+                </div>
+                <div class="col-sm-12 col-md-5 info">
+                    <p>Груз: {{ totalVolume }} м&#179, {{ totalWeight }} кг, {{ totalQuantityText }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -158,7 +169,7 @@
                     <td>{{ formatMoney(300) }}</td>
                 </tr>
                 <tr v-if="protectivePackaging">
-                    <th>Защитная транспортировочная упаковка</th>
+                    <th>Защитная упаковка</th>
                     <td>{{ formatMoney(450) }}</td>
                 </tr>
                 <tr v-if="carton">
@@ -169,29 +180,13 @@
         </table>
     </div>
     <div class="row">
-        <div class="col-12">
-            <div class="title-div d-flex align-items-center justify-content-between">
-                <h3 class="orders-info m-2 me-5 ">Стоимость заказа - {{ formatMoney(getTotalPrice()) }}</h3>
-                <button class="btn col-auto w-50" type="submit" @click="saveData">Оформить</button>
-            </div>
+        <div class="col-sm-12 col-md-8 title-div d-flex align-items-center justify-content-between">
+            <h3 class="orders-info m-2 me-md-5 ">Стоимость заказа - {{ formatMoney(getTotalPrice()) }}</h3>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <button class="btn form__btn" type="submit" @click="saveData">Оформить</button>
         </div>
     </div>
-
-    <!-- <p>Стоимость расстояния:
-        {{ getPricePerKm() }} руб.
-    </p>
-    <p>Стоимость веса:
-        {{ getPricePerKg() }} руб.
-    </p>
-    <p>Стоимость объема:
-        {{ getpricePerM3() }} руб.
-    </p>
-    <p>Объем:
-        {{ totalVolume }}
-    </p>
-    <p>Вес:
-        {{ totalWeight }}
-    </p> -->
 </template>
 
 <script>

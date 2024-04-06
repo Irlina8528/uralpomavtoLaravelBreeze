@@ -17,7 +17,7 @@
             </div>
             <div class="row">
                 <div class="d-grid gap-2 d-sm-block">
-                    <a href="#application" class="btn intro__btn">Оформить заявку</a>
+                    <a href="#contact-form" class="btn intro__btn">Оформить заявку</a>
                 </div>
             </div>
         </div>
@@ -254,10 +254,9 @@
                             <div class="offset-lg-6 col-lg-6">
                                 <div class="guarantees__info guarantees__info3">
                                     <h4 class="guarantees__info-title">Гибкие индивидуальные условия работы</h4>
-                                    <p class="guarantees__p">Мы работаем с любыми формами оплаты - без НДС / с НДС.
+                                    <p class="guarantees__p">Мы работаем с любыми формами оплаты.
                                         Возможна отсрочка платежа. Своевременный документооборот
-                                        - предоставляем все необходимые транспортные и отчетные
-                                        бухгалтерские документы в срок</p>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -360,7 +359,7 @@
     </section>
 
     <!-- Заявка -->
-    <section class="application" id="contact-form">
+    <section class="application mb-0" id="contact-form">
 
         <div class="title-div">
             <h2>Остались вопросы?</h2>
@@ -375,7 +374,7 @@
                                     Спасибо за обращение. В ближайшее время вам позвонит специалист.
                                 </p>
                             @else
-                                <p class="application__info">
+                                <p class="application__info mb-2">
                                     Получите консультацию по вопросам логистических услуг. Мы свяжемся с вами в ближайшее
                                     время.
                                 </p>
@@ -397,7 +396,7 @@
                                     <label for="phone">Телефон</label>
                                 </div>
                                 <div class="col-12 col-md-6 offset-md-3 form-floating">
-                                    <textarea id="question" name="question" class="form-control textareai" id="exampleFormControlTextarea"
+                                    <textarea id="question" name="question" class="form-control textareai"
                                         placeholder="Ваш вопрос"></textarea>
                                     <label for="question">Ваш вопрос</label>
                                 </div>

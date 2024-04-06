@@ -96,7 +96,7 @@
     </section>
 
     <!-- Письма -->
-    <section class="letters" id="letters">
+    <section class="letters mb-0" id="letters">
         <div class="title-div">
             <h2 class="letters__title">Рекомендательные письма</h2>
         </div>

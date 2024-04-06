@@ -40,11 +40,6 @@
                     </a>
                 </li>
                 <li class="w-100">
-                    <a href="#" class="nav-link">
-                        Поддержка
-                    </a>
-                </li>
-                <li class="w-100">
                     <a href="{{ route('profile.edit') }}"
                         class="nav-link {{ request()->is('profile') ? 'active' : '' }}">
                         Профиль

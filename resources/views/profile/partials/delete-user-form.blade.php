@@ -3,13 +3,15 @@
         <h2 class="profile-del__title">Удалить аккаунт</h2>
     </div>
 
-    <p class="profile-del__info info">
-        Как только ваша учетная запись будет удалена, все ее данные будут удалены безвозвратно.
-    </p>
-
-    <div class="profile-del__info info ">
-        <x-danger-button class="col-sm-12" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-            data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
+    <div class="row">
+        <p class="profile-del__info info col-sm-12  col-md-9">
+            Как только ваша учетная запись будет удалена, все ее данные будут удалены безвозвратно.
+        </p>
+    
+        <div class=" col-sm-12 col-md-3 d-flex align-items-center">
+            <x-danger-button class="btn form__btn profile__btn" x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
+                data-bs-toggle="modal" data-bs-target="#modalDell">Удалить аккаунт</x-danger-button>
+        </div>
     </div>
 
     <!-- Модальное окно -->

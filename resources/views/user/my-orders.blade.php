@@ -13,10 +13,14 @@
         </div>
 
         @foreach ($orders as $order)
-            <div class="row">
-                <div class="info d-flex justify-content-between">
+            <div class="row mb-4 mb-md-0">
+                <div class="info col-sm-12 col-md-4 ps-3">
                     <a href="{{ route('show-order', $order) }}">Заказ от {{ $formattedDates[$order->id] }}</a>
+                </div>
+                <div class="info col-sm-12 col-md-4 ps-3">
                     <p>{{ $order->city_from }} - {{ $order->city_into }}</p>
+                </div>
+                <div class="info col-sm-12 col-md-4 ps-3">
                     <p>{{ $order->status->name }}</p>
                 </div>
             </div>

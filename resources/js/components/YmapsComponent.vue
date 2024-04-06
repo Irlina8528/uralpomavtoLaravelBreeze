@@ -16,24 +16,14 @@
                 required>
             <label for="total-volume">Общий объем в м3</label>
         </div>
-        <div class="col-sm-12 col-md-4 pe-md-3 d-flex align-items-center" v-if="totalWeight == 0 || totalVolume == 0 || deliveryLength == 0 || numberPlaces == 0">
+        <div class="col-sm-12 col-md-4 pe-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0" v-if="totalWeight == 0 || totalVolume == 0 || deliveryLength == 0 || numberPlaces == 0">
             <p>Заполните все данные</p>
         </div>
-        <div class="col-sm-12 col-md-4 pe-md-3 d-flex align-items-center" v-else>
-            <p>Ориентировочная стоимость:
+        <div class="col-sm-12 col-md-4 pe-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0" v-else>
+            <p>Итого:
                 {{ getTotalPrice() }}
             </p>
         </div>
-
-        <!-- <p>Стоимость расстояния:
-            {{ getPricePerKm() }} руб.
-        </p>
-        <p>Стоимость веса:
-            {{ getPricePerKg() }} руб.
-        </p>
-        <p>Стоимость об:
-            {{ getpricePerM3() }} руб.
-        </p> -->
     </div>
 </template>
 

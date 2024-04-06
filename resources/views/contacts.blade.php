@@ -21,7 +21,7 @@
         </div>
     </section>
 
-    <section class="aboutus">
+    <section class="aboutus mb-0">
         <div class="title-div">
             <h2 class="aboutus__title">Как связаться с нами</h2>
         </div>

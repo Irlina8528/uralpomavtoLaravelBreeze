@@ -13,7 +13,7 @@
         </div>
 
         {{-- Прогресс --}}
-        <div class="row d-sm-none d-md-block">
+        <div class="row d-none d-md-block">
             <div class="col-11">
                 <div class="position-relative">
                     <div class="progress">
@@ -39,6 +39,30 @@
                             <p class="p-status">Завершен</p>
                         </div>
                         <div class="progress-bar" style="width: {{ $progress }}%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Прогресс см --}}
+        <div class="row d-block d-md-none">
+            <div class="col-12">
+                <button class="btn form__btn py-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProgress"
+                    aria-expanded="false" aria-controls="collapseProgress">
+                    {{ $order->status->name }}
+                </button>
+
+                <div class="collapse mb-4 mt-2" id="collapseProgress">
+                    <div class="card card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item {{ $order->status->name == 'Оформлен' ? 'active' : '' }}" aria-current="true">Оформлен</li>
+                            <li class="list-group-item {{ $order->status->name == 'В работе' ? 'active' : '' }}">В работе</li>
+                            <li class="list-group-item {{ $order->status->name == 'Ждёт оплаты' ? 'active' : '' }}">Ждёт оплаты</li>
+                            <li class="list-group-item {{ $order->status->name == 'Оплачен' ? 'active' : '' }}">Оплачен</li>
+                            <li class="list-group-item {{ $order->status->name == 'В пути' ? 'active' : '' }}">В пути</li>
+                            <li class="list-group-item {{ $order->status->name == 'Доставлен' ? 'active' : '' }}">Доставлен</li>
+                            <li class="list-group-item {{ $order->status->name == 'Завершен' ? 'active' : '' }}">Завершен</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -137,7 +161,7 @@
 
         <div class="row">
             <div class="info d-flex justify-content-end">
-                <p>Итоговая стоимость заказа: {{ $order->cost }}</p>
+                <p>Итоговая стоимость: <span class="title-cost">{{ $order->cost }}</span></p>
             </div>
         </div>
     </section>

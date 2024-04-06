@@ -5,15 +5,12 @@
 
     <title>@yield('title') | Транспортная компания {{ config('app.name', 'Laravel') }}</title>
     <meta name="description" content="@yield('description')">
-    
-    <link rel="shortcut icon" href="img/Star-w.jpg" type="image/x-icon">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!-- Scripts -->
-    @vite(['resources/js/app.js',
-     'resources/js/jquery.js', 
-     'resources/js/bootstrap.min.js', 
-     'resources/js/jasny-bootstrap.min.js',
-     'resources/css/bootstrap.min.css',
-     'resources/css/app.css'])
-     
+    @vite(['resources/js/app.js', 'resources/js/jquery.js', 'resources/js/bootstrap.esm.js', 'resources/js/jasny-bootstrap.min.js', 'resources/css/bootstrap.min.css', 'resources/css/app.css'])
+
 </head>

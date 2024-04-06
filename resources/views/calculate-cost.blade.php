@@ -7,7 +7,7 @@
     расстояния и параметров груза.
 @endsection
 @section('content')
-    <section class="calc" id="app">
+    <section class="calc mb-0" id="app">
         <div class="title-div">
             <h2 class="service__title">РАССЧИТАЙТЕ СТОИМОСТЬ ГРУЗОПЕРЕВОЗКИ</h2>
         </div>
