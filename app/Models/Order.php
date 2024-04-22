@@ -28,30 +28,31 @@ class Order extends Model
         'id_driver',
         'id_transport',
         'id_status',
+        'reason',
         'id_manager',
     ];
 
-    
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_client');
     }
-    
+
     public function drivers()
     {
         return $this->belongsTo(Driver::class, 'id_driver');
     }
-    
+
     public function transports()
     {
         return $this->belongsTo(Transport::class, 'id_transport');
     }
-    
+
     public function status()
     {
         return $this->belongsTo(Status::class, 'id_status');
     }
-    
+
     public function manager()
     {
         return $this->belongsTo(User::class, 'id_manager');
@@ -60,5 +61,9 @@ class Order extends Model
     public function cargo()
     {
         return $this->hasMany(Cargo::class, 'id_order');
+    }
+    public function OrderFeedback()
+    {
+        return $this->hasOne(Feedback::class, 'id_order');
     }
 }

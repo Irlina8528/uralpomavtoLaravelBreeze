@@ -15,7 +15,7 @@
         {{-- Маршрут Пользователь Статус --}}
         <div class="row">
 
-            <div class="col-sm-12 col-md-5 info">
+            <div class="col-sm-12 col-md-4 info">
                 <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
             </div>
             <div class="col-sm-12 col-md-5 info">
@@ -23,16 +23,26 @@
                     {{ $order->user->surname }}</a>
             </div>
 
-            <div class="col-sm-12 col-md-2 info">
+            <div class="col-sm-12 col-md-3 info">
                 <form action="{{ route('manager-order-update', $order->id) }}" method="post">
                     @csrf
                     @method('patch')
-                    <select class="form-select form-control mb-0" name="status" id="status">
-                        @foreach ($status as $status)
-                            <option value="{{ $status->id }}" {{ $status->id == $order->id_status ? 'selected' : '' }}>
-                                {{ $status->name }}</option>
-                        @endforeach
-                    </select>
+                    @if($order->status->id == 7)
+                        <p>{{ $order->status->name }}</p>
+                    @elseif($order->status->id == 8)
+                        <p>{{ $order->status->name }}. Причина: {{ $order->reason }}</p>
+                    @else
+                        <select class="form-select form-control mb-0" name="status" id="status">
+                            @foreach ($status as $status)
+                                <option value="{{ $status->id }}" {{ $status->id == $order->id_status ? 'selected' : '' }}>
+                                    {{ $status->name }}</option>
+                            @endforeach
+                        </select>
+                    @endif
+                    <div class="form-floating mt-2" style="display:none" id="reason">
+                        <input class="form-control form-control m-0"   type="text" name="reason"  placeholder="Причина">
+                        <label for="reason">Причина</label>
+                    </div>
             </div>
         </div>
 
@@ -137,7 +147,7 @@
                     <x-input-label for="cost" value="Итого, ₽" />
                     <x-input-error :messages="$errors->get('cost')" class="mt-2" />
                 </div>
-                
+
             </div>
 
             <div class="col-sm-12 col-md-2 info">

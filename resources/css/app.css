@@ -185,6 +185,12 @@ a {
     text-decoration: none;
     color: var(--color-accent);
 }
+.not-link{
+    color: var(--color-text);
+}
+.not-link:hover{
+    color: var(--color-text);
+}
 
 a:hover {
     color: var(--color-accent);
@@ -906,6 +912,30 @@ p.active {
     background-color: var(--color-accent);
     border: 0;
 }
+/*Звезды*/
+.rating-result {
+    width: 265px;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.rating-result span {
+    padding: 0;
+    font-size: 32px;
+    margin: 0 3px;
+    line-height: 1;
+    color: #3d3d3d;
+}
+.rating-result > span:before {
+    content: '★';
+}
+.rating-result > span.active {
+    color: var(--color-accent);
+}
+
 /* Медия запросы */
 @media (max-width: 630px) {
     .work__infos {

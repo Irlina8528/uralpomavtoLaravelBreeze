@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactFormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\FeedbackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,7 @@ Route::middleware(['auth', 'verified', 'check.user.type:user'])->group(function 
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::patch('/profile/company', [ProfileController::class, 'company_update'])->name('profile.company_update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/feedback', [FeedbackController::class, 'store'])->name('user-feedback');
 });
 
 Route::middleware(['auth', 'verified', 'check.user.type:manager'])->group(function () {
@@ -49,7 +51,7 @@ Route::middleware(['auth', 'verified', 'check.user.type:manager'])->group(functi
 
 Route::get('/contacts', function () {return view('contacts');})->name('contacts');
 
-Route::get('/about', function () {return view('about');})->name('about');
+Route::get('/about', [FeedbackController::class, 'create'])->name('about');
 
 Route::get('/calculate-cost', function () {return view('calculate-cost');})->name('calculate-cost');
 

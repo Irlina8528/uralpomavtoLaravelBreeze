@@ -73,7 +73,6 @@
                 <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
             </div>
         </div>
-
         <div class="row">
             {{-- Тип груза --}}
             @if ($order->liquid || $order->fragile || $order->loose || $order->dangerous)
@@ -165,4 +164,22 @@
             </div>
         </div>
     </section>
+
+    @if($order->status->name == 'Завершен' )
+        @if (!$order->OrderFeedback)
+            <section class="mb-0" id="app">
+                <new-review-component :initial-data="{{ json_encode($order->id) }}"></new-review-component>
+            </section>
+        @else
+            @if(session('message'))
+                <div class="info text-center">
+                    {{ session('message') }}
+                </div>
+            @endif
+        @endif
+    @endif
+
+    <script
+        src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=726c1f88-b5b9-42b0-9b20-c0e09c64e47b&suggest_apikey=48e4e7fc-f992-470f-9462-2807535ad255"
+        type="text/javascript"></script>
 @endsection

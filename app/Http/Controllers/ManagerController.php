@@ -63,6 +63,7 @@ class ManagerController extends Controller
         $order = Order::find($id);
 
         $order->cost = $request->input('cost');
+        $order->reason = $request->reason;
         $status = $request->input('status');
 
         $order->id_status = $status;

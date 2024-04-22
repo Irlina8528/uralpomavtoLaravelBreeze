@@ -38,6 +38,35 @@
         </div>
     </section>
 
+    {{--    Отзывы--}}
+    <section>
+        <div class="title-div">
+            <h2 class="about__title">Отзывы</h2>
+        </div>
+        <div class="row g-0">
+            @foreach($datas as $data)
+                <div class="col-sm-12 col-md-4">
+                    <div class="cardi">
+                        <div class="info__card">
+                            <h5 class="card-title">{{$data->feedbackUser->name}} {{$data->feedbackUser->surname}}</h5>
+                            <div class="rating-result">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $data->stars)
+                                        <span class="active"></span>
+                                    @else
+                                        <span></span>
+                                    @endif
+                                @endfor
+                            </div>
+                            <p class="card-text">{{$data->comment}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
+        </div>
+    </section>
+
     <!-- Наша команда -->
     <section class="team" id="team">
         <div class="title-div">

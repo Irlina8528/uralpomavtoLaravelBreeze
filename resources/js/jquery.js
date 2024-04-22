@@ -36,6 +36,14 @@ $('body').on('click', '.password-control', function () {
   return false;
 });
 
+$("#status").on('change', function(){
+    if($(this).val() == 8){
+        $("#reason").show();
+    } else {
+        $("#reason").hide();
+    }
+});
+
 // Маска
 // Телефон
 $("#phone").mask('+7(999) 999-99-99', { autoclear: false });

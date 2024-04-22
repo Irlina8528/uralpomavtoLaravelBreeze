@@ -29,6 +29,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_driver')->nullable();
             $table->unsignedBigInteger('id_transport')->nullable();
             $table->unsignedBigInteger('id_status')->default('1');
+            $table->string('reason')->nullable();
             $table->unsignedBigInteger('id_manager')->nullable();
             $table->timestamps();
         });

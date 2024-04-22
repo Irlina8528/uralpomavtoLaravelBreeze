@@ -12,19 +12,26 @@
             </div>
         </div>
 
-        @foreach ($orders as $order)
-            <div class="row mb-4 mb-md-0">
-                <div class="info col-sm-12 col-md-4 ps-3">
-                    <a href="{{ route('show-order', $order) }}">Заказ от {{ $formattedDates[$order->id] }}</a>
-                </div>
-                <div class="info col-sm-12 col-md-4 ps-3">
-                    <p>{{ $order->city_from }} - {{ $order->city_into }}</p>
-                </div>
-                <div class="info col-sm-12 col-md-4 ps-3">
-                    <p>{{ $order->status->name }}</p>
-                </div>
+        @if ($orders->isEmpty())
+            <div class="info text-center ps-3">
+                <p>У вас нет заказов</p>
             </div>
+        @else
+        @foreach ($orders as $order)
+                <a href="{{ route('show-order', $order) }}">
+                    <div class="row mb-4 mb-md-0">
+                        <div class="info col-sm-12 col-md-4 ps-3">
+                            <p>Заказ от {{ $formattedDates[$order->id] }}</p>
+                        </div>
+                        <div class="info col-sm-12 col-md-4 ps-3">
+                            <p class="not-link">{{ $order->city_from }} - {{ $order->city_into }}</p>
+                        </div>
+                        <div class="info col-sm-12 col-md-4 ps-3">
+                            <p class="not-link">{{ $order->status->name }}</p>
+                        </div>
+                    </div>
+                </a>
         @endforeach
-
+        @endif
     </section>
 @endsection
