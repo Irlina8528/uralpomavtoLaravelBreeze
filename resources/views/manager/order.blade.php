@@ -14,30 +14,28 @@
 
         {{-- Маршрут Пользователь Статус --}}
         <div class="row">
-            <div class="d-flex justify-content-between outline">
-                <div class="d-flex">
-                    <div class="info">
-                        <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
-                    </div>
-                    <div class="info">
-                        <a href="{{ route('manager-order-user', $order->user->id) }}">Пользователь: {{ $order->user->name }}
-                            {{ $order->user->surname }}</a>
-                    </div>
-                </div>
-                <div class="info col-auto">
-                    <form action="{{ route('manager-order-update', $order->id) }}" method="post">
-                        @csrf
-                        @method('patch')
-                        <select class="form-select form-control mb-0" name="status" id="status">
-                            @foreach ($status as $status)
-                                <option value="{{ $status->id }}"
-                                    {{ $status->id == $order->id_status ? 'selected' : '' }}>
-                                    {{ $status->name }}</option>
-                            @endforeach
-                        </select>
-                </div>
+
+            <div class="col-sm-12 col-md-5 info">
+                <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
+            </div>
+            <div class="col-sm-12 col-md-5 info">
+                <a href="{{ route('manager-order-user', $order->user->id) }}">Пользователь: {{ $order->user->name }}
+                    {{ $order->user->surname }}</a>
+            </div>
+
+            <div class="col-sm-12 col-md-2 info">
+                <form action="{{ route('manager-order-update', $order->id) }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <select class="form-select form-control mb-0" name="status" id="status">
+                        @foreach ($status as $status)
+                            <option value="{{ $status->id }}" {{ $status->id == $order->id_status ? 'selected' : '' }}>
+                                {{ $status->name }}</option>
+                        @endforeach
+                    </select>
             </div>
         </div>
+
 
         <div class="row">
             {{-- Тип груза --}}
@@ -132,29 +130,19 @@
 
         {{-- Цена --}}
         <div class="row">
-            <div class="info d-flex justify-content-end">
-                <div class=" col-auto">
-                    <div class="form-floating">
-                        <x-text-input id="cost" class="form-control m-0" type="text" name="cost"
-                            value="{{ $order->cost }}" required placeholder="Итого, ₽" />
-                        <x-input-label for="cost" value="Итого, ₽" />
-                        <x-input-error :messages="$errors->get('cost')" class="mt-2" />
-                    </div>
+            <div class="col-sm-12 col-md-4 offset-md-6 info">
+                <div class="form-floating">
+                    <x-text-input id="cost" class="form-control m-0" type="text" name="cost"
+                        value="{{ $order->cost }}" required placeholder="Итого, ₽" />
+                    <x-input-label for="cost" value="Итого, ₽" />
+                    <x-input-error :messages="$errors->get('cost')" class="mt-2" />
                 </div>
+                
             </div>
-        </div>
 
-        <div class="row">
-            <div class="info d-flex justify-content-end">
-                <button class="btn px-2 py-1 me-3" type="submit">Сохранить</button>
-                </form>
-
-                {{-- Удалить --}}
-                <form action="{{ route('manager-order-delete', $order->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button class="btn px-2 py-1" type="submit">Удалить</button>
-                </form>
+            <div class="col-sm-12 col-md-2 info">
+                <button class="btn form__btn py-2" type="submit">Сохранить</button>
+                    </form>
             </div>
         </div>
     </section>

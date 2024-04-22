@@ -29,6 +29,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        $user = Auth::user();
+        if($user->userType->name == 'manager'){
+            return redirect()->intended('/manager/orders');
+        }
         return redirect()->intended('orders');
     }
 

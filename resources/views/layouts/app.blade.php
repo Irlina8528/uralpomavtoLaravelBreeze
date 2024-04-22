@@ -26,7 +26,7 @@
                             id="navbarSupportedContent">
                             @if (Route::has('login'))
                                 @auth
-                                    <x-responsive-nav-link class="nav-link" :href="route('orders')" :active="request()->routeIs('orders')">
+                                    <x-responsive-nav-link class="nav-link" :href="route('dashboard')" :active="request()->routeIs('orders')">
                                         Личный кабинет
                                     </x-responsive-nav-link>
 

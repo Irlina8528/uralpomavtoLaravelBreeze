@@ -8,27 +8,26 @@
         <div class="row">
             <div class="col-12">
                 <div class="title-div">
-                    <h2 class="orders-info">Пользователь - {{ $user->name }} {{ $user->patronymic }} {{ $user->surname }}
-                    </h2>
+                    <h2 class="orders-info">{{ $user->name }} {{ $user->patronymic }} {{ $user->surname }}</h2>
                 </div>
             </div>
         </div>
         {{-- Данные --}}
         <div class="row outline">
             @if ($user->phone)
-                <div class="col-auto">
+                <div class="col-sm-12 col-md-auto">
                     <div class="info">
-                        <p>{{ $user->phone }}</p>
+                        <p><a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></p>
                     </div>
                 </div>
             @endif
-            <div class="col-auto">
+            <div class="col-sm-12 col-md-auto">
                 <div class="info">
-                    <p>{{ $user->email }}</p>
+                    <p><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></p>
                 </div>
             </div>
             @if ($user->address)
-                <div class="col-auto">
+                <div class="col-sm-12 col-md-auto">
                     <div class="info">
                         <p>{{ $user->address }}</p>
                     </div>

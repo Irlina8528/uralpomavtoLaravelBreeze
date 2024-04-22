@@ -73,14 +73,6 @@ class ManagerController extends Controller
         return redirect()->back();
     }
 
-    public function orderDelete($id)
-    {
-        Cargo::where('id_order', $id)->delete();
-        Order::destroy($id);
-
-        return redirect()->route('manager-orders');
-    }
-
     public function orderShowUser(User $user, Order $order, $user_id)
     {
         $user = User::find($user_id);

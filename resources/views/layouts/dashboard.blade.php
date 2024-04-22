@@ -63,12 +63,6 @@
                         Заказы
                     </a>
                 </li>
-                <li class="w-100">
-                    <a href="{{ route('profile.edit') }}"
-                        class="nav-link {{ request()->is('profile') ? 'active' : '' }}">
-                        Профиль
-                    </a>
-                </li>
             </ul>
         @endif
 
