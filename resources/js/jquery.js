@@ -57,4 +57,9 @@ $("#passport_number").mask("999-999", { autoclear: false })
 $("#inn").mask("99-99-99-99-99?-99", { autoclear: false })
 $('#kpp').mask('999-999-999', { autoclear: false });
 
+// Транспорт
+$('#driver_license_number').mask('99-99 999-999');
+$('#state_number').mask('a999aa99?9');
+
+
 

@@ -33,6 +33,19 @@
                     </div>
                 </div>
             @endif
+            @if ($countOrder)
+                <div class="col-sm-12 col-md-auto">
+                    <div class="info">
+                        <p>Количество заказов: {{ $countOrder }}</p>
+                    </div>
+                </div>
+            @else
+                    <div class="col-sm-12 col-md-auto">
+                        <div class="info">
+                            <p>Заказов нет</p>
+                        </div>
+                    </div>
+            @endif
         </div>
 
         {{-- Компания --}}
@@ -70,4 +83,5 @@
             </div>
         @endif
     </section>
+
 @endsection

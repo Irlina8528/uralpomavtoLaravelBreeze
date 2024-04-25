@@ -11,6 +11,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!-- Scripts -->
-    @vite(['resources/js/app.js', 'resources/js/jquery.js', 'resources/js/bootstrap.esm.js', 'resources/js/jasny-bootstrap.min.js', 'resources/css/bootstrap.min.css', 'resources/css/app.css'])
+    @vite(['resources/js/app.js', 'resources/js/jquery.js', 'resources/js/geosuggest.js', 'resources/js/bootstrap.esm.js', 'resources/js/jasny-bootstrap.min.js', 'resources/css/bootstrap.min.css', 'resources/css/app.css'])
 
 </head>

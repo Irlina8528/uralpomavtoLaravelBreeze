@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Driver;
+use App\Models\Transport;
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use App\Models\Order;
@@ -49,24 +51,24 @@ class ManagerController extends Controller
         $order->load('user', 'status', 'cargo');
 
         $order->declared_cost = number_format($order->declared_cost, ($order->declared_cost - floor($order->declared_cost)) ? 2 : 0, ',', ' ') . ' ₽';
+
         $status = Status::all();
+        $drivers = Driver::all();
+        $transports = Transport::all();
         $date = Carbon::parse($order->created_at);
         $formattedDate = $date->translatedFormat('d M Y');
 
         $order->delivery_date = Carbon::parse($order->delivery_date);
         $order->delivery_date = $order->delivery_date->translatedFormat('d M Y');
 
-        return view('manager.order', compact('order', 'formattedDate', 'status'));
+        return view('manager.order', compact('order', 'formattedDate', 'status', 'drivers', 'transports'));
     }
     public function orderUpdate(Order $order, Request $request, $id)
     {
         $order = Order::find($id);
 
-        $order->cost = $request->input('cost');
-        $order->reason = $request->reason;
-        $status = $request->input('status');
+        $order->fill($request->only(['cost', 'reason', 'id_driver', 'status', 'id_transport']));
 
-        $order->id_status = $status;
         $order->id_manager = Auth::id();
 
         $order->save();
@@ -77,7 +79,8 @@ class ManagerController extends Controller
     public function orderShowUser(User $user, Order $order, $user_id)
     {
         $user = User::find($user_id);
+        $countOrder = $user->ordersUser->count();
         $user->load('company');
-        return view('manager.order-user', compact('user'));
+        return view('manager.order-user', compact('user', 'countOrder'));
     }
 }

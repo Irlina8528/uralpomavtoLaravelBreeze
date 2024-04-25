@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\AdministratorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,17 @@ Route::middleware(['auth', 'verified', 'check.user.type:manager'])->group(functi
     Route::patch('/manager/orders/{id}', [ManagerController::class, 'orderUpdate'])->name('manager-order-update');
     Route::delete('/manager/orders/{id}', [ManagerController::class, 'orderDelete'])->name('manager-order-delete');
     Route::get('/manager/orders/user/{user_id}', [ManagerController::class, 'orderShowUser'])->name('manager-order-user');
+});
+
+Route::middleware(['auth', 'verified', 'check.user.type:administrator'])->group(function () {
+    Route::get('/users', [AdministratorController::class, 'createUsers'])->name('administrator-users');
+    Route::post('/users/{id}', [AdministratorController::class, 'updateUsers'])->name('administrator-users-update');
+
+    Route::get('/drivers', [AdministratorController::class, 'createDrivers'])->name('administrator-drivers');
+    Route::post('/drivers', [AdministratorController::class, 'createDriver'])->name('administrator-drivers-create');
+
+    Route::get('/transports', [AdministratorController::class, 'createTransports'])->name('administrator-transports');
+    Route::post('/transports', [AdministratorController::class, 'createTransport'])->name('administrator-transport-create');
 });
 
 

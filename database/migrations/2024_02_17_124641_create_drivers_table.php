@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('patronymic')->nullable();
             $table->string('surname');
             $table->string('phone');
-            $table->string('driver_license_number');
+            $table->text('driver_license_number');
             $table->text('passport_series');
             $table->text('passport_number');
             $table->timestamps();

@@ -22,6 +22,7 @@
         "jquery": "^3.7.1",
         "jquery-mask-plugin": "^1.14.16",
         "jquery.maskedinput": "^1.4.1",
+        "nice-numeric-input": "^1.1.3",
         "vue": "^3.4.15",
         "vue-router": "^4.0.13",
         "vue-star-rating": "^2.1.0"

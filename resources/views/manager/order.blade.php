@@ -115,10 +115,10 @@
                     <thead>
                         <tr>
                             <th>№</th>
-                            <th>Длина</th>
-                            <th>Ширина</th>
-                            <th>Высота</th>
-                            <th>Вес</th>
+                            <th>Длина, м</th>
+                            <th>Ширина, м</th>
+                            <th>Высота, м</th>
+                            <th>Вес, кг</th>
                             <th>Количество</th>
                         </tr>
                     </thead>
@@ -140,20 +140,57 @@
 
         {{-- Цена --}}
         <div class="row">
-            <div class="col-sm-12 col-md-4 offset-md-6 info">
-                <div class="form-floating">
-                    <x-text-input id="cost" class="form-control m-0" type="text" name="cost"
-                        value="{{ $order->cost }}" required placeholder="Итого, ₽" />
-                    <x-input-label for="cost" value="Итого, ₽" />
-                    <x-input-error :messages="$errors->get('cost')" class="mt-2" />
+            <div class="col-sm-12 col-md-3 info">
+                @if($order->status->id == 7)
+                    <p>{{ $order->drivers->name }} {{ $order->drivers->surname }}</p>
+                @elseif($order->status->id == 8)
+                    <p>Водилеть не назначен</p>
+                @else
+                    <select class="form-select form-control mb-0" name="id_driver" id="id_driver">
+                        <option value="-">-</option>
+                        @foreach ($drivers as $driver)
+                            <option value="{{ $driver->id }}" {{ $driver->id == $order->id_driver ? 'selected' : '' }}>
+                                {{ $driver->name }} {{ $driver->surname }}</option>
+                        @endforeach
+                    </select>
+                @endif
+            </div>
+            <div class="col-sm-12 col-md-3 info">
+                @if($order->status->id == 7)
+                    <p>{{ $order->transports->mark }}</p>
+                @elseif($order->status->id == 8)
+                    <p>Транспорт не назначен</p>
+                @else
+                    <select class="form-select form-control mb-0" name="id_transport" id="id_transport">
+                        <option value="-">-</option>
+                        @foreach ($transports as $transport)
+                            <option value="{{ $transport->id }}" {{ $transport->id == $order->id_transport ? 'selected' : '' }}>
+                                {{ $transport->mark }}</option>
+                        @endforeach
+                    </select>
+                @endif
+            </div>
+
+            <div class="col-sm-12 col-md-2 offset-md-2 info">
+                @if($order->status->id == 7 or $order->status->id == 8)
+                    <p>{{ $order->cost }}₽</p>
+                @else
+                    <div class="form-floating">
+                        <x-text-input id="cost" class="form-control m-0" type="text" name="cost"
+                                      value="{{ $order->cost }}" required placeholder="Итого, ₽" />
+                        <x-input-label for="cost" value="Итого, ₽" />
+                        <x-input-error :messages="$errors->get('cost')" class="mt-2" />
+                    </div>
+                @endif
+            </div>
+
+            @if($order->status->id == 7 or $order->status->id == 8)
+            @else
+                <div class="col-sm-12 col-md-2 info">
+                    <button class="btn form__btn py-2" type="submit">Сохранить</button>
                 </div>
-
-            </div>
-
-            <div class="col-sm-12 col-md-2 info">
-                <button class="btn form__btn py-2" type="submit">Сохранить</button>
-                    </form>
-            </div>
+            @endif
+                </form>
         </div>
     </section>
 @endsection

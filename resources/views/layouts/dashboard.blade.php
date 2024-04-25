@@ -46,10 +46,9 @@
                     </a>
                 </li>
             </ul>
-        @endif
 
         {{-- Менеджер --}}
-        @if (Auth::user()->userType->name == 'manager')
+        @elseif (Auth::user()->userType->name == 'manager')
             <ul class="nav navmenu-nav flex-column">
                 <li class="w-100">
                     <a href="{{ route('manager-contact-form') }}"
@@ -61,6 +60,29 @@
                     <a href="{{ route('manager-orders') }}"
                         class="nav-link {{ request()->is('manager/orders') ? 'active' : '' }}">
                         Заказы
+                    </a>
+                </li>
+            </ul>
+
+        {{-- Администатор --}}
+        @elseif (Auth::user()->userType->name == 'administrator')
+            <ul class="nav navmenu-nav flex-column">
+                <li class="w-100">
+                    <a href="{{ route('administrator-users') }}"
+                        class="nav-link {{ request()->is('users') ? 'active' : '' }}">
+                        Пользователи
+                    </a>
+                </li>
+                <li class="w-100">
+                    <a href="{{ route('administrator-drivers') }}"
+                        class="nav-link {{ request()->is('drivers') ? 'active' : '' }}">
+                        Водители
+                    </a>
+                </li>
+                <li class="w-100">
+                    <a href="{{ route('administrator-transports') }}"
+                        class="nav-link {{ request()->is('transports') ? 'active' : '' }}">
+                        Транспорт
                     </a>
                 </li>
             </ul>

@@ -14,7 +14,7 @@ export function init() {
     // Создадим панель маршрутизации.
         routePanelControl = new ymaps.control.RoutePanel({
             options: {
-                
+
             }
         }),
         zoomControl = new ymaps.control.ZoomControl({
@@ -47,32 +47,32 @@ export function init() {
             if (activeRoute) {
                 //Вычисляем координаты
 				var city_from = routePanelControl.routePanel.state.get("from");
-                console.log(city_from);  				  		
+                console.log(city_from);
 
-                var myCoordsfrom = [city_from];       
+                var myCoordsfrom = [city_from];
                 var myGeocoder = ymaps.geocode(myCoordsfrom);
                 myGeocoder.then(
                     function (res) {
                         var nearest = res.geoObjects.get(0);
-                        var name = nearest.properties.get('text'); 
-                        console.log(name) ;            
+                        var name = nearest.properties.get('text');
+                        console.log(name) ;
                         document.dispatchEvent(new CustomEvent('cityFrom', { detail: name }));
                     },
-                );  
+                );
 
-                var city_into = routePanelControl.routePanel.state.get("to");	
+                var city_into = routePanelControl.routePanel.state.get("to");
                 console.log(city_into);
 
-                var myCoordsinto = [city_into];       
+                var myCoordsinto = [city_into];
                 var myGeocoder = ymaps.geocode(myCoordsinto);
                 myGeocoder.then(
                     function (res) {
                         var nearest = res.geoObjects.get(0);
-                        var name = nearest.properties.get('text'); 
-                        console.log(name) ;            
+                        var name = nearest.properties.get('text');
+                        console.log(name) ;
                         document.dispatchEvent(new CustomEvent('cityInto', { detail: name }));
                     },
-                );  
+                );
 
                 // Получим протяженность маршрута.
                 var length = route.getActiveRoute().properties.get("distance");
@@ -86,13 +86,13 @@ export function init() {
                         '<span>Расстояние: ' + length.text + '.</span><br/>' +
                         // '<span style="font-weight: bold; font-style: italic">Стоимость доставки: ' + price + ' р.</span>' +
                         '<span>Время в пути: ' + duration.text + '</span>');
-                        
+
                 // Внешний вид маршрута
                 route.options.set({
                     // Цвет метки начальной точки.
                     // wayPointStartIconFillColor: "#B3B3B3",
                     // Цвет метки конечной точки.
-                    // wayPointFinishIconFillColor: "red",     
+                    // wayPointFinishIconFillColor: "red",
                     // Внешний вид линий.
                     routeActiveStrokeColor: "#ff4f1e"
                 });
@@ -120,9 +120,12 @@ function getCityName(coords) {
         return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
     }
 }
-// Предполагая, что у нас есть доступ к экземпляру приложения Vue или способ генерировать глобальные события
+
 function updateLength(newLength) {
     length = newLength;
     // Генерирует глобальное событие с новым значением длины
     window.dispatchEvent(new CustomEvent('length-updated', { detail: length }));
 }
+
+
+

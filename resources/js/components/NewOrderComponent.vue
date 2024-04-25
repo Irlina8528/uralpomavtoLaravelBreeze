@@ -21,24 +21,24 @@
         </div>
         <div class="col-sm-12 col-md-5 d-flex fs-6 me-md-3">
             <div class="form-floating">
-                <input id="length" name="length" v-model="item.length" type="text" pattern="[0-9 .]*" maxlength="3"
+                <input id="length" name="length" v-model="item.length" type="number" @input="() => { if(item.length > 13.5 || item.length < 0) { item.length = 13.5 }}"
                     class="form-control mb-md-0" placeholder="Длина, м" required>
                 <label for="quantity">Длина, м</label>
             </div>
             <div class="form-floating">
-                <input id="width" name="width" v-model="item.width" type="text" pattern="[0-9 .]*" maxlength="3"
+                <input id="width" name="width" v-model="item.width" type="number" @input="() => { if(item.width > 2.42 || item.width < 0) { item.width = 2.42 }}"
                     class="form-control mb-md-0" placeholder="Ширина, м" required>
                 <label for="width">Ширина, м</label>
             </div>
             <div class="form-floating">
-                <input id="height" name="height" v-model="item.height" type="text" pattern="[0-9 .]*" maxlength="3"
+                <input id="height" name="height" v-model="item.height" type="number" @input="() => { if(item.length > 2.45 || item.length < 0) { item.length = 2.45 }}"
                     class="form-control mb-md-0" placeholder="Высота, м" required>
                 <label for="height">Высота, м</label>
             </div>
         </div>
 
         <div class="col-sm-12 col-md-2 form-floating me-md-3">
-            <input id="weight" name="weight" v-model="item.weight" type="text" pattern="[0-9 .]*" maxlength="5"
+            <input id="weight" name="weight" v-model="item.weight" type="number" min="1" max="20" oninput="validity.valid||(value='');"
                 @input="weightFlag(item)" class="form-control mb-md-0" placeholder="Вес, кг" required>
             <label for="weight">Вес, кг</label>
         </div>

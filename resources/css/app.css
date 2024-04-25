@@ -936,6 +936,12 @@ p.active {
     color: var(--color-accent);
 }
 
+/*Инпут номер*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 /* Медия запросы */
 @media (max-width: 630px) {
     .work__infos {
