@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title')
-    Все заказы
+    Пользователь
 @endsection
 @section('content')
     <section class="orders mb-0">

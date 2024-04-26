@@ -19,6 +19,7 @@
             <new-order-component></new-order-component>
         </div>
     </section>
+
     <script
         src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=726c1f88-b5b9-42b0-9b20-c0e09c64e47b&suggest_apikey=48e4e7fc-f992-470f-9462-2807535ad255"
         type="text/javascript"></script>

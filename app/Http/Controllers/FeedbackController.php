@@ -32,8 +32,7 @@ class FeedbackController extends Controller
             'comment' => $comment
         ]);
 
-        $request->session()->flash('message', 'Спасибо за отзыв');
-
-        return response()->json(['message' => 'Data saved successfully']);
+        $request->session()->flash('message', 'Спасибо за отзыв!');
+        return redirect()->back();
     }
 }

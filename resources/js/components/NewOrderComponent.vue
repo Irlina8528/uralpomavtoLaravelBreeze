@@ -31,7 +31,7 @@
                 <label for="width">Ширина, м</label>
             </div>
             <div class="form-floating">
-                <input id="height" name="height" v-model="item.height" type="number" @input="() => { if(item.length > 2.45 || item.length < 0) { item.length = 2.45 }}"
+                <input id="height" name="height" v-model="item.height" type="number" @input="() => { if(item.height > 2.45 || item.height < 0) { item.height = 2.45 }}"
                     class="form-control mb-md-0" placeholder="Высота, м" required>
                 <label for="height">Высота, м</label>
             </div>

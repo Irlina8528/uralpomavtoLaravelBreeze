@@ -8,7 +8,7 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/js/jquery.js',
-                'resources/js/geosuggest .js',
+                'resources/js/geosuggest.js',
                 'resources/js/bootstrap.esm.js',
                 'resources/js/jasny-bootstrap.min.js',
                 'resources/css/bootstrap.min.css',

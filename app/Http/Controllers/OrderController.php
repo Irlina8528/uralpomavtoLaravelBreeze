@@ -120,6 +120,14 @@ class OrderController extends Controller
             default:
                 $progress = 0;
         }
-        return view('user.order', compact('order', 'progress', 'formattedDate'));
+
+        $merchant_id = 50220;
+        $order_amount = $order->cost;
+        $secret_word = 'D@ss5,itAGB6g9y';
+        $currency = 'RUB';
+        $order_id = $order->id;
+        $sign = md5($merchant_id.':'.$order_amount.':'.$secret_word.':'.$currency.':'.$order_id);
+
+        return view('user.order', compact('order', 'progress', 'formattedDate', 'sign'));
     }
 }

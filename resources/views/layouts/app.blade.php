@@ -26,9 +26,19 @@
                             id="navbarSupportedContent">
                             @if (Route::has('login'))
                                 @auth
-                                    <x-responsive-nav-link class="nav-link" :href="route('dashboard')" :active="request()->routeIs('orders')">
-                                        Личный кабинет
-                                    </x-responsive-nav-link>
+                                    @if(Auth::user()->id_usertype == 3)
+                                        <x-responsive-nav-link class="nav-link" :href="route('administrator-users')" :active="request()->routeIs('orders')">
+                                            Личный кабинет
+                                        </x-responsive-nav-link>
+                                    @elseif(Auth::user()->id_usertype == 2)
+                                        <x-responsive-nav-link class="nav-link" :href="route('manager-orders')" :active="request()->routeIs('orders')">
+                                            Личный кабинет
+                                        </x-responsive-nav-link>
+                                    @elseif(Auth::user()->id_usertype == 1)
+                                        <x-responsive-nav-link class="nav-link" :href="route('orders')" :active="request()->routeIs('orders')">
+                                            Личный кабинет
+                                        </x-responsive-nav-link>
+                                    @endif
 
                                     <!-- Выход -->
                                     <form method="POST" action="{{ route('logout') }}">

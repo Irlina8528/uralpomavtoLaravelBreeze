@@ -6,8 +6,24 @@
     <section class="orders mb-0">
         <div class="row mb-md-5">
             <div class="col-12">
-                <div class="title-div">
+                <div class="title-div d-flex align-items-center justify-content-center">
                     <h2 class="orders-info">Заказ от {{ $formattedDate }}</h2>
+
+                    @if($order->status->name == 'Ждёт оплаты')
+                        <form method='get' action='https://pay.freekassa.ru/'>
+                            <input type='hidden' name='m' value='50220'>
+                            <input type='hidden' name='oa' value='{{ $order->cost }}'>
+                            <input type='hidden' name='o' value='{{ $order->id }}'>
+                            <input type='hidden' name='s' value='{{ $sign }}'>
+                            <input type='hidden' name='currency' value='RUB'>
+                            <input type='hidden' name='i' value='42'>
+                            <input type='hidden' name='lang' value='ru'>
+                            <input type='hidden' name='us_login' value='{{ $order->user->id }}'>
+
+                            <button type='submit' name='pay' value='Оплатить' class="btn p-2" >Оплатить</button>
+                        </form>
+
+                    @endif
                 </div>
             </div>
         </div>
@@ -168,7 +184,55 @@
     @if($order->status->name == 'Завершен' )
         @if (!$order->OrderFeedback)
             <section class="mb-0" id="app">
-                <new-review-component :initial-data="{{ json_encode($order->id) }}"></new-review-component>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title-div d-flex align-items-center">
+                            <h4 class="orders-info m-3 me-5 ">Оставьте отзыв о нашей работе</h4>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#feedback" class="btn col-sm-12 col-md-3 p-1" >Написать отзыв</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="modal fade" id="feedback" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Оцените качество услуги</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{route('user-feedback')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id_order" value="{{$order->id }}">
+                                        <div class="">
+                                            <div class="rate">
+                                                <input type="radio" id="star5" name="rating" value="5" />
+                                                <label for="star5" >5 stars</label>
+                                                <input type="radio" id="star4" name="rating" value="4" />
+                                                <label for="star4" >4 stars</label>
+                                                <input type="radio" id="star3" name="rating" value="3" />
+                                                <label for="star3" >3 stars</label>
+                                                <input type="radio" id="star2" name="rating" value="2" />
+                                                <label for="star2" >2 stars</label>
+                                                <input type="radio" id="star1" name="rating" value="1" />
+                                                <label for="star1" >1 star</label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-floating mt-3">
+                                            <textarea class="form-control" placeholder="Комментарий" name="comment" id="comment" required></textarea>
+                                            <label for="comment">Комментарий</label>
+                                        </div>
+
+                                        <button class="btn form__btn p-3" type="submit">Отправить</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         @else
             @if(session('message'))

@@ -34,14 +34,14 @@
                         placeholder="Фамилия" autocomplete="family-name" />
                     <x-input-label for="surname" value="Фамилия" />
                     <x-input-error class="mt-2" :messages="$errors->get('surname')" />
-                </div class="form-floating mb-3">
+                </div>
 
                 <div class="form-floating col-sm-12 col-md-6  col-lg-4 pe-lg-3">
                     <x-text-input id="passport_series" name="passport_series" type="text" :value="old('passport_series', $user->passport_series)" required
                         pattern="[0-9]{4}" title="Введите корректные данные паспорта" placeholder="Серия паспорта" />
                     <x-input-label for="passport_series" value="Серия паспорта" />
                     <x-input-error class="mt-2" :messages="$errors->get('passport_series')" />
-                </div class="form-floating mb-3">
+                </div>
 
                 <div class="form-floating col-sm-12 col-md-6 pe-md-3  col-lg-4">
                     <x-text-input id="passport_number" name="passport_number" type="text" :value="old('passport_number', $user->passport_number)" required
@@ -49,14 +49,14 @@
                         placeholder="Номер паспорта" />
                     <x-input-label for="passport_number" value="Номер паспорта" />
                     <x-input-error class="mt-2" :messages="$errors->get('passport_number')" />
-                </div class="form-floating mb-3">
+                </div>
 
                 <div class="form-floating col-sm-12 col-md-6  col-lg-4">
                     <x-text-input id="address" name="address" type="text" :value="old('address', $user->address)" placeholder="Адрес"
                         autocomplete="address-line1" />
                     <x-input-label for="address" value="Адрес" />
                     <x-input-error class="mt-2" :messages="$errors->get('address')" />
-                </div class="form-floating mb-3">
+                </div>
 
                 <div class="form-floating col-sm-12 col-md-6 pe-md-3  col-lg-4">
                     <x-text-input id="phone" class="mb-md-0" name="phone" type="text" :value="old('phone', $user->phone)"
@@ -65,7 +65,7 @@
                         title="Введите корректный номер телефона" />
                     <x-input-label for="phone" value="Телефон" />
                     <x-input-error class="mt-2" :messages="$errors->get('phone')" />
-                </div class="form-floating mb-3">
+                </div>
 
 
                 <div class="form-floating col-sm-12 col-md-6  col-lg-4 pe-lg-3">
@@ -106,10 +106,9 @@
             </div>
         </form>
     </div>
-
-    </div>
+    <script
+        src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=726c1f88-b5b9-42b0-9b20-c0e09c64e47b&suggest_apikey=48e4e7fc-f992-470f-9462-2807535ad255"
+        type="text/javascript"></script>
 </section>
 
-<script
-    src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=726c1f88-b5b9-42b0-9b20-c0e09c64e47b&suggest_apikey=48e4e7fc-f992-470f-9462-2807535ad255"
-    type="text/javascript"></script>
+

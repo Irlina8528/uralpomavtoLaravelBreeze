@@ -467,10 +467,59 @@ nav {
     background: var(--color-bg);
     color: var(--color-text);
 }
-
+.modal-header{
+    border-bottom: none !important;
+}
 .modal-backdrop {
     background-color: var(--color-bg);
     opacity: 1;
+}
+.btn-close{
+    background: url(/public/img/clos.svg) center/1em auto no-repeat;
+}
+.btn-close:focus{
+    box-shadow: none;
+}
+
+/*Звезды*/
+.rate {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:40px;
+    color: #3d3d3d;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ff4f1e;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #fa663d;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #fa663d;
+}
+.rating-result {
+    width: 265px;
 }
 
 /* Градиент */
@@ -911,10 +960,6 @@ p.active {
 .list-group-item.active{
     background-color: var(--color-accent);
     border: 0;
-}
-/*Звезды*/
-.rating-result {
-    width: 265px;
 }
 
 

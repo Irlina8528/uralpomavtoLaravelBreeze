@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\FreekassaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,10 +52,8 @@ Route::middleware(['auth', 'verified', 'check.user.type:manager'])->group(functi
 Route::middleware(['auth', 'verified', 'check.user.type:administrator'])->group(function () {
     Route::get('/users', [AdministratorController::class, 'createUsers'])->name('administrator-users');
     Route::post('/users/{id}', [AdministratorController::class, 'updateUsers'])->name('administrator-users-update');
-
     Route::get('/drivers', [AdministratorController::class, 'createDrivers'])->name('administrator-drivers');
     Route::post('/drivers', [AdministratorController::class, 'createDriver'])->name('administrator-drivers-create');
-
     Route::get('/transports', [AdministratorController::class, 'createTransports'])->name('administrator-transports');
     Route::post('/transports', [AdministratorController::class, 'createTransport'])->name('administrator-transport-create');
 });
@@ -66,5 +65,12 @@ Route::get('/contacts', function () {return view('contacts');})->name('contacts'
 Route::get('/about', [FeedbackController::class, 'create'])->name('about');
 
 Route::get('/calculate-cost', function () {return view('calculate-cost');})->name('calculate-cost');
+
+
+//Оплата
+Route::get('/notification', [FreekassaController::class, 'notification'])->name('notification');
+Route::get('/success', [FreekassaController::class, 'success'])->name('success');
+Route::get('/failure', [FreekassaController::class, 'failure'])->name('failure');
+
 
 require __DIR__.'/auth.php';
