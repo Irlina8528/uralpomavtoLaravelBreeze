@@ -45,7 +45,6 @@ Route::middleware(['auth', 'verified', 'check.user.type:manager'])->group(functi
     Route::get('/manager/orders', [ManagerController::class, 'ordersShow'])->name('manager-orders');
     Route::get('/manager/orders/{order}', [ManagerController::class, 'orderShow'])->name('manager-order');
     Route::patch('/manager/orders/{id}', [ManagerController::class, 'orderUpdate'])->name('manager-order-update');
-    Route::delete('/manager/orders/{id}', [ManagerController::class, 'orderDelete'])->name('manager-order-delete');
     Route::get('/manager/orders/user/{user_id}', [ManagerController::class, 'orderShowUser'])->name('manager-order-user');
 });
 
@@ -54,6 +53,11 @@ Route::middleware(['auth', 'verified', 'check.user.type:administrator'])->group(
     Route::post('/users/{id}', [AdministratorController::class, 'updateUsers'])->name('administrator-users-update');
     Route::get('/drivers', [AdministratorController::class, 'createDrivers'])->name('administrator-drivers');
     Route::post('/drivers', [AdministratorController::class, 'createDriver'])->name('administrator-drivers-create');
+    Route::post('/drivers/{id}', [AdministratorController::class, 'updateDriver'])->name('administrator-drivers-update');
+    Route::post('/drivers/delete/{id}', [AdministratorController::class, 'deleteDriver'])->name('administrator-drivers-delete');
+
+    Route::post('/transports/{id}', [AdministratorController::class, 'updateTransport'])->name('administrator-transport-update');
+    Route::post('/transports/delete/{id}', [AdministratorController::class, 'deleteTransport'])->name('administrator-transport-delete');
     Route::get('/transports', [AdministratorController::class, 'createTransports'])->name('administrator-transports');
     Route::post('/transports', [AdministratorController::class, 'createTransport'])->name('administrator-transport-create');
 });
@@ -65,12 +69,6 @@ Route::get('/contacts', function () {return view('contacts');})->name('contacts'
 Route::get('/about', [FeedbackController::class, 'create'])->name('about');
 
 Route::get('/calculate-cost', function () {return view('calculate-cost');})->name('calculate-cost');
-
-
-//Оплата
-Route::get('/notification', [FreekassaController::class, 'notification'])->name('notification');
-Route::get('/success', [FreekassaController::class, 'success'])->name('success');
-Route::get('/failure', [FreekassaController::class, 'failure'])->name('failure');
 
 
 require __DIR__.'/auth.php';

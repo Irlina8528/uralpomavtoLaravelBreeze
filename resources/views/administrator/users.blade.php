@@ -13,6 +13,10 @@
             </div>
         </div>
 
+        <div class="form-floating">
+            <input id='txt_searchall' class="form-control mb-md-0" placeholder="Поиск">
+            <label for="txt_searchall">Поиск</label>
+        </div>
         <div class="table-responsive">
             <table class="table table-bordered m-0">
                 <thead>
@@ -64,6 +68,11 @@
                         </td>
                     </tr>
                 @endforeach
+                </tr>
+                    <tr class='notfound'>
+                        <td colspan='4'>Запись не найдена
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

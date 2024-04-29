@@ -7,6 +7,7 @@ use App\Models\Cargo;
 use App\Models\ContactForm;
 use App\Models\Feedback;
 use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -15,8 +16,15 @@ class FeedbackController extends Controller
     {
         $datas = Feedback::orderBy('created_at', 'desc')->get();
 
-        return view('about', compact('datas'));
+        $formattedDates = [];
+        foreach ($datas as $data) {
+            $date = Carbon::parse($data->created_at);
+            $formattedDates[] = $date->translatedFormat('d M Y');
+        }
+
+        return view('about', compact('datas', 'formattedDates'));
     }
+
 
     public function store(Request $request)
     {

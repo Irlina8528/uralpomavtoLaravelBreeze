@@ -4,88 +4,78 @@
 @endsection
 @section('content')
     <section class="orders mb-0">
-        <div class="row mb-md-5">
+        <div class="row ">
             <div class="col-12">
                 <div class="title-div d-flex align-items-center justify-content-center">
                     <h2 class="orders-info">Заказ от {{ $formattedDate }}</h2>
-
-                    @if($order->status->name == 'Ждёт оплаты')
-                        <form method='get' action='https://pay.freekassa.ru/'>
-                            <input type='hidden' name='m' value='50220'>
-                            <input type='hidden' name='oa' value='{{ $order->cost }}'>
-                            <input type='hidden' name='o' value='{{ $order->id }}'>
-                            <input type='hidden' name='s' value='{{ $sign }}'>
-                            <input type='hidden' name='currency' value='RUB'>
-                            <input type='hidden' name='i' value='42'>
-                            <input type='hidden' name='lang' value='ru'>
-                            <input type='hidden' name='us_login' value='{{ $order->user->id }}'>
-
-                            <button type='submit' name='pay' value='Оплатить' class="btn p-2" >Оплатить</button>
-                        </form>
-
-                    @endif
                 </div>
             </div>
         </div>
 
-        {{-- Прогресс --}}
-        <div class="row d-none d-md-block">
-            <div class="col-11">
-                <div class="position-relative">
-                    <div class="progress">
-                        <div class="one {{ $progress >= 2 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Оформлен</p>
+        @if($order->status->id == 8)
+            <div class="info">
+                <p>Заказ отменен. Причина: {{ $order->reason }}</p>
+            </div>
+        @else
+            {{-- Прогресс --}}
+            <div class="row mt-md-5 mb-md-5 d-none d-md-block">
+                <div class="col-11">
+                    <div class="position-relative">
+                        <div class="progress">
+                            <div class="one {{ $progress >= 2 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">Оформлен</p>
+                            </div>
+                            <div class="two {{ $progress >= 16 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">В работе</p>
+                            </div>
+                            <div class="three {{ $progress >= 35 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">Ждёт оплаты</p>
+                            </div>
+                            <div class="four {{ $progress >= 45 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">Оплачен</p>
+                            </div>
+                            <div class="five {{ $progress >= 66 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">В пути</p>
+                            </div>
+                            <div class="six {{ $progress >= 86 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">Доставлен</p>
+                            </div>
+                            <div class="seven {{ $progress >= 100 ? 'color-accent' : 'no-color' }}">
+                                <p class="p-status">Завершен</p>
+                            </div>
+                            <div class="progress-bar" style="width: {{ $progress }}%"></div>
                         </div>
-                        <div class="two {{ $progress >= 16 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">В работе</p>
-                        </div>
-                        <div class="three {{ $progress >= 35 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Ждёт оплаты</p>
-                        </div>
-                        <div class="four {{ $progress >= 45 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Оплачен</p>
-                        </div>
-                        <div class="five {{ $progress >= 66 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">В пути</p>
-                        </div>
-                        <div class="six {{ $progress >= 86 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Доставлен</p>
-                        </div>
-                        <div class="seven {{ $progress >= 100 ? 'color-accent' : 'no-color' }}">
-                            <p class="p-status">Завершен</p>
-                        </div>
-                        <div class="progress-bar" style="width: {{ $progress }}%"></div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        {{-- Прогресс см --}}
-        <div class="row d-block d-md-none">
-            <div class="col-12">
-                <button class="btn form__btn py-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProgress"
-                    aria-expanded="false" aria-controls="collapseProgress">
-                    {{ $order->status->name }}
-                </button>
+            {{-- Прогресс см --}}
+            <div class="row d-block d-md-none">
+                <div class="col-12">
+                    <button class="btn form__btn py-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProgress"
+                            aria-expanded="false" aria-controls="collapseProgress">
+                        {{ $order->status->name }}
+                    </button>
 
-                <div class="collapse mb-4 mt-2" id="collapseProgress">
-                    <div class="card card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item {{ $order->status->name == 'Оформлен' ? 'active' : '' }}" aria-current="true">Оформлен</li>
-                            <li class="list-group-item {{ $order->status->name == 'В работе' ? 'active' : '' }}">В работе</li>
-                            <li class="list-group-item {{ $order->status->name == 'Ждёт оплаты' ? 'active' : '' }}">Ждёт оплаты</li>
-                            <li class="list-group-item {{ $order->status->name == 'Оплачен' ? 'active' : '' }}">Оплачен</li>
-                            <li class="list-group-item {{ $order->status->name == 'В пути' ? 'active' : '' }}">В пути</li>
-                            <li class="list-group-item {{ $order->status->name == 'Доставлен' ? 'active' : '' }}">Доставлен</li>
-                            <li class="list-group-item {{ $order->status->name == 'Завершен' ? 'active' : '' }}">Завершен</li>
-                        </ul>
+                    <div class="collapse mb-4 mt-2" id="collapseProgress">
+                        <div class="card card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item {{ $order->status->name == 'Оформлен' ? 'active' : '' }}" aria-current="true">Оформлен</li>
+                                <li class="list-group-item {{ $order->status->name == 'В работе' ? 'active' : '' }}">В работе</li>
+                                <li class="list-group-item {{ $order->status->name == 'Ждёт оплаты' ? 'active' : '' }}">Ждёт оплаты</li>
+                                <li class="list-group-item {{ $order->status->name == 'Оплачен' ? 'active' : '' }}">Оплачен</li>
+                                <li class="list-group-item {{ $order->status->name == 'В пути' ? 'active' : '' }}">В пути</li>
+                                <li class="list-group-item {{ $order->status->name == 'Доставлен' ? 'active' : '' }}">Доставлен</li>
+                                <li class="list-group-item {{ $order->status->name == 'Завершен' ? 'active' : '' }}">Завершен</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <div class="row">
-            <div class="info mt-md-5">
+            <div class="info">
                 <p>Маршрут: {{ $order->city_from }} - {{ $order->city_into }}</p>
             </div>
         </div>
@@ -186,7 +176,7 @@
             <section class="mb-0" id="app">
                 <div class="row">
                     <div class="col-12">
-                        <div class="title-div d-flex align-items-center">
+                        <div class="title-div d-flex justify-content-center">
                             <h4 class="orders-info m-3 me-5 ">Оставьте отзыв о нашей работе</h4>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#feedback" class="btn col-sm-12 col-md-3 p-1" >Написать отзыв</button>
                         </div>
@@ -238,6 +228,10 @@
             @if(session('message'))
                 <div class="info text-center">
                     {{ session('message') }}
+                </div>
+            @else
+                <div class="info d-flex justify-content-end">
+                    <p>Вы уже поставили оценку</p>
                 </div>
             @endif
         @endif

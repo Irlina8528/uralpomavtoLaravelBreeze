@@ -529,6 +529,9 @@ nav {
     z-index: -1;
 }
 
+.notfound{
+    display: none;
+}
 
 /* Главный экран */
 .intro {

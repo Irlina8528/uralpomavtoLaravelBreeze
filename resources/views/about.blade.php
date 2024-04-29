@@ -44,7 +44,7 @@
             <h2 class="about__title">Отзывы</h2>
         </div>
         <div class="row g-0">
-            @foreach($datas as $data)
+            @foreach($datas as $key => $data)
                 <div class="col-sm-12 col-md-4">
                     <div class="cardi">
                         <div class="info__card">
@@ -59,6 +59,7 @@
                                 @endfor
                             </div>
                             <p class="card-text">{{$data->comment}}</p>
+                            <span>{{$formattedDates[$key]}}</span>
                         </div>
                     </div>
                 </div>

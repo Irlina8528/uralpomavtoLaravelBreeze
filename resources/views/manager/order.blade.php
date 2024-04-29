@@ -32,9 +32,9 @@
                     @elseif($order->status->id == 8)
                         <p>{{ $order->status->name }}. Причина: {{ $order->reason }}</p>
                     @else
-                        <select class="form-select form-control mb-0" name="status" id="status">
+                        <select class="form-select form-control mb-0" name="id_status" id="status">
                             @foreach ($status as $status)
-                                <option value="{{ $status->id }}" {{ $status->id == $order->id_status ? 'selected' : '' }}>
+                                <option  value="{{ $status->id }}" {{ $status->id == $order->id_status ? 'selected' : '' }}>
                                     {{ $status->name }}</option>
                             @endforeach
                         </select>
@@ -147,7 +147,7 @@
                     <p>Водилеть не назначен</p>
                 @else
                     <select class="form-select form-control mb-0" name="id_driver" id="id_driver">
-                        <option value="-">-</option>
+                        <option></option>
                         @foreach ($drivers as $driver)
                             <option value="{{ $driver->id }}" {{ $driver->id == $order->id_driver ? 'selected' : '' }}>
                                 {{ $driver->name }} {{ $driver->surname }}</option>
@@ -162,7 +162,7 @@
                     <p>Транспорт не назначен</p>
                 @else
                     <select class="form-select form-control mb-0" name="id_transport" id="id_transport">
-                        <option value="-">-</option>
+                        <option></option>
                         @foreach ($transports as $transport)
                             <option value="{{ $transport->id }}" {{ $transport->id == $order->id_transport ? 'selected' : '' }}>
                                 {{ $transport->mark }}</option>

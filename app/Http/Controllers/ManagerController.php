@@ -67,7 +67,7 @@ class ManagerController extends Controller
     {
         $order = Order::find($id);
 
-        $order->fill($request->only(['cost', 'reason', 'id_driver', 'status', 'id_transport']));
+        $order->fill($request->only(['cost', 'id_driver', 'reason', 'id_status', 'id_transport']));
 
         $order->id_manager = Auth::id();
 
