@@ -4,12 +4,12 @@
 @endsection
 @section('content')
     <section class="orders mb-0">
-        {{-- Заголовок --}}
-        <div class="row">
-            <div class="col-12">
-                <div class="title-div">
-                    <h2 class="orders-info">{{ $user->name }} {{ $user->patronymic }} {{ $user->surname }}</h2>
-                </div>
+        <div class="row align-items-center outline">
+            <div class="col-2">
+                <button class="btn p-1" onclick="history.back()">❮</button>
+            </div>
+            <div class="col-9 offset-0 col-md-6 offset-md-1 d-flex align-items-center justify-content-center">
+                <h2 class="orders-info">{{ $user->name }} {{ $user->patronymic }} {{ $user->surname }}</h2>
             </div>
         </div>
         {{-- Данные --}}

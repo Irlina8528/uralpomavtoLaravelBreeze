@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/css/jasny-bootstrap.min.css',
                 'resources/css/navmenu.css',
                 'resources/css/app.css',
+                'resources/css/animate.min.css'
             ],
             refresh: true,
         }),

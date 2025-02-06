@@ -502,7 +502,7 @@ nav {
     color: #3d3d3d;
 }
 .rate:not(:checked) > label:before {
-    content: '★ ';
+    content: '★';
 }
 .rate > input:checked ~ label {
     color: #ff4f1e;
@@ -989,6 +989,62 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/*Чат*/
+.img-message{
+    height: clamp(1.875rem, 1.438rem + 2.19vw, 4.063rem);
+}
+.media-body{
+    position: absolute;
+}
+.left{
+    left: 80px;
+}
+.right{
+    right: 80px;
+}
+.rounded-pill{
+    border-radius: 0px !important;
+}
+.bg-danger {
+    background-color: #3d3d3d !important;
+}
+.border-r{
+    border-right: var(--border);
+    padding: 0 10px;
+    margin-right: 10px;
+}
+.border-l{
+    border-left: var(--border);
+    padding: 0 10px;
+    margin-left: 10px;
+}
+.mes-textarea{
+    height: 20vh !important;
+}
+.mes-p{
+    white-space: pre-wrap;
+}
+.mes-r{
+    text-align: right;
+    max-width: 65%;
+}
+.mes-l{
+    text-align: left;
+    max-width: 65%;
+}
+.min-w-35{
+    min-width: clamp(5.313rem, 4.938rem + 1.88vw, 7.188rem);
+}
+
+.mes-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.mes-main{
+    flex: 1;
 }
 /* Медия запросы */
 @media (max-width: 630px) {

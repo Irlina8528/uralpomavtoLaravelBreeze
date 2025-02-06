@@ -8,8 +8,8 @@
 @endsection
 @section('content')
     <!-- Главный экран -->
-    <section class="intro">
-        <div class="row">
+    <section class="intro wow anmate__fadeIn" data-wow-delay="0.5s">
+        <div class="row wow animate__fadeInLeft">
             <div class="col-md-5 col-sm-12">
                 <h1 class="intro__title">
                     ГРУЗОВЫЕ ПЕРЕВОЗКИ ПО РОССИИ И СТРАНАМ СНГ
@@ -24,7 +24,7 @@
     </section>
 
     <!-- Услуги -->
-    <section class="service" id="service">
+    <section class="wow animate__fadeInUp service" id="service">
         <div class="title-div">
             <h2 class="service__title">Услуги</h2>
         </div>
@@ -113,12 +113,10 @@
 
     <!-- Как работаем -->
     <section class="work" id="work">
-
         <div class="row">
-
             <div class="col-12">
                 <div class="work__div-img">
-                    <div class="work__infos">
+                    <div class="wow animate__fadeInUp work__infos">
                         <div class="work__info work__info1">
                             <h4 class="work__info-title">ДОСТАВЛЯЕМ</h4>
                             <p class="work__p">В труднодоступные места и месторождения</p>
@@ -139,12 +137,10 @@
     </section>
 
     <!-- Преимущества -->
-    <section class="benefits" id="benefits">
-
+    <section class="wow animate__fadeInUp benefits" id="benefits">
         <div class="title-div">
             <h2 class="benefits__title">Преимущества</h2>
         </div>
-
         <div class="row g-0">
             <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="benefits__card cardi">
@@ -219,8 +215,7 @@
     </section>
 
     <!-- Гарантии -->
-    <section class="guarantees" id="guarantees">
-
+    <section class="guarantees" id="guarantees" data-wow-offset="10">
         <div class="title-div">
             <h2>Гарантии</h2>
         </div>
@@ -231,7 +226,7 @@
 
                         <div class="row">
                             <div class="col-lg-5">
-                                <div class="guarantees__info guarantees__info1">
+                                <div class="wow animate__fadeInLeft guarantees__info guarantees__info1">
                                     <h4 class="guarantees__info-title">Заключаем договор на перевозку груза</h4>
                                     <p class="guarantees__p">Договор гарантируют исполнение взятых на себя обязательств
                                         Исполнителя и Заказчика</p>
@@ -241,7 +236,7 @@
 
                         <div class="row">
                             <div class="offset-lg-3 col-lg-5">
-                                <div class="guarantees__info guarantees__info2">
+                                <div class="wow animate__fadeInLeft guarantees__info guarantees__info2" data-wow-offset="10">
                                     <h4 class="guarantees__info-title">Застрахованная ответственность перевозчика на 35
                                         000 000 рублей</h4>
                                     <p class="guarantees__p">Данная страховка покрывает все риски, если виновником
@@ -252,7 +247,7 @@
 
                         <div class="row">
                             <div class="offset-lg-6 col-lg-6">
-                                <div class="guarantees__info guarantees__info3">
+                                <div class="wow animate__fadeInLeft guarantees__info guarantees__info3" data-wow-offset="10">
                                     <h4 class="guarantees__info-title">Гибкие индивидуальные условия работы</h4>
                                     <p class="guarantees__p">Мы работаем с любыми формами оплаты.
                                         Возможна отсрочка платежа. Своевременный документооборот
@@ -269,7 +264,7 @@
     </section>
 
     <!-- Ответы на вопросы -->
-    <section class="questions">
+    <section class="wow animate__fadeInUp questions">
 
         <div class="title-div">
             <h2>Ответы на вопросы</h2>
@@ -374,7 +369,7 @@
                                     Спасибо за обращение. В ближайшее время вам позвонит специалист.
                                 </p>
                             @else
-                                <p class="application__info mb-2">
+                                <p class="wow animate__fadeIn application__info mb-2">
                                     Получите консультацию по вопросам логистических услуг. Мы свяжемся с вами в ближайшее
                                     время.
                                 </p>
@@ -384,24 +379,24 @@
                             <form method="POST" action="{{ route('contact-form') }}">
                                 @csrf
                                 <div class="col-12 offset-md-3 col-md-6 form-floating">
-                                    <input id="name" name="name" type="text" class="form-control"
+                                    <input id="name" name="name" type="text" class="wow animate__fadeInLeft form-control"
                                         placeholder="Имя/Организация" required autocomplete="name">
-                                    <label for="name">Имя/Организация</label>
+                                    <label data-wow-delay="1s" class="wow animate__fadeIn" for="name">Имя/Организация</label>
                                 </div>
                                 <div class="col-12 offset-md-3 col-md-6 form-floating">
-                                    <input id="phone" name="phone" type="tel" class="form-control"
+                                    <input id="phone" name="phone" type="tel" class="wow animate__fadeInLeft form-control"
                                         placeholder="Телефон" required autocomplete="tel"
                                         pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
                                         title="Введите корректный номер телефона">
-                                    <label for="phone">Телефон</label>
+                                    <label data-wow-delay="1s" class="wow animate__fadeIn" for="phone">Телефон</label>
                                 </div>
                                 <div class="col-12 col-md-6 offset-md-3 form-floating">
-                                    <textarea id="question" name="question" class="form-control textareai"
+                                    <textarea id="question" name="question" class="wow animate__fadeInLeft form-control textareai"
                                         placeholder="Ваш вопрос"></textarea>
-                                    <label for="question">Ваш вопрос</label>
+                                    <label data-wow-delay="1s" class="wow animate__fadeIn" for="question">Ваш вопрос</label>
                                 </div>
                                 <div class="col-12 col-md-6 offset-md-3">
-                                    <button type="submit" class="btn form__btn">Получить консультацию</button>
+                                    <button type="submit" class="wow animate__fadeInLeft btn form__btn">Получить консультацию</button>
                                 </div>
                             </form>
                         </div>

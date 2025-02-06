@@ -4,11 +4,12 @@
 @endsection
 @section('content')
     <section class="orders mb-0">
-        <div class="row ">
-            <div class="col-12">
-                <div class="title-div d-flex align-items-center justify-content-center">
-                    <h2 class="orders-info">Заказ от {{ $formattedDate }}</h2>
-                </div>
+        <div class="row align-items-center outline">
+            <div class="col-2">
+                <button class="btn p-1" onclick="history.back()">❮</button>
+            </div>
+            <div class="col-9 offset-0 col-md-6 offset-md-1 d-flex align-items-center justify-content-center">
+                <h2 class="orders-info">Заказ от {{ $formattedDate }}</h2>
             </div>
         </div>
 
@@ -52,7 +53,8 @@
             {{-- Прогресс см --}}
             <div class="row d-block d-md-none">
                 <div class="col-12">
-                    <button class="btn form__btn py-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProgress"
+                    <button class="btn form__btn py-1" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseProgress"
                             aria-expanded="false" aria-controls="collapseProgress">
                         {{ $order->status->name }}
                     </button>
@@ -60,13 +62,27 @@
                     <div class="collapse mb-4 mt-2" id="collapseProgress">
                         <div class="card card-body">
                             <ul class="list-group">
-                                <li class="list-group-item {{ $order->status->name == 'Оформлен' ? 'active' : '' }}" aria-current="true">Оформлен</li>
-                                <li class="list-group-item {{ $order->status->name == 'В работе' ? 'active' : '' }}">В работе</li>
-                                <li class="list-group-item {{ $order->status->name == 'Ждёт оплаты' ? 'active' : '' }}">Ждёт оплаты</li>
-                                <li class="list-group-item {{ $order->status->name == 'Оплачен' ? 'active' : '' }}">Оплачен</li>
-                                <li class="list-group-item {{ $order->status->name == 'В пути' ? 'active' : '' }}">В пути</li>
-                                <li class="list-group-item {{ $order->status->name == 'Доставлен' ? 'active' : '' }}">Доставлен</li>
-                                <li class="list-group-item {{ $order->status->name == 'Завершен' ? 'active' : '' }}">Завершен</li>
+                                <li class="list-group-item {{ $order->status->name == 'Оформлен' ? 'active' : '' }}"
+                                    aria-current="true">Оформлен
+                                </li>
+                                <li class="list-group-item {{ $order->status->name == 'В работе' ? 'active' : '' }}">В
+                                    работе
+                                </li>
+                                <li class="list-group-item {{ $order->status->name == 'Ждёт оплаты' ? 'active' : '' }}">
+                                    Ждёт оплаты
+                                </li>
+                                <li class="list-group-item {{ $order->status->name == 'Оплачен' ? 'active' : '' }}">
+                                    Оплачен
+                                </li>
+                                <li class="list-group-item {{ $order->status->name == 'В пути' ? 'active' : '' }}">В
+                                    пути
+                                </li>
+                                <li class="list-group-item {{ $order->status->name == 'Доставлен' ? 'active' : '' }}">
+                                    Доставлен
+                                </li>
+                                <li class="list-group-item {{ $order->status->name == 'Завершен' ? 'active' : '' }}">
+                                    Завершен
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -82,7 +98,8 @@
         <div class="row">
             {{-- Тип груза --}}
             @if ($order->liquid || $order->fragile || $order->loose || $order->dangerous)
-                <div class="col-sm-12 @if (!$order->pallet && !$order->protective_packaging && !$order->carton) col-md-12 @else col-md-6 @endif  info">
+                <div
+                    class="col-sm-12 @if (!$order->pallet && !$order->protective_packaging && !$order->carton) col-md-12 @else col-md-6 @endif  info">
                     <p>Тип груза:</p>
                     <ul>
                         @if ($order->liquid)
@@ -103,7 +120,8 @@
 
             {{-- Упаковка --}}
             @if ($order->pallet || $order->protective_packaging || $order->carton)
-                <div class="col-sm-12 @if (!$order->liquid && !$order->fragile && !$order->loose && !$order->dangerous) col-md-12 @else col-md-6 @endif  info">
+                <div
+                    class="col-sm-12 @if (!$order->liquid && !$order->fragile && !$order->loose && !$order->dangerous) col-md-12 @else col-md-6 @endif  info">
                     <p>Упаковка:</p>
                     <ul>
                         @if ($order->pallet)
@@ -139,26 +157,26 @@
             <div class="table-responsive">
                 <table class="table table-bordered tb m-0">
                     <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Длина, м</th>
-                            <th>Ширина, м</th>
-                            <th>Высота, м</th>
-                            <th>Вес, кг</th>
-                            <th>Количество</th>
-                        </tr>
+                    <tr>
+                        <th>№</th>
+                        <th>Длина, м</th>
+                        <th>Ширина, м</th>
+                        <th>Высота, м</th>
+                        <th>Вес, кг</th>
+                        <th>Количество</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach ($order->cargo as $index => $cargo)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $cargo->length }}</td>
-                                <td>{{ $cargo->width }}</td>
-                                <td>{{ $cargo->height }}</td>
-                                <td>{{ $cargo->weight }}</td>
-                                <td>{{ $cargo->quantity }}</td>
-                            </tr>
-                        @endforeach
+                    @foreach ($order->cargo as $index => $cargo)
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $cargo->length }}</td>
+                            <td>{{ $cargo->width }}</td>
+                            <td>{{ $cargo->height }}</td>
+                            <td>{{ $cargo->weight }}</td>
+                            <td>{{ $cargo->quantity }}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -178,17 +196,21 @@
                     <div class="col-12">
                         <div class="title-div d-flex justify-content-center">
                             <h4 class="orders-info m-3 me-5 ">Оставьте отзыв о нашей работе</h4>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#feedback" class="btn col-sm-12 col-md-3 p-1" >Написать отзыв</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#feedback"
+                                    class="btn col-sm-12 col-md-3 p-1">Написать отзыв
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="modal fade" id="feedback" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="feedback" data-bs-keyboard="false" tabindex="-1"
+                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Оцените качество услуги</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Закрыть"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action="{{route('user-feedback')}}" method="post">
@@ -196,22 +218,23 @@
                                         <input type="hidden" name="id_order" value="{{$order->id }}">
                                         <div class="">
                                             <div class="rate">
-                                                <input type="radio" id="star5" name="rating" value="5" />
-                                                <label for="star5" >5 stars</label>
-                                                <input type="radio" id="star4" name="rating" value="4" />
-                                                <label for="star4" >4 stars</label>
-                                                <input type="radio" id="star3" name="rating" value="3" />
-                                                <label for="star3" >3 stars</label>
-                                                <input type="radio" id="star2" name="rating" value="2" />
-                                                <label for="star2" >2 stars</label>
-                                                <input type="radio" id="star1" name="rating" value="1" />
-                                                <label for="star1" >1 star</label>
+                                                <input type="radio" id="star5" name="rating" value="5"/>
+                                                <label for="star5"></label>
+                                                <input type="radio" id="star4" name="rating" value="4"/>
+                                                <label for="star4"></label>
+                                                <input type="radio" id="star3" name="rating" value="3"/>
+                                                <label for="star3"></label>
+                                                <input type="radio" id="star2" name="rating" value="2"/>
+                                                <label for="star2"></label>
+                                                <input type="radio" id="star1" name="rating" value="1"/>
+                                                <label for="star1"></label>
                                             </div>
                                         </div>
 
 
                                         <div class="form-floating mt-3">
-                                            <textarea class="form-control" placeholder="Комментарий" name="comment" id="comment" required></textarea>
+                                            <textarea class="form-control" placeholder="Комментарий" name="comment"
+                                                      id="comment" required></textarea>
                                             <label for="comment">Комментарий</label>
                                         </div>
 

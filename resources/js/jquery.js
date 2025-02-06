@@ -1,4 +1,5 @@
-import $ from 'jquery'
+import $ from 'jquery';
+import 'animate.css';
 window.jQuery = window.$ = $
 import 'jquery.maskedinput/src/jquery.maskedinput'
 
@@ -117,7 +118,4 @@ $('#kpp').mask('999-999-999', { autoclear: false });
 $('#driver_license_number').mask('99-99 999-999');
 $('#state_number').mask('a999aa99?9');
 
-
-
-
-
+window.wow.init();

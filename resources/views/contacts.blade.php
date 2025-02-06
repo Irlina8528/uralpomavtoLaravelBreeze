@@ -12,7 +12,7 @@
             <h2 class="aboutus__title">Где нас найти</h2>
         </div>
 
-        <div class="row">
+        <div class="wow animate__fadeIn row">
             <div class="col-12">
                 <iframe
                     src="https://yandex.ru/map-widget/v1/?um=constructor%3A146c03a87fd44dafbdfcb589801958f4eef85ffefdf42cb6730f01a9a995604f&amp;source=constructor"
@@ -21,7 +21,7 @@
         </div>
     </section>
 
-    <section class="aboutus mb-0">
+    <section data-wow-offset="200" class="wow animate__fadeInUp aboutus mb-0">
         <div class="title-div">
             <h2 class="aboutus__title">Как связаться с нами</h2>
         </div>

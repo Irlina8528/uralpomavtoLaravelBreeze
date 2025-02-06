@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <p class="about__info info">УралПромАвто – логистическая компания, специализирующаяся в области
+                <p data-wow-delay="0.5s" class="wow animate__fadeIn about__info info">УралПромАвто – логистическая компания, специализирующаяся в области
                     грузоперевозок по России и странам СНГ. Наша цель – предоставление клиентам качественных и надежных
                     услуг в сфере транспортировки грузов. Наш опыт и надежность позволяют нам предлагать конкурентоспособные
                     цены и обеспечивать безопасность грузов во время транспортировки.</p>
@@ -23,7 +23,7 @@
         {{-- Филиалы --}}
         <div class="row">
             <div class="col">
-                <div class="about__infos">
+                <div class="wow animate__fadeIn about__infos" data-wow-delay="1s">
                     <p class="about__info info">11 филиалов в городах России</p>
                     <p class="about__info info">Екатеринбург, Москва, Санкт-Петербург, Омск, Челябинск, Тюмень, Сургут,
                         Краснодар, Хабаровск, Севастополь, Новосибирск</p>
@@ -33,13 +33,13 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <img src="/img/map.jpg" alt="Карта наших филиалов" class="about__img mx-auto d-block">
+                <img src="/img/map.jpg" alt="Карта наших филиалов" data-wow-offset="200" class="wow animate__fadeIn about__img mx-auto d-block">
             </div>
         </div>
     </section>
 
     {{--    Отзывы--}}
-    <section>
+    <section class="wow animate__fadeInUp">
         <div class="title-div">
             <h2 class="about__title">Отзывы</h2>
         </div>
@@ -69,7 +69,7 @@
     </section>
 
     <!-- Наша команда -->
-    <section class="team" id="team">
+    <section class="wow animate__fadeInUp team" id="team">
         <div class="title-div">
             <h2>Наша команда</h2>
         </div>
@@ -126,7 +126,7 @@
     </section>
 
     <!-- Письма -->
-    <section class="letters mb-0" id="letters">
+    <section class="wow animate__fadeInUp letters mb-0" id="letters">
         <div class="title-div">
             <h2 class="letters__title">Рекомендательные письма</h2>
         </div>

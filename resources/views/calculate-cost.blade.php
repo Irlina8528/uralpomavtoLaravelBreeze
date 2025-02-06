@@ -11,14 +11,14 @@
         <div class="title-div">
             <h2 class="service__title">РАССЧИТАЙТЕ СТОИМОСТЬ ГРУЗОПЕРЕВОЗКИ</h2>
         </div>
-        <div class="row">
+        <div class="wow animate__fadeIn row">
             <div class="col-12">
                 <div id="map" class="map"></div>
             </div>
             <div id="viewContainer"></div>
             <ymaps-component></ymaps-component>
         </div>
-        <div class="row">
+        <div data-wow-delay="0.5s" class="wow animate__fadeIn row">
             <div class="col-12">
                 <p class="info">Указана ориентировочная стоимость. Оформите <a
                         href="{{ route('user-new-orders') }}">заявку в личном кабинет</a>, чтобы получить более точный

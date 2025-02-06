@@ -40,6 +40,12 @@
                     </a>
                 </li>
                 <li class="w-100">
+                    <a href="{{ route('messages') }}"
+                        class="nav-link {{ request()->is('messages') ? 'active' : '' }}">
+                        Поддержка
+                    </a>
+                </li>
+                <li class="w-100">
                     <a href="{{ route('profile.edit') }}"
                         class="nav-link {{ request()->is('profile') ? 'active' : '' }}">
                         Профиль
@@ -60,6 +66,12 @@
                     <a href="{{ route('manager-orders') }}"
                         class="nav-link {{ request()->is('manager/orders') ? 'active' : '' }}">
                         Заказы
+                    </a>
+                </li>
+                <li class="w-100">
+                    <a href="{{ route('messages') }}"
+                       class="nav-link {{ request()->is('messages') ? 'active' : '' }}">
+                        Обращения
                     </a>
                 </li>
             </ul>

@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-12 col-md-5 d-flex fs-6 me-md-3">
             <div class="form-floating">
-                <input id="length" name="length" v-model="item.length" type="number" @input="() => { if(item.length > 13.5 || item.length < 0) { item.length = 13.5 }}"
+                <input id="length" name="length" pattern="[0-9,.]*" v-model="item.length" type="number" @input="() => { if(item.length > 13.5 || item.length < 0) { item.length = 13.5 }}"
                     class="form-control mb-md-0" placeholder="Длина, м" required>
                 <label for="quantity">Длина, м</label>
             </div>

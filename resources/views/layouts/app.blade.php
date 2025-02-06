@@ -5,7 +5,7 @@
 <body>
     <div class="container-fluid">
         <!-- Шапка -->
-        <header class="is-fixed ">
+        <header class="is-fixed">
             <div class="wrapper">
                 <nav class="navbar navbar-expand-lg justify-content-center ">
                     <div class="container-fluid">
@@ -68,21 +68,14 @@
             </main>
 
             <!-- Подвал -->
-            <footer>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12 col-md-3">
-                            <a href="tel:+73522611163" class="footer__link">+7(3522)61-11-63</a>
-                            <p>
-                                <a href="tel:+79080066900" class="footer__link">+7-908-006-69-00</a>
-                            </p>
-                        </div>
-                        <div class="col-12 col-md-4 offset-md-1">
-                            <a href="#application" class="btn footer__link">ОТПРАВИТЬ ЗАЯВКУ</a>
-                        </div>
-                        <div class="col-12 col-md-3"></div>
-                    </div>
-                </div>
+            <footer class="wow animate__fadeInUp">
+                <ul class="nav justify-content-center mb-3 outline d-block d-md-flex">
+                    <li class="nav-item"><a class="nav-link p-2 p-md-3" href="{{ route('about') }}">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 p-md-3" href="{{ route('contacts') }}">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 p-md-3" href="{{ route('calculate-cost') }}">Рассчитать стоимость</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link p-2 p-md-3">Личный кабинет</a></li>
+                </ul>
+                <p class="text-center text-body-secondary">© 2024</p>
                 <img src="/img/Gradient-b.png" alt="Градиент" class="gradient-b">
             </footer>
         </div>

@@ -1,5 +1,5 @@
 import './bootstrap';
-import './ymaps'
+import './ymaps';
 import { createApp } from 'vue/dist/vue.esm-bundler.js';
 import YmapsComponent from './components/YmapsComponent.vue';
 import NewOrderComponent from './components/NewOrderComponent.vue';
